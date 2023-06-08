@@ -1,15 +1,20 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-    width: 100vw;
+export const footer = styled.footer`
     position: absolute;
     bottom: 0;
+    left: 0;
+`
+
+export const Container = styled.div`
+    width: 100vw;
     height: 380px;
     display: flex;
     flex-direction: column;
     background-color: #000;
     justify-content: center;
     align-items: center;
+    
 `
 export const ContainerInfo = styled.div`
     display: flex;
@@ -18,6 +23,7 @@ export const ContainerInfo = styled.div`
     width: 100vw;
     height: 380px;
     margin: 48px;
+    
 
     div {
         margin: 0px 115px 0px 115px;
