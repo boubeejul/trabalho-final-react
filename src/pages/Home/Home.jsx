@@ -1,9 +1,9 @@
 import { Header } from "../../global/components/Header"
 import { Menu } from "../../global/components/Menu"
+import { Footer } from "../../global/components/Footer"
 import { Images } from "./component/carousel"
 import { Container, SliderContainer, Text, Hr } from "./style"
 import { SlideCard } from "./component/ProductCarousel"
-
 
 export function Home() {
     return (
@@ -35,7 +35,7 @@ export function Home() {
             </Publi> */}
         </Container>
 
-        {/* <Footer></Footer> */}
+        <Footer></Footer> 
         </>
     )
 }
