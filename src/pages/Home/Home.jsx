@@ -1,5 +1,6 @@
 import { Header } from "../../global/components/Header"
 import { Menu } from "../../global/components/Menu"
+import { Footer } from "../../global/components/Footer"
 
 
 export function Home() {
@@ -18,9 +19,9 @@ export function Home() {
                 <Promo></Promo>
                 <Promo></Promo>
             </Publi>
-        </Container>
+        </Container> */}
 
-        <Footer></Footer> */}
+        <Footer></Footer>
         </>
     )
 }
