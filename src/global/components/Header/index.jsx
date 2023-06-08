@@ -17,8 +17,8 @@ export function Header() {
                 <button><img src={searchicon} alt =""></img></button>
             </SearchBar>
             <Costumer>
-                    <img src={cart} alt =""></img>
-                    <img src={login} alt =""></img>
+                <img src={cart} alt =""></img>
+                <img src={login} alt =""></img>
             </Costumer>
             <Outlet />
         </Container>
