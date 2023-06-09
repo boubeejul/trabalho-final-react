@@ -4,6 +4,7 @@ import { Home } from "../pages/Home/Home";
 import { Footer } from "../global/components/Footer";
 import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
+import { Login } from "../pages/Login/Login";
 import { Component } from "react";
 
 export function AllRoutes() {
@@ -15,6 +16,7 @@ export function AllRoutes() {
             <Route Component={About} path="/about" />
             <Route Component={Contact} path="/contact" />
         </Route>
+            <Route Component={Login} path="/login" />
       </Routes>
     </BrowserRouter>
   );
