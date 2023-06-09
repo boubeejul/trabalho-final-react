@@ -25,13 +25,13 @@ export function Contact() {
                     ></input>
 
                     <MesageInput>
-                    <input
+                    <textarea
                         type="text"
                         id="mesage"
                         className='mesage'
                         name="mesage"
                         placeholder="Digite sua mensagem"
-                    ></input>
+                    ></textarea>
                     </MesageInput>
                 </ContainerInput>
                 <button>Enviar</button>

@@ -32,6 +32,10 @@ export const Container = styled.div`
         border-radius: 6px;
         border: none;
     }
+
+    button:hover {
+        background-color: #ea4b12;
+    }
 `
 
 export const ContainerInput = styled.div`
@@ -41,6 +45,7 @@ export const ContainerInput = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 40%;
 
     input {
         padding: 5px;
@@ -49,7 +54,7 @@ export const ContainerInput = styled.div`
         margin-top: 20px;
         background-color: #e9e9e9;
         border: none;
-        width: 200%;
+        width: 100%;
         height: 50px;
     }
     
@@ -61,10 +66,11 @@ export const MesageInput = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    input {
-
+    width: 100%;
+    textarea {
+        width:100%;
         padding: 5px;
-        padding-left: 20px;
+        padding-left: 0px 20px 0px 20px;
         border-radius: 10px;
         margin-top: 20px;
         background-color: #e9e9e9;
