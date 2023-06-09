@@ -8,9 +8,16 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;  
 `
+export const Info = styled.div`
+    width: 80%;
+    img {
+        width: 100%;
+    }
+`
 
 export const SliderContainer = styled.div`
     width: 80%;
+    padding-bottom: 20px;
 `
 
 export const NextArrow = styled.button`
@@ -39,7 +46,6 @@ export const NextArrow = styled.button`
         color: black;
         -webkit-font-smoothing: antialiased;
     }
-}
 `
 
 export const BeforeArrow = styled.button`
@@ -68,5 +74,19 @@ export const BeforeArrow = styled.button`
         color: black;
         -webkit-font-smoothing: antialiased;
     }
-}
 `
+
+export const Publi = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 7%;
+    margin-bottom: 2%;
+
+    img {
+        max-height: 100%;
+
+    }
+
+`
+

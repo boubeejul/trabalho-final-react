@@ -3,12 +3,14 @@
     width: 10px;
     border-radius: 50%;
 }
+
 .cardImage {
     width: 225px;
 }
 .slick-slide {
     width: 250px;
 }
+
 .slick-prev, .slick-next {
     background: white;
 }

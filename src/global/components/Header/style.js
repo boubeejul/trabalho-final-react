@@ -16,6 +16,7 @@ export const Container = styled.div`
 export const Logo = styled.div`
     img {
         width: 130px;
+        cursor: pointer;
     }
 `
 
