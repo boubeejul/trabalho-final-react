@@ -17,7 +17,7 @@ export const Info = styled.div`
 
 export const SliderContainer = styled.div`
     width: 80%;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 `
 
 export const NextArrow = styled.button`
@@ -85,7 +85,6 @@ export const Publi = styled.div`
 
     img {
         max-height: 100%;
-
     }
 
 `
