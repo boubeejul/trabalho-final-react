@@ -4,7 +4,7 @@ export const h4 = styled.h4`
     color: #fff;
 `
 
-export const Container = styled.div`
+export const Container = styled.footer`
     width: 100vw;
     height: 380px;
     display: flex;

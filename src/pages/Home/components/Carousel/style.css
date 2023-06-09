@@ -17,6 +17,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding-left: 3.5%;
 }
   
 .swiper-slide img {

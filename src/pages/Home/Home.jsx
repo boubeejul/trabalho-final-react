@@ -5,17 +5,15 @@ import { CarouselHome } from "./components/Carousel/CarouselHome"
 import { Container, Info, SliderContainer, Publi } from "./style"
 import { SlideCard } from "./components/Carousel/SlideCard"
 import VendaRapida from '../../assets/vendarapida.svg'
-import Publicidade1 from '../../assets/Publicidade1.svg'
-import Publicidade2 from '../../assets/Publicidade2.svg'
+import Publicidade1 from '../../assets/PromoBanner.png'
+import Publicidade2 from '../../assets/PromoBanner2.png'
 
 export function Home() {
 
     return (
         <>
-            <Header></Header>
-            <Menu></Menu>
-            <CarouselHome />
 
+            <CarouselHome />
             <Container>
                 <Info>
                     <img src={VendaRapida} alt="" />
