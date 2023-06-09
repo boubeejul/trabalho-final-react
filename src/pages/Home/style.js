@@ -17,7 +17,7 @@ export const Info = styled.div`
 
 export const SliderContainer = styled.div`
     width: 80%;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 `
 
 export const NextArrow = styled.button`
