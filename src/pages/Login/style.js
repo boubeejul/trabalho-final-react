@@ -16,7 +16,7 @@ export const ContainerLogin = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #FFF;
-    height: 50%;
+    height: 60%;
     width: 50%;
     border-radius: 15px;
     margin-top: 40px;
@@ -39,6 +39,11 @@ export const ContainerLogin = styled.div`
         color: #000;
         font-size: 15px;
         font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     button {
@@ -53,7 +58,13 @@ export const ContainerLogin = styled.div`
         border: none;
     }
 
+    button:hover {
+        width: 22%;
+        
+    }
+
     h4 {
+        margin-top: 30px;
         font-size: 35px;
         text-align: center;
     }
