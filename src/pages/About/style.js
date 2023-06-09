@@ -19,15 +19,27 @@ export const TextContainer = styled.div`
     
     h4 {
         font-size: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    h4:last-of-type{
+        padding-top: 40px;
+    }
+
+    h4:last-of-type::after{
+        width: 100%;
     }
 
     h2 {
-        text-align: center;
+        line-height: 35px;
         font-size: 20px;
+        text-align: justify;
+        text-indent: 100px;
     }
 
     h4::after{
-        width: 405px;
+        width: 100%;
     }
 `
 
@@ -39,6 +51,7 @@ export const TeamContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     gap: 20px;
+    padding-bottom: 50px;
 
     div {
         display: flex;

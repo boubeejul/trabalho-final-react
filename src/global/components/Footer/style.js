@@ -12,6 +12,7 @@ export const Container = styled.footer`
     background-color: #000;
     justify-content: center;
     align-items: center;
+    color: #fff;
     
 `
 export const ContainerInfo = styled.div`

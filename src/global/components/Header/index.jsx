@@ -11,7 +11,7 @@ export function Header() {
     <>
       <Container>
         <Logo>
-          <img src={logo} alt="" />
+          <a href="/"><img src={logo} alt="" /></a>
         </Logo>
         <SearchBar>
           <input
@@ -26,7 +26,7 @@ export function Header() {
         </SearchBar>
         <Costumer>
           <img src={cart} alt=""></img>
-          <img src={login} alt=""></img>
+          <a href="/login"><img src={login} alt=""></img></a>
         </Costumer>
       </Container>
       <Menu></Menu>

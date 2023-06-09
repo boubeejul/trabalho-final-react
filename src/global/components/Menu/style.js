@@ -19,4 +19,12 @@ export const Options = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
+
+    span {
+        font-size: 18px;
+    }
+
+    a {
+        text-decoration: none;
+    }
 `

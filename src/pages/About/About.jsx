@@ -61,6 +61,8 @@ export function About() {
                 parte de uma comunidade apaixonada por card games. Seja você um jogador experiente ou um iniciante curioso, a Eldritch Cards está aqui para ajudá-lo a transformar seus 
                 momentos de jogo em experiências memoráveis.
                 </h2>
+
+                <h4>A Equipe</h4>
             </TextContainer>
             <TeamContainer>
                 {

@@ -24,13 +24,14 @@ export const Container = styled.div`
     }   
 
     button {
-        margin-top: 10px;
+        margin-top: 50px;
         margin-bottom: 50px;
         background-color: #ea4b12;
         color: #fff;
         width: 10%;
         border-radius: 6px;
         border: none;
+        padding: 10px;
     }
 
     button:hover {
@@ -69,7 +70,7 @@ export const MesageInput = styled.div`
     width: 100%;
     textarea {
         width:100%;
-        padding: 5px;
+        padding: 15px;
         padding-left: 0px 20px 0px 20px;
         border-radius: 10px;
         margin-top: 20px;
