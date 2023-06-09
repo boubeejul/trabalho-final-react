@@ -24,14 +24,27 @@ export function SlideCard() {
             slidesPerView: 1,
             spaceBetween: 3
           },
-          // when window width is >= 480px
-          480: {
-            slidesPerView: 1,
-            spaceBetween: 3
-          },
           // when window width is >= 640px
           640: {
-            slidesPerView: 5,
+            slidesPerView: 2,
+            spaceBetween: 3
+          },
+
+          // when window width is >= 1024px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 3
+          },
+
+          // when window width is >= 1440px
+          1440: {
+            slidesPerView: 4,
+            spaceBetween: 3
+          },
+
+          // when window width is >= 2400px
+          2400: {
+            slidesPerView: 7,
             spaceBetween: 3
           }
         }}
