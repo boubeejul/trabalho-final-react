@@ -95,7 +95,8 @@ export const Publi = styled.div`
     margin-bottom: 2%;
 
     img {
-        max-height: 100%;
+        margin-top: 20px;
+        width: 40%;
     }
 `
 
