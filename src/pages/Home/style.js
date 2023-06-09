@@ -10,8 +10,19 @@ export const Container = styled.div`
 `
 export const Info = styled.div`
     width: 80%;
+    padding-bottom: 20px;
+
     img {
         width: 100%;
+    }
+
+    hr {
+        margin: 1rem 0;
+        color: #BABABA;
+        border: 0;
+        border-top: var(--bs-border-width) solid;
+        opacity: 0.25;
+        background-color: #bababa;
     }
 `
 
@@ -87,6 +98,46 @@ export const Publi = styled.div`
         max-height: 100%;
 
     }
+`
 
+export const Comments = styled.div`
+    width: 100%;
+    height: 140px;
+    background-color: rgb(189, 189, 189);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0px 130px;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    background-image: url(https://cdn.discordapp.com/attachments/1081311918301655090/1116783894021292172/peakpx.jpg);
+    background-size: cover;
+`
+
+export const Comment = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+
+    img {
+        width: 78px;
+        height: 78px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    span {
+        color: #fff;
+        font-weight: bold;
+    }
+
+    p {
+        color: #fff;
+        font-style: italic;
+    }
 `
 
