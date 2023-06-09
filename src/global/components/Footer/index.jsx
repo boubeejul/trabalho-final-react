@@ -1,4 +1,4 @@
-import { Container, ContainerInfo, footer } from "./style"
+import { Container, ContainerInfo} from "./style"
 import Twitter from "../../../assets/twitter.svg"
 import Facebook from "../../../assets/facebook.svg"
 import Instagram from "../../../assets/instagram.svg"
@@ -12,22 +12,19 @@ export function Footer() {
             <Container>
                 <ContainerInfo>
                     <div>
-                        <h1>Redes Sociais</h1>
-                        <hr />
+                        <h4>Redes Sociais</h4>
                         <a href="https://www.instagram.com/eldritchcard/" target="_blanck"><img src={Twitter} alt="twitter icon" /></a>
                         <a href="https://www.instagram.com/eldritchcard/" target="_blanck"><img src={Facebook} alt="facebook icon" /></a>
                         <a href="https://www.instagram.com/eldritchcard/" target="_blanck"><img src={Instagram} alt="instagram icon" /></a>
                         <a href="https://www.instagram.com/eldritchcard/" target="_blanck"><img src={Tiktok} alt="tiktok icon" /></a>
                     </div>
                     <div>
-                        <h1>Contato</h1>
-                        <hr />
+                        <h4>Contato</h4>
                         <p>(24)2222-2222</p>
                         <a href="mailto:eldritchcards@gmail.com"><p>eldritchcards@gmail.com</p></a>
                     </div>
                     <div>
-                        <h1>Marcas</h1>
-                        <hr />
+                        <h4>Marcas</h4>
                         <a href="##"><p>Magic</p></a>
                         <a href="##"><p>Pokémon</p></a>
                     </div>

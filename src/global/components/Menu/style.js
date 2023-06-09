@@ -16,5 +16,6 @@ export const Wrap = styled.div`
 `
 
 export const Options = styled.div`
-    width: 10%;
+    display: flex;
+    gap: 10px;
 `

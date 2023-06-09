@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-export const footer = styled.footer`
-    position: absolute;
-    bottom: 0;
-    left: 0;
+export const h4 = styled.h4`
+    color: #fff;
 `
 
 export const Container = styled.div`
@@ -18,21 +16,22 @@ export const Container = styled.div`
 `
 export const ContainerInfo = styled.div`
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+    justify-content: space-around;
+    -webkit-box-align: start;
     align-items: start;
-    width: 100vw;
+    width: 100%;
     height: 380px;
     margin: 48px;
+    padding: 0px 20px;  
     
 
     div {
         margin: 0px 115px 0px 115px;
     }
 
-    h1 {
-        font-size: 24px;
-        margin-bottom: 5px;
-        font-weight: bold;
+    h4 {
+        color: #fff;
     }
 
     p {

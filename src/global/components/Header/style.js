@@ -4,27 +4,29 @@ export const Container = styled.div`
     width: 100vw;
     height: 130px;
     display: flex;
-    background-color: #000;
-    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    justify-content: space-around;
+    -webkit-box-align: center;
     align-items: center;
-    gap: 200px;
+    padding-right: 10%;
     padding-top: 5px;
+    padding-left: 10%;
 `
 
 export const Logo = styled.div`
     img {
-        width: 140px;
+        width: 130px;
     }
 `
 
 export const SearchBar = styled.div`
-    width: 490px;
+    width: 30%;
     display: flex;
     gap: 15px;
     align-items: center;
 
     input {
-        width: 435px;
+        width: 100%;
         height: 43px;
         border-radius: 13px;
         border: none;
@@ -37,18 +39,18 @@ export const SearchBar = styled.div`
     }
 
     img {
-        width: 30px;
+        width: 25px;
         cursor: pointer;
     }
 `
 
 export const Costumer = styled.div`
-    width: 128px;
+    width: 10%px;
     display: flex;
-    gap: 25px;
+    gap: 50px;
 
     img {
-        width: 35px;
+        width: 40px;
         cursor: pointer;
     }
 `
