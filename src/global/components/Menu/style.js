@@ -7,6 +7,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 200px;
+
 `
 
 export const Wrap = styled.div`
@@ -16,6 +17,15 @@ export const Wrap = styled.div`
 
     .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
         padding: 10px 50px;
+    }
+
+    @media (max-width: 767px) {
+        span {
+        font-size: 10px;
+        }
+        img {
+            width: 15%;
+        }
     }
 `
 
@@ -30,5 +40,12 @@ export const Options = styled.div`
 
     a {
         text-decoration: none;
+    }
+
+    @media (max-width: 767px) {
+        
+        span {
+            font-size: 10px;
+        }
     }
 `

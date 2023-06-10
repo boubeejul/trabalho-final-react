@@ -142,6 +142,9 @@ export const Comments = styled.div`
     justify-content: space-between;
     background-image: url(https://cdn.discordapp.com/attachments/1081311918301655090/1116783894021292172/peakpx.jpg);
     background-size: cover;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export const Comment = styled.div`
@@ -168,6 +171,11 @@ export const Comment = styled.div`
     p {
         color: #fff;
         font-style: italic;
+    }
+    @media (max-width: 768px) {
+
+        display: none;
+
     }
 `
 
