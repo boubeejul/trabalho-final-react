@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import "./style.css"
 
 // import required modules
-import { Pagination } from "swiper";;
+import { Navigation } from "swiper";;
 
 export function SlideCard() {
 
@@ -17,13 +17,11 @@ export function SlideCard() {
   useEffect(() => {
     async function fetchData() {
       let {data: card} = await axios.get("https://trabalho-api-production.up.railway.app/produtos/dto")
-      // setCards(card)
       for (let i = card.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [card[i], card[j]] = [card[j], card[i]];
       }  
       setRandomCards(card.slice(0,8));
-      console.log(newRandom)
     }
     fetchData()
   },[])
@@ -37,7 +35,11 @@ export function SlideCard() {
         slidesPerView={5}
         spaceBetween={3}
         loop={true}
-        modules={[Pagination]}
+        modules={[Navigation]}
+        navigation={true}
+        observer={true}
+        observeParents={true}
+        parallax={true}
         className="mySwiper"
         breakpoints= {{
           // when window width is >= 320px
@@ -73,7 +75,6 @@ export function SlideCard() {
 
         {
           randomCards.map(card => {
-            console.log(randomCards)
             return (
                 <SwiperSlide>
                   <Link to={`/produto/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`}/></Link>

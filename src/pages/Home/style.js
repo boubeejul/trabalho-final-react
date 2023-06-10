@@ -29,6 +29,42 @@ export const Info = styled.div`
 export const SliderContainer = styled.div`
     width: 80%;
     padding-bottom: 50px;
+
+    .swiper-button-next, .swiper-button-prev { 
+        color: rgb(234, 75, 18); 
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+  
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        width: 265px;
+    
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        //padding-left: 3.5%;
+    }
+    
+    .swiper-slide img {
+        display: block;
+        width: 225px;
+        object-fit: cover;
+    }
+
+    @media (max-width: 1200px) {
+    .swiper-button-next, .swiper-button-prev { 
+        display: none;
+    }
+
+    }
 `
 
 export const NextArrow = styled.button`
