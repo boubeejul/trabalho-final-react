@@ -73,12 +73,11 @@ export function SlideCard() {
           }
         }}
       >
-{/* ${card.id} */}
         {
           randomCards.map(card => {
             return (
                 <SwiperSlide>
-                  <Link to={`/product/`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`}/></Link>
+                  <Link to={`/product/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`}/></Link>
                 </SwiperSlide>
             )
           })

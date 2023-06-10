@@ -6,6 +6,11 @@ export const Container = styled.main`
     justify-content: center;
     align-items: center;
     width: 100vw;
+    min-height: 42.7vh;
+    img {
+        height: 40vh;
+    }
+    
 `
 export const ProductContainer = styled.div`
     display: flex;

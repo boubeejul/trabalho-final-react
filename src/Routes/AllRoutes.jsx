@@ -16,7 +16,7 @@ export function AllRoutes() {
             <Route Component={Home} path="/"/>
             <Route Component={About} path="/about" />
             <Route Component={Contact} path="/contact" />
-            <Route Component={Product} path="/product"/>
+            <Route Component={Product} path={`/product/:id`}/>
         </Route>
             <Route Component={Login} path="/login" />
             <Route Component={Cadastro} path="/cadastro" />
