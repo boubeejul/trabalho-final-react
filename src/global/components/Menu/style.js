@@ -13,6 +13,10 @@ export const Wrap = styled.div`
     width: 72%;
     display: flex;
     justify-content: space-between;
+
+    .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+        padding: 10px 50px;
+    }
 `
 
 export const Options = styled.div`
