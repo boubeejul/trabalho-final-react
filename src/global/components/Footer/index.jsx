@@ -12,7 +12,7 @@ export function Footer() {
     <Container>
       <ContainerInfo>
         <div>
-          <h4>Redes Sociais</h4>
+          <h3>Redes Sociais</h3>
           <a href="https://www.instagram.com/eldritchcard/" target="_blanck">
             <img src={Twitter} alt="twitter icon" />
           </a>
@@ -27,14 +27,14 @@ export function Footer() {
           </a>
         </div>
         <div>
-          <h4>Contato</h4>
-          <p>(24)2222-2222</p>
+          <h3>Contato</h3>
+          <a href="##"><p>(24)2222-2222</p></a>
           <a href="mailto:eldritchcards@gmail.com">
             <p>eldritchcards@gmail.com</p>
           </a>
         </div>
         <div>
-          <h4>Marcas</h4>
+          <h3>Marcas</h3>
           <a href="##">
             <p>Magic</p>
           </a>

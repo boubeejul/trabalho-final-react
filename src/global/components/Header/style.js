@@ -14,9 +14,16 @@ export const Container = styled.header`
 `
 
 export const Logo = styled.div`
+    justify-content: space-evenly;
     img {
         width: 130px;
         cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+        img {
+            width: 80px;
+        }
     }
 `
 
@@ -43,6 +50,19 @@ export const SearchBar = styled.div`
         width: 25px;
         cursor: pointer;
     }
+
+    @media (max-width: 767px) {
+
+        width: 25px;
+        input {
+            display: none;
+        }
+        img {
+            
+        width: 25px;
+        }
+    }
+    
 `
 
 export const Costumer = styled.div`
@@ -53,5 +73,14 @@ export const Costumer = styled.div`
     img {
         width: 40px;
         cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+        width: 40%;
+        gap: 10px;
+        img {
+        margin-right: 10px ;
+        width: 30px;
+        }
     }
 `
