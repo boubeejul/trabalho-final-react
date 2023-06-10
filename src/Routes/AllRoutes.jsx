@@ -9,17 +9,18 @@ import { Product } from "../pages/Product";
 
 
 export function AllRoutes() {
+
   return (
     <BrowserRouter>
       <Routes>
         <Route Component={Header}>
-            <Route Component={Home} path="/"/>
-            <Route Component={About} path="/about" />
-            <Route Component={Contact} path="/contact" />
-            <Route Component={Product} path={`/product/:id`}/>
+          <Route Component={Home} path="/" />
+          <Route Component={About} path="/about" />
+          <Route Component={Contact} path="/contact" />
+          <Route Component={Product} path={`/produtos/:id`} />
         </Route>
-            <Route Component={Login} path="/login" />
-            <Route Component={Cadastro} path="/cadastro" />
+        <Route Component={Login} path="/login" />
+        <Route Component={Cadastro} path="/cadastro" />
       </Routes>
     </BrowserRouter>
   );
