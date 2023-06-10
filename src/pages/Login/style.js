@@ -8,6 +8,10 @@ export const Container = styled.div`
     background-color:  #000;
     height: 100vh;
     width: 100vw;
+
+    img {
+        width: 150px;
+    }
     
 `
 export const ContainerLogin = styled.div`
@@ -16,11 +20,9 @@ export const ContainerLogin = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #FFF;
-    height: 60%;
-    width: 50%;
     border-radius: 15px;
     margin-top: 40px;
-
+    
     input {
         margin-top: 36px;
         background-color: #e9e9e9;
@@ -47,8 +49,6 @@ export const ContainerLogin = styled.div`
     }
 
     button {
-        width: 20%;
-        height: 6%;
         margin-top: 40px;
         border-radius: 10px;
         background-color: #EA4B12;
@@ -56,15 +56,28 @@ export const ContainerLogin = styled.div`
         font-size: 15px;
         font-weight: bold;
         border: none;
-    }
-
-    button:hover {
-        width: 22%;
+        padding: 10px;
     }
 
     h4 {
         margin-top: 30px;
         font-size: 35px;
         text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        width: 80%;
+
+        button {
+            width: 40%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        width: 40%;
+
+        button {
+            width: 20%;
+        }
     }
 `

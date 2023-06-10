@@ -7,18 +7,22 @@ export function Cadastro() {
       <img src={logo} alt="logo" />
       <ContainerCadastro>
         <h4>Cadastro</h4>
-        <input type="text" id="user" name="user" placeholder="Usuário"></input>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Senha"
-        ></input>
-        <input type="text" id="email" name="email" placeholder="Email"></input>
+
+        <form>
+          <input type="text" id="user" name="user" placeholder="Usuário"></input>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Senha"
+            required
+          ></input>
+          <input type="text" id="email" name="email" placeholder="Email" required></input>
+        </form>
 
         <button>Continuar</button>
 
-        <a href="##">Criar conta</a>
+        <a href="/login">Fazer login</a>
       </ContainerCadastro>
     </Container>
   );

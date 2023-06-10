@@ -59,12 +59,6 @@ export const SliderContainer = styled.div`
         object-fit: cover;
     }
 
-    @media (max-width: 1200px) {
-    .swiper-button-next, .swiper-button-prev { 
-        display: none;
-    }
-
-    }
 `
 
 export const NextArrow = styled.button`

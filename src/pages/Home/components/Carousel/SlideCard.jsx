@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./style.css"
+import { apiCards } from "../../../services/api"
 
 // import required modules
 import { Navigation } from "swiper";;
@@ -16,7 +17,7 @@ export function SlideCard() {
 
   useEffect(() => {
     async function fetchData() {
-      let {data: card} = await axios.get("https://trabalho-api-production.up.railway.app/produtos/dto")
+      let {data: card} = await apiCards.get("https://trabalho-api-production.up.railway.app/produtos/dto")
       for (let i = card.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [card[i], card[j]] = [card[j], card[i]];
