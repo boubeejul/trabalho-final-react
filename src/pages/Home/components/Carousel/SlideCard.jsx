@@ -2,10 +2,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-//import { api } from "../../../services/api"
-//import { Navigation } from 'swiper';
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -16,16 +12,24 @@ import { Pagination } from "swiper";;
 
 export function SlideCard() {
 
-  const [cards, setCards] = useState([])
+  const [randomCards, setRandomCards] = useState([])
 
   useEffect(() => {
     async function fetchData() {
-      const {data: card} = await axios.get("https://trabalho-api-production.up.railway.app/produtos/dto")
-      setCards(card)
+      let {data: card} = await axios.get("https://trabalho-api-production.up.railway.app/produtos/dto")
+      // setCards(card)
+      for (let i = card.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [card[i], card[j]] = [card[j], card[i]];
+      }  
+      setRandomCards(card.slice(0,8));
+      console.log(newRandom)
     }
-
     fetchData()
   },[])
+
+
+  
 
   return (
     <>
@@ -67,7 +71,8 @@ export function SlideCard() {
       >
 
         {
-          cards.map(card => {
+          randomCards.map(card => {
+            console.log(randomCards)
             return (
                 <SwiperSlide>
                   <Link to={`/produto/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`}/></Link>
@@ -75,34 +80,6 @@ export function SlideCard() {
             )
           })
         }
-
-       {/* <SwiperSlide>
-          <img src="https://trabalho-api-production.up.railway.app/upload/view/2"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://trabalho-api-production.up.railway.app/upload/view/3"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide>
-        <SwiperSlide>
-        <img src="https://qph.cf2.quoracdn.net/main-qimg-24d5bad6739ed4aa5dc385cf4ceb3567-lq"/>
-        </SwiperSlide> */}
       </Swiper>
     </>
   );
