@@ -6,8 +6,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color:  #000;
-    height: 100vh;
     width: 100vw;
+    padding-top: 40px;
+    padding-bottom: 50px;
 
     img {
         width: 150px;

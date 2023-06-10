@@ -8,7 +8,7 @@ export function Cadastro() {
       <ContainerCadastro>
         <h4>Cadastro</h4>
 
-        <form>
+          <input type="text" id="name" name="name" placeholder="Nome"></input>
           <input type="text" id="user" name="user" placeholder="Usuário"></input>
           <input
             type="password"
@@ -18,7 +18,10 @@ export function Cadastro() {
             required
           ></input>
           <input type="text" id="email" name="email" placeholder="Email" required></input>
-        </form>
+          <input type="text" id="cpf" name="cpf" placeholder="CPF" required></input>
+          <input type="tel" id="tel" name="tel" placeholder="Telefone" required></input>
+          <input type="date" id="date" name="date" placeholder="Data de Nascimento"></input>
+
 
         <button>Continuar</button>
 
