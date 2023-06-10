@@ -5,6 +5,7 @@ import searchicon from "../../../assets/searchicon.svg";
 import cart from "../../../assets/cart.svg";
 import login from "../../../assets/login.svg";
 import { Menu } from "../Menu";
+import { Categories } from "../Categories";
 
 export function Header() {
   return (
@@ -26,7 +27,12 @@ export function Header() {
         </SearchBar>
         <Costumer>
           <img src={cart} alt=""></img>
-          <a href="/login"><img src={login} alt=""></img></a>
+
+          { sessionStorage.getItem("user") == null ? (
+              <a href="/login"><img src={login} alt=""></img></a>
+          ) : (
+                <Categories type=""></Categories>
+          )}
         </Costumer>
       </Container>
       <Menu></Menu>

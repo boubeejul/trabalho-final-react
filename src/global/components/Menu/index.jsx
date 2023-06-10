@@ -5,7 +5,7 @@ export function Menu() {
         <>
             <Container>
                 <Wrap>
-                    <Categories></Categories>
+                    <Categories type="header"></Categories> 
                     <Options>
                         <a href="/about"><span>Sobre </span></a>
                         <span> | </span>

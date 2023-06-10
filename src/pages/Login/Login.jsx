@@ -20,6 +20,7 @@ export function Login() {
         })
 
         if (loginResponse.status == 200) {
+            sessionStorage.setItem("user", JSON.stringify(loginResponse.data))
             alert("Login realizado com sucesso!")
             window.location.href = "/"
         } else if (loginResponseError.response.status == 401) {
