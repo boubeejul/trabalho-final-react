@@ -36,6 +36,7 @@ export function SlideCard() {
       <Swiper
         slidesPerView={5}
         spaceBetween={3}
+        loop={true}
         modules={[Pagination]}
         className="mySwiper"
         breakpoints= {{

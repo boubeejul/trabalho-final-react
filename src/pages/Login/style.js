@@ -60,7 +60,6 @@ export const ContainerLogin = styled.div`
 
     button:hover {
         width: 22%;
-        s
     }
 
     h4 {
