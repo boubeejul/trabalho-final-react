@@ -5,6 +5,7 @@ import { About } from "../pages/About/About";
 import { Contact } from "../pages/Contact/Contact";
 import { Login } from "../pages/Login/Login";
 import { Cadastro } from "../pages/Cadastro/Cadastro";
+import { Product } from "../pages/Product";
 
 
 export function AllRoutes() {
@@ -15,6 +16,7 @@ export function AllRoutes() {
             <Route Component={Home} path="/"/>
             <Route Component={About} path="/about" />
             <Route Component={Contact} path="/contact" />
+            <Route Component={Product} path="/product"/>
         </Route>
             <Route Component={Login} path="/login" />
             <Route Component={Cadastro} path="/cadastro" />
