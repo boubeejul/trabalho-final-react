@@ -13,19 +13,24 @@ import { Navigation } from "swiper";;
 
 export function SlideCard() {
 
-  const [randomCards, setRandomCards] = useState([])
+  const [randomCards, setRandomCards] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      let {data: card} = await apiCards.get("https://trabalho-api-production.up.railway.app/produtos/dto")
-      for (let i = card.length - 1; i > 0; i--) {
+      let { data: cards } = await apiCards.get("https://trabalho-api-production.up.railway.app/produtos/dto");
+      
+      const filteredCards = cards.filter(card => card.categoriaProdDto.nome === "Pokémon" || card.categoriaProdDto.nome === "Magic");
+      
+      for (let i = filteredCards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [card[i], card[j]] = [card[j], card[i]];
-      }  
-      setRandomCards(card.slice(0,8));
+        [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
+      }
+      
+      setRandomCards(filteredCards.slice(0, 8));
     }
-    fetchData()
-  },[])
+    
+    fetchData();
+  }, [])
 
 
   
