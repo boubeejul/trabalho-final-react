@@ -67,7 +67,7 @@ export const SearchBar = styled.div`
 `
 
 export const Costumer = styled.div`
-    width: 10%px;
+    width: 9%;
     display: flex;
     gap: 50px;
 

@@ -5,12 +5,12 @@ import {
   ImageContainer,
   InfoContainer
 } from "./style";
-import Plus from '../../assets/Plus.svg'
-import Minus from '../../assets/Minus.svg'
-import Money from '../../assets/Money.svg'
-import ToCart from '../../assets/ToCart.svg'
-import { useLocation, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { SlideCard } from "./Components/Slider";
 
 export function Product() {
 
@@ -53,14 +53,14 @@ export function Product() {
               <h4>{product.nome}</h4>
               <h2>R$ {product.valor_unitario}</h2>
               <h2>Estoque: {product.qtd_estoque}</h2>
+              <h3>Escolha a quantidade</h3>
               <div className="quantity">
-                <button className='minus'><img src={Minus} alt="minus" /></button>
+                <button className='minus'><RemoveIcon/></button>
                 <input type="text" placeholder="0" id="qtd"/>
-                <button className='plus'><img src={Plus} alt="plus" /></button>
+                <button className='plus'><AddIcon/></button>
               </div>
               <div className="finally">
-                <button className = 'addCart'><img src={ToCart} alt="toCart" /></button>
-                <button className = 'buy'><img src={Money} alt='money' /></button>
+                <button className = 'addCart'>Adicionar ao <ShoppingCartIcon fontSize="medium"/></button>
               </div>
             </InfoContainer>
         </ProductContainer>

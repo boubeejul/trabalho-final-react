@@ -17,12 +17,13 @@ export const ProductContainer = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 60%;
-    margin: 10px;
+    * {
+        margin: 10px
+    }
 `
 
 export const ImageContainer = styled.div`
-    width: 30%
-
+    width: 40%
 `
 
 export const InfoContainer = styled.div`
@@ -32,12 +33,19 @@ export const InfoContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 50%;
+    background-color: #d9d9d9;
+    text-align: center;
 
     h2 {
         border-radius: 10px;
         padding: 0.5%;
         background-color: #d9d9d9;
+        font-size: larger;
+    }
+
+    h3 {
+        font-size: medium;
     }
 
     .quantity {
@@ -48,7 +56,9 @@ export const InfoContainer = styled.div`
         justify-content: center;
 
         input {
-            background-color: #d9d9d9;
+            margin-right: 0;
+            margin-left: 0;
+            background-color: #4444446b;
             border: none;
             margin: 0;
             height: 100%;
@@ -61,29 +71,29 @@ export const InfoContainer = styled.div`
             font-weight: bold;
             font-size: 25px;
         }
-
+        
         button {
+            display: flex;
             height: 100%;
             width: 40px;
             border: none;
-            background-color: #EA4B12;
-
-            img {
-                width: 30%;
-            }
-        }
-
-        button:hover {
-            background-color: #a0340d;
-        }
-
+            background-color: #000000;
+            text-align: center;
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }        
 
        .minus {
-            border-radius: 10px 0 0 10px;
+            margin-right: 0;
+            
+            border-radius: 50% 0 0 50%;
        }
 
        .plus {
-            border-radius: 0 10px 10px 0;
+            margin-left: 0;
+            border-radius: 0 50% 50% 0;
        }
     }
 
@@ -92,31 +102,23 @@ export const InfoContainer = styled.div`
         align-items: center;
         justify-content: center;
         height: 40px;
-        width: 130px;
+        width: 200px;
 
         button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100%;
-            width: 50%;
             border: none;
             background-color: #EA4B12;
+            border-radius: 10px;
+            width: 80%;
 
-            img {
-                width: 30%;
-            }
         }
 
         button:hover {
             background-color: #a0340d;
         }
 
-        .addCart {
-            border-radius: 10px 0 0 10px;
-            border-right: 1px solid black;
-       }
-
-       .buy {
-            border-radius: 0 10px 10px 0;
-       }
     }
-
 `
