@@ -95,7 +95,9 @@ export function Categories(props) {
           }}
         >
           <MenuItem>Meus Pedidos</MenuItem>
-          <MenuItem>Meus Dados</MenuItem>
+          <MenuItem onClick={() => {
+            window.location.href = "/costumer"
+            }}>Meus Dados</MenuItem>
           <MenuItem onClick={() => {
             sessionStorage.removeItem("user")
             window.location.href = "/"

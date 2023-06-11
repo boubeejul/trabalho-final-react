@@ -22,6 +22,7 @@ export function Costumer() {
                             }
                         })
                 setUserInfo(getUserInfo.data)
+                console.log(getUserInfo)
                 setIsLoading(false)
             }
 
@@ -46,22 +47,29 @@ export function Costumer() {
                                 <span><span>Data de nascimento: </span>{userInfo.data_nascimento}</span>
                             </PersonalInfo>
 
-                            <Adress>
-                                <div>
-                                    <span><span>Rua: </span>{userInfo.endereco.logradouro}</span>
-                                    <span><span>Bairro: </span>{userInfo.endereco.bairro}</span>
-                                    <span><span>Nº: </span>{userInfo.endereco.numero}</span>
-                                    <span><span>CEP: </span>{userInfo.endereco.cep}</span>
-                                </div>
-                                <div>
-                                    <span><span>Cidade: </span>{userInfo.endereco.localidade}</span>
-                                    <span><span>UF: </span>{userInfo.endereco.uf}</span>
-                                    <span><span>Complemento: </span>{userInfo.endereco.complemento}</span>
-                                </div>
-                            </Adress>
+                            {
+                                userInfo.endereco != null ? (
+                                    <Adress>
+                                    <div>
+                                        <span><span>Rua: </span>{userInfo.endereco.logradouro}</span>
+                                        <span><span>Bairro: </span>{userInfo.endereco.bairro}</span>
+                                        <span><span>Nº: </span>{userInfo.endereco.numero}</span>
+                                        <span><span>CEP: </span>{userInfo.endereco.cep}</span>
+                                    </div>
+                                    <div>
+                                        <span><span>Cidade: </span>{userInfo.endereco.localidade}</span>
+                                        <span><span>UF: </span>{userInfo.endereco.uf}</span>
+                                        <span><span>Complemento: </span>{userInfo.endereco.complemento}</span>
+                                    </div>
+                                </Adress>
+                                ) : (
+                                    null
+                                )
+                            }
+                                
 
                             <NewAdress>
-                                <h5>Atualizar Endereço</h5>
+                                <h5>Atualizar/Cadastrar Endereço</h5>
 
                                 <form onSubmit={(e) => {
                                     e.preventDefault()
