@@ -7,11 +7,11 @@ export const Container = styled.div`
     justify-content: center;
     background-color:  #000;
     width: 100vw;
-    padding-top: 40px;
     padding-bottom: 50px;
 
     img {
         width: 150px;
+        margin-top: 50px;
     }
     
 `
@@ -23,7 +23,7 @@ export const ContainerCadastro = styled.div`
     background-color: #FFF;
     border-radius: 15px;
     margin-top: 40px;
-
+    
     input {
         margin-top: 36px;
         background-color: #e9e9e9;
@@ -66,16 +66,24 @@ export const ContainerCadastro = styled.div`
         text-align: center;
     }
 
-    @media (min-width: 768px) {
-        width: 80%;
+    @media (min-width: 320px) {
+        width: 90%;
 
         button {
             width: 40%;
         }
     }
 
+    @media (min-width: 768px) {
+        width: 60%;
+
+        button {
+            width: 30%;
+        }
+    }
+
     @media (min-width: 1200px) {
-        width: 40%;
+        width: 30%;
 
         button {
             width: 20%;

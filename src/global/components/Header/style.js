@@ -97,9 +97,23 @@ export const Itens = styled.div`
     overflow-x: hidden;
     border-radius: 5px;
     box-shadow: 2px 2px #646464;
+    padding: 10px;
 
     ::-webkit-scrollbar {
-        display: none;
+    width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background: #555;
     }
 
 

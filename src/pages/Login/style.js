@@ -6,11 +6,12 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     background-color:  #000;
-    height: 100vh;
     width: 100vw;
+    padding-bottom: 50px;
 
     img {
         width: 150px;
+        margin-top: 50px;
     }
     
 `
@@ -65,16 +66,24 @@ export const ContainerLogin = styled.div`
         text-align: center;
     }
 
-    @media (min-width: 768px) {
-        width: 80%;
+    @media (min-width: 320px) {
+        width: 90%;
 
         button {
             width: 40%;
         }
     }
 
+    @media (min-width: 768px) {
+        width: 60%;
+
+        button {
+            width: 30%;
+        }
+    }
+
     @media (min-width: 1200px) {
-        width: 40%;
+        width: 30%;
 
         button {
             width: 20%;
