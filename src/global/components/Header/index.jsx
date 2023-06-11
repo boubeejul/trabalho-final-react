@@ -30,12 +30,14 @@ export function Header() {
         return product.nome.toLowerCase().includes(word.toLowerCase())
       }
     )
+    var sorted = filteredProducts.slice().sort((a, b) => {
+      return a.nome.localeCompare(b.nome);
+    });
     if (word == '') {
       setFilteredData([])
     } else {
-      setFilteredData(filteredProducts)
+      setFilteredData(sorted)
     }
-    console.log(filteredData)
   };
 
   function getFirst() {
