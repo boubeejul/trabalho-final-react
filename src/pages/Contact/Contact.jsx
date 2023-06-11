@@ -36,7 +36,6 @@ export function Contact() {
                 </ContainerInput>
                 <button>Enviar</button>
             </Container>
-            <Footer></Footer>
         </>
     )
 }

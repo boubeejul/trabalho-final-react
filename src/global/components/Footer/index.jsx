@@ -9,6 +9,7 @@ export function Footer() {
   return (
     <>
     
+    <Outlet/>
     <Container>
       <ContainerInfo>
         <div>
@@ -45,7 +46,6 @@ export function Footer() {
       </ContainerInfo>
       <p>©Serratec - Desenvolvimento Web - Grupo 4 - 2023</p>
     </Container>
-    <Outlet/>
     </>
   );
 }

@@ -77,7 +77,6 @@ export function About() {
                 }
             </TeamContainer>
             </Container>
-            <Footer></Footer>
         </>
     )
 }

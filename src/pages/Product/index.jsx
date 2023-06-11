@@ -33,7 +33,17 @@ export function Product() {
       <Container>
         {
           product.nome == null ? (
-            <img src="https://http.dog/static/codes/dogs/large/404.avif" alt="Not Found" />
+            <>
+              {
+                setTimeout(
+                  () => {
+                    return(
+                      <img src="https://http.dog/static/codes/dogs/large/404.avif" alt="Not Found" />
+                    )
+                  }
+                , 200)
+              }
+            </>
           ) : (
             <>
             <ProductContainer>
@@ -59,7 +69,6 @@ export function Product() {
           )
         }
       </Container>
-      <Footer></Footer>
     </>
   );
 }

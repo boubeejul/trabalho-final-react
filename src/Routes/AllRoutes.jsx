@@ -7,22 +7,23 @@ import { Login } from "../pages/Login/Login";
 import { Cadastro } from "../pages/Cadastro/Cadastro";
 import { Product } from "../pages/Product";
 import { ProductsByCategory } from "../pages/ProductsByCategory/ProductsByCategory";
-
+import { Footer } from "../global/components/Footer";
 
 export function AllRoutes() {
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route Component={Header}>
-          <Route Component={Home} path="/" />
-          <Route Component={About} path="/about" />
-          <Route Component={Contact} path="/contact" />
-          <Route Component={Product} path={`/produtos/:id`} />
-          <Route Component={ProductsByCategory} path={`/categoria/:id`} />
+        <Route Component={Footer}>
+          <Route Component={Header}>
+            <Route Component={Home} path="/" />
+            <Route Component={About} path="/about" />
+            <Route Component={Contact} path="/contact" />
+            <Route Component={Product} path={`/produtos/:id`} />
+            <Route Component={ProductsByCategory} path={`/categoria/:id`} />
+          </Route>
+          <Route Component={Login} path="/login" />
+          <Route Component={Cadastro} path="/cadastro" />
         </Route>
-        <Route Component={Login} path="/login" />
-        <Route Component={Cadastro} path="/cadastro" />
       </Routes>
     </BrowserRouter>
   );

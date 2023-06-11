@@ -1,6 +1,7 @@
 import * as React from 'react';
 import menu from '../../../assets/menu.svg'
 import './style.css'
+import { Link } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -38,10 +39,26 @@ export function Categories(props) {
             'aria-labelledby': 'basic-button',
           }}
         >
-          <MenuItem onClick={handleClose}>Pokémon</MenuItem>
-          <MenuItem onClick={handleClose}>Magic</MenuItem>
-          <MenuItem onClick={handleClose}>Sleeves</MenuItem>
-          <MenuItem onClick={handleClose}>Deck Box</MenuItem>
+          <MenuItem onClick={handleClose}>
+            <a href={'/categoria/1'} className = 'links'>
+              Magic
+            </a>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <a href={'/categoria/2'} className = 'links'>
+              Pokémon
+            </a>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <a href={'/categoria/3'} className = 'links'>
+              Sleeves
+            </a>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <a href={'/categoria/4'} className = 'links'>
+              Deck Box
+            </a>
+          </MenuItem>
         </Menu>
       </>
     );
