@@ -1,5 +1,6 @@
 import { Container, ContainerLogin } from './style'
 import logo from "../../assets/logo_header.png";
+import { Footer } from "../../global/components/Footer"
 import axios from "axios";
 
 export function Login() {
@@ -10,12 +11,12 @@ export function Login() {
     async function verifyLogin(user, password) {
         await axios.post("https://trabalho-api-production.up.railway.app/auth/signin", {
 
-        "username" : user,
-        "password": password,
+            "username": user,
+            "password": password,
 
         }).then(response => {
             loginResponse = response
-        }).catch( error => {
+        }).catch(error => {
             loginResponseError = error
         })
 
@@ -29,10 +30,11 @@ export function Login() {
     }
 
     return (
-        <Container>
-            <img src={logo} alt='logo' />
-            <ContainerLogin>
-                <h4>Login</h4>
+        <>
+            <Container>
+                <img src={logo} alt='logo' />
+                <ContainerLogin>
+                    <h4>Login</h4>
 
                     <input
                         type="text"
@@ -51,11 +53,14 @@ export function Login() {
 
                     <button onClick={() => {
                         if (document.querySelector("#user").value != "" && document.querySelector("#password").value != "")
-                            verifyLogin(document.querySelector("#user").value, document.querySelector("#password").value)}}>Continuar</button>
+                            verifyLogin(document.querySelector("#user").value, document.querySelector("#password").value)
+                    }}>Continuar</button>
 
-                <a href='/cadastro'>Criar conta</a>
+                    <a href='/cadastro'>Criar conta</a>
 
-            </ContainerLogin>
-        </Container>
+                </ContainerLogin>
+            </Container>
+            <Footer />
+        </>
     )
 }
