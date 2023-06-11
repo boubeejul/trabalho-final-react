@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.footer`
     width: 100vw;
-    height: 380px;
     display: flex;
     flex-direction: column;
     background-color: #000;
