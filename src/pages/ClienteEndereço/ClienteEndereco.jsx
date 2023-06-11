@@ -1,6 +1,3 @@
-import { Container, ContainerClienteEndereco } from "./style";
-import logo from "../../assets/logo_header.png";
-
 import axios from "axios";
 
 export function ClienteEndereço ()

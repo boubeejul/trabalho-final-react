@@ -8,6 +8,7 @@ import { Cadastro } from "../pages/Cadastro/Cadastro";
 import { Product } from "../pages/Product";
 import { ProductsByCategory } from "../pages/ProductsByCategory/ProductsByCategory";
 import { Footer } from "../global/components/Footer";
+import { Costumer } from "../pages/Costumer/Costumer";
 
 export function AllRoutes() {
   return (
@@ -20,6 +21,7 @@ export function AllRoutes() {
             <Route Component={Contact} path="/contact" />
             <Route Component={Product} path={`/produtos/:id`} />
             <Route Component={ProductsByCategory} path={`/categoria/:id`} />
+            <Route Component={Costumer} path={"/costumer"} />
           </Route>
           <Route Component={Login} path="/login" />
           <Route Component={Cadastro} path="/cadastro" />

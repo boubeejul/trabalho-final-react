@@ -88,7 +88,14 @@ export function Categories(props) {
           MenuListProps={{
             'aria-labelledby': 'basic-button',
           }}
+          sx={{
+            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root' : {
+                padding: '10px 15px'
+            }
+          }}
         >
+          <MenuItem>Meus Pedidos</MenuItem>
+          <MenuItem>Meus Dados</MenuItem>
           <MenuItem onClick={() => {
             sessionStorage.removeItem("user")
             window.location.href = "/"
