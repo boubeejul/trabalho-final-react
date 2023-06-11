@@ -32,6 +32,7 @@ export const SearchBar = styled.div`
     display: flex;
     gap: 15px;
     align-items: center;
+    position: relative;
 
     input {
         width: 100%;
@@ -82,5 +83,37 @@ export const Costumer = styled.div`
         margin-right: 10px ;
         width: 30px;
         }
+    }
+`
+export const Itens = styled.div`
+    position: absolute;
+    top: 90px;
+    left: 38.4%;
+    min-width: 21.4%;
+    max-height: 300px;
+    background-color: white;
+    z-index: 1;
+    overflow: auto;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: 2px 2px #646464;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+    div:hover {
+        background-color: #d9d9d9;
     }
 `

@@ -1,10 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Scrollbar, A11y } from "swiper";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import "./style.css"
 import { apiCards } from "../../../services/api"
 
@@ -45,7 +46,8 @@ export function SlideCard() {
         navigation={true}
         observer={true}
         observeParents={true}
-        parallax={true}
+        scrollbar = {{draggable: true}}
+        // parallax={true}
         className="mySwiper"
         breakpoints= {{
 

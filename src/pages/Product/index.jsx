@@ -5,7 +5,6 @@ import {
   ImageContainer,
   InfoContainer
 } from "./style";
-import { Footer } from "../../global/components/Footer";
 import Plus from '../../assets/Plus.svg'
 import Minus from '../../assets/Minus.svg'
 import Money from '../../assets/Money.svg'
