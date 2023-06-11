@@ -8,9 +8,9 @@ export const Container = styled.header`
     justify-content: space-around;
     -webkit-box-align: center;
     align-items: center;
-    padding-right: 10%;
+    padding-right: 12%;
     padding-top: 5px;
-    padding-left: 10%;
+    padding-left: 8%;
 `
 
 export const Logo = styled.div`
@@ -70,6 +70,7 @@ export const Costumer = styled.div`
     width: 9%;
     display: flex;
     gap: 50px;
+    align-items: center;
 
     img {
         width: 40px;
@@ -129,5 +130,24 @@ export const Itens = styled.div`
     }
     div:hover {
         background-color: #d9d9d9;
+    }
+`
+
+export const Cart = styled.div`
+    display: flex;
+
+    #cartItens {
+        margin-top: 20px;
+        background-color: rgb(234, 75, 18);
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 50%;
+        color: rgb(255, 255, 255);
+
+        #itens {
+            font-size: 12px;
+        }
     }
 `

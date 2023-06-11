@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { Outlet } from "react-router-dom";
-import { Container, Logo, SearchBar, Costumer, Itens } from "./style";
+import { Container, Logo, SearchBar, Costumer, Itens, Cart } from "./style";
 import logo from "../../../assets/logo_header.png";
 import searchicon from "../../../assets/searchicon.svg";
 import cart from "../../../assets/cart.svg";
 import login from "../../../assets/login.svg";
 import { Menu } from "../Menu";
 import { Categories } from "../Categories";
-import axios, { all } from "axios";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [allData, setAllData] = useState([]);
@@ -67,7 +68,14 @@ export function Header() {
           </button>
         </SearchBar>
         <Costumer>
-          <img src={cart} alt=""></img>
+          
+          <Cart>
+            <Link to="/cart"><img src={cart} alt=""></img></Link>
+            <div id="cartItens">
+              <span id="itens">0</span>
+            </div>
+          </Cart>
+          
 
           {sessionStorage.getItem("user") == null ? (
             <a href="/login">
