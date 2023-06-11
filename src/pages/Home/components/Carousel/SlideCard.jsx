@@ -26,7 +26,7 @@ export function SlideCard() {
         [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
       }
       
-      setRandomCards(filteredCards.slice(0, 8));
+      setRandomCards(filteredCards.slice(0, 14));
     }
     
     fetchData();
@@ -48,6 +48,8 @@ export function SlideCard() {
         parallax={true}
         className="mySwiper"
         breakpoints= {{
+
+         
           // when window width is >= 320px
           320: {
             slidesPerView: 1,

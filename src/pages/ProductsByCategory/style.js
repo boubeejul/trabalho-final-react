@@ -9,6 +9,7 @@ export const Container = styled.main`
 export const Wrap = styled.div`
     width: 100%;
     display: flex;
+    grid-template-columns: auto auto auto auto auto;
     flex-wrap: wrap;
     justify-content: center;
     gap: 100px;
@@ -48,4 +49,34 @@ export const Info = styled.div`
     span:first-of-type {
         font-weight: 600;
     }
+`
+export const ContainerTop = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 20px;
+        margin-left: 5px;
+    }
+    button {
+        background-color: rgb(234, 75, 18);
+        border: none;
+        margin: 5px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    button:hover {
+        background-color: rgb(234, 75, 18);
+        border: none;
+        margin: 5px;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+    
 `
