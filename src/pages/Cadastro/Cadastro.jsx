@@ -1,6 +1,5 @@
 import { Container, ContainerCadastro } from "./style";
 import logo from "../../assets/logo_header.png";
-import { Footer } from "../../global/components/Footer"
 
 import axios from "axios";
 
@@ -44,7 +43,6 @@ export function Cadastro() {
     }
 
   return (
-    <>
     <Container>
       <img src={logo} alt="logo" />
       <ContainerCadastro>
@@ -83,7 +81,5 @@ export function Cadastro() {
         <a href="/login">Fazer login</a>
       </ContainerCadastro>
     </Container>
-    <Footer />
-    </>
   );
 }

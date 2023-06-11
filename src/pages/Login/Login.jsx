@@ -1,6 +1,5 @@
 import { Container, ContainerLogin } from './style'
 import logo from "../../assets/logo_header.png";
-import { Footer } from "../../global/components/Footer"
 import axios from "axios";
 
 export function Login() {
@@ -30,7 +29,6 @@ export function Login() {
     }
 
     return (
-        <>
             <Container>
                 <img src={logo} alt='logo' />
                 <ContainerLogin>
@@ -60,7 +58,5 @@ export function Login() {
 
                 </ContainerLogin>
             </Container>
-            <Footer />
-        </>
     )
 }
