@@ -36,35 +36,39 @@ export function Login() {
       <ContainerLogin>
         <h4>Login</h4>
 
-        <input
-          type="text"
-          id="user"
-          name="user"
-          placeholder="Usuário"
-          required
-        ></input>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Senha"
-          required
-        ></input>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+        }}>
+          <input
+            type="text"
+            id="user"
+            name="user"
+            placeholder="Usuário"
+            required
+          ></input>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Senha"
+            required
+          ></input>
 
-        <button
-          onClick={() => {
-            if (
-              document.querySelector("#user").value != "" &&
-              document.querySelector("#password").value != ""
-            )
-              verifyLogin(
-                document.querySelector("#user").value,
-                document.querySelector("#password").value
-              );
-          }}
-        >
-          Continuar
-        </button>
+          <button type="submit"
+            onClick={() => {
+              if (
+                document.querySelector("#user").value != "" &&
+                document.querySelector("#password").value != ""
+              )
+                verifyLogin(
+                  document.querySelector("#user").value,
+                  document.querySelector("#password").value
+                );
+            }}
+          >
+            Continuar
+          </button>
+        </form>
 
         <a href="/cadastro">Criar conta</a>
       </ContainerLogin>

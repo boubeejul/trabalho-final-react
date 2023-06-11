@@ -34,7 +34,12 @@ export const ContainerCadastro = styled.div`
         border-radius: 5px;
     }
 
-    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
     a {
         margin-top: 45px;

@@ -7,6 +7,7 @@ export const Container = styled.div`
     justify-content: center;
     background-color:  #000;
     width: 100vw;
+    height: 100vh;
     padding-bottom: 50px;
 
     img {
@@ -34,10 +35,14 @@ export const ContainerLogin = styled.div`
         border-radius: 5px;
     }
 
-    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
     a {
-        margin-top: 45px;
         text-decoration: none;
         color: #000;
         font-size: 15px;
