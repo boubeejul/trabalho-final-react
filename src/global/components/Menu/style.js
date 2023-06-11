@@ -15,13 +15,11 @@ export const Wrap = styled.div`
     display: flex;
     justify-content: space-between;
 
-    .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
-        padding: 10px 50px;
-    }
-
     @media (max-width: 767px) {
+        width: 90%;
+
         span {
-        font-size: 10px;
+        font-size: 12px;
         }
         img {
             width: 15%;
@@ -45,7 +43,7 @@ export const Options = styled.div`
     @media (max-width: 767px) {
         
         span {
-            font-size: 10px;
+            font-size: 13px;
         }
     }
 `

@@ -24,6 +24,13 @@ export const Info = styled.div`
         opacity: 0.25;
         background-color: #bababa;
     }
+
+    @media (max-width: 767px) {
+        
+        img {
+            display: none;
+        }
+    }
 `
 
 export const SliderContainer = styled.div`
@@ -44,13 +51,10 @@ export const SliderContainer = styled.div`
         font-size: 18px;
         background: #fff;
         width: 265px;
-    
-        /* Center slide text vertically */
+
         display: flex;
         justify-content: center;
         align-items: center;
-
-        //padding-left: 3.5%;
     }
     
     .swiper-slide img {

@@ -1,5 +1,6 @@
-import { Container, Wrap, Options } from "./style"
 import { Categories } from "../Categories"
+import { Container, Wrap, Options } from "./style"
+
 export function Menu() {
     return (
         <>

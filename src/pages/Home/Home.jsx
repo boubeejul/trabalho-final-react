@@ -1,4 +1,3 @@
-import { Footer } from "../../global/components/Footer"
 import { CarouselHome } from "./components/Carousel/CarouselHome"
 import { Container, Info, SliderContainer, Publi, Comments, Comment } from "./style"
 import { SlideCard } from "./components/Carousel/SlideCard"

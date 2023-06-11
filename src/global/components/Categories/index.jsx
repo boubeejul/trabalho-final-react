@@ -38,6 +38,11 @@ export function Categories(props) {
           MenuListProps={{
             'aria-labelledby': 'basic-button',
           }}
+          sx={{
+            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root' : {
+                padding: '10px 50px'
+            }
+          }}
         >
           <MenuItem onClick={handleClose}>
             <a href={'/categoria/1'} className = 'links'>
