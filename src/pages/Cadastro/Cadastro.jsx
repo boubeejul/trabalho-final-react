@@ -37,7 +37,6 @@ export function Cadastro() {
               }
             })
             alert("Cadastro realizado com sucesso!")
-            window.location.href = "/"
         }
         // tratar mensagens de erro
     }

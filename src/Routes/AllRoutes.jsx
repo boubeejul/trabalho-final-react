@@ -6,6 +6,7 @@ import { Contact } from "../pages/Contact/Contact";
 import { Login } from "../pages/Login/Login";
 import { Cadastro } from "../pages/Cadastro/Cadastro";
 import { Product } from "../pages/Product";
+import { ProductsByCategory } from "../pages/ProductsByCategory/ProductsByCategory";
 
 
 export function AllRoutes() {
@@ -18,6 +19,7 @@ export function AllRoutes() {
           <Route Component={About} path="/about" />
           <Route Component={Contact} path="/contact" />
           <Route Component={Product} path={`/produtos/:id`} />
+          <Route Component={ProductsByCategory} path={`/categoria/:id`} />
         </Route>
         <Route Component={Login} path="/login" />
         <Route Component={Cadastro} path="/cadastro" />
