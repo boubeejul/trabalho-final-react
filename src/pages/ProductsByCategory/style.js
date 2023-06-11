@@ -13,24 +13,32 @@ export const Wrap = styled.div`
     justify-content: center;
     gap: 100px;
     margin-top: 50px;
+
+    a {
+        text-decoration: none;
+    }
 `
 
 export const Product = styled.div`
+    background-color: #EBEBEB;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 200px;
+    transition: 1s;
     img {
         width: 200px;
+    }
+
+    &:hover {
+        background-color: rgb(234, 75, 18);
     }
 `
 
 export const Info = styled.div`
-    background-color: #EBEBEB;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transition: 1s;
 
     span {
         color: #252525;
@@ -39,9 +47,5 @@ export const Info = styled.div`
 
     span:first-of-type {
         font-weight: 600;
-    }
-
-    &:hover {
-        background-color: rgb(234, 75, 18);
     }
 `

@@ -3,6 +3,7 @@ import { Footer } from "../../global/components/Footer";
 import { useState, useEffect } from "react";
 import { Container, Product, Wrap, Info } from "./style";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function ProductsByCategory() {
   const category = useParams();
@@ -30,8 +31,8 @@ export function ProductsByCategory() {
             ? null
             : catProducts.produtos.map((product) => {
                 return (
+                    <Link to={`/produtos/${product.id_produto}`}>
                   <Product>
-                    <a href={`/produtos/${product.id_produto}`}>
                       <img
                         src={`https://trabalho-api-production.up.railway.app/upload/view/${product.arquivo.id_imagem}`}
                         alt=""
@@ -40,8 +41,8 @@ export function ProductsByCategory() {
                         <span>{product.nome}</span>
                         <span>R${product.valor_unitario}</span>
                       </Info>
-                    </a>
                   </Product>
+                  </Link>
                 );
               })}
         </Wrap>
