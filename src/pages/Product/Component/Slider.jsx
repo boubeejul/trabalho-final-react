@@ -10,22 +10,16 @@ import { apiCards } from "../../services/api"
 // import required modules
 import { Navigation } from "swiper";;
 
-export function SlideCard({ categoryName }) {
+export function Slider(props) {
 
-  const [randomCards, setRandomCards] = useState([]);
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       let { data: cards } = await apiCards.get("https://trabalho-api-production.up.railway.app/produtos/dto");
       
-      const filteredCards = cards.filter(card => card.categoriaProdDto.nome === categoryName);
-      
-      for (let i = filteredCards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [filteredCards[i], filteredCards[j]] = [filteredCards[j], filteredCards[i]];
-      }
-      
-      setRandomCards(filteredCards.slice(0, 10));
+      const filteredCards = cards.filter(card => card.categoriaProdDto.nome === props.category); 
+      setCards(filteredCards);
     }
     
     fetchData();
@@ -57,19 +51,19 @@ export function SlideCard({ categoryName }) {
           },
           // when window width is >= 640px
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 3
           },
 
           // when window width is >= 1024px
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 3
           },
 
           // when window width is >= 1440px
           1440: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 3
           },
 
@@ -81,10 +75,10 @@ export function SlideCard({ categoryName }) {
         }}
       >
         {
-          randomCards.map(card => {
+          cards.map(card => {
             return (
                 <SwiperSlide>
-                  <Link to={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`}/></Link>
+                  <a href={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`} /></a>
                 </SwiperSlide>
             )
           })

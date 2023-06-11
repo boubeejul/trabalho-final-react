@@ -122,3 +122,87 @@ export const InfoContainer = styled.div`
 
     }
 `
+export const SliderContainer = styled.div`
+    width: 80%;
+    padding-bottom: 50px;
+
+    .swiper-button-next, .swiper-button-prev { 
+        color: rgb(234, 75, 18); 
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+  
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        width: 265px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .swiper-slide img {
+        display: block;
+    }
+`
+
+export const NextArrow = styled.button`
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    &:before {
+        font-family: 'slick';
+        font-size: 20px;
+        line-height: 1;
+        opacity: .75;
+        color: black;
+        -webkit-font-smoothing: antialiased;
+    }
+`
+
+export const BeforeArrow = styled.button`
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+
+    &:before {
+        font-family: 'slick';
+        font-size: 20px;
+        line-height: 1;
+        opacity: .75;
+        color: black;
+        -webkit-font-smoothing: antialiased;
+    }
+`

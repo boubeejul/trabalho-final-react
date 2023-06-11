@@ -3,25 +3,27 @@ import {
   Container,
   ProductContainer,
   ImageContainer,
-  InfoContainer
+  InfoContainer,
+  SliderContainer
 } from "./style";
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { SlideCard } from "./Components/Slider";
+import { Slider } from "./Component/Slider";
 
 export function Product() {
 
   const id  = useParams();
   const [product, setProduct] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
       const {data: product} = await axios.get(`https://trabalho-api-production.up.railway.app/produtos/${id.id}`)
       setProduct(product)
-      console.log("Oi")
+      setIsLoading(true)
     }
 
     fetchData()
@@ -67,6 +69,14 @@ export function Product() {
             </>
           )
         }
+        <SliderContainer>
+          <h4>Produtos da mesma categoria</h4>
+          {
+            isLoading && (
+            <Slider category = {product.categoria.nome}/> 
+            )
+          }
+        </SliderContainer>
       </Container>
     </>
   );
