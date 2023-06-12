@@ -42,7 +42,7 @@ export function Cadastro() {
         {
           headers: {
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NDMyODQ4LCJleHAiOjE2ODY1MTkyNDh9.91ipAPt_Suq6Hci7jdeQ2IKYwmPcU0gSI1nj425ymOI",
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw",
           },
         }
       );

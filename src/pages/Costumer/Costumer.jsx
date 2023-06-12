@@ -1,88 +1,221 @@
-import { Container, CostumerInfo, PersonalInfo, Adress, NewAdress } from "./style"
+import {
+  Container,
+  CostumerInfo,
+  PersonalInfo,
+  Adress,
+  NewAdress,
+} from "./style";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 export function Costumer() {
+  const [userInfo, setUserInfo] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  var cadastrarResponse = [];
+  var cadastrarError = [];
+  var userVer = JSON.parse(sessionStorage.getItem('user')).accessToken
 
-    const [userInfo, setUserInfo] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+  var upEndereco;
 
-    if (sessionStorage.getItem("user") != null) {
+  var newEndereco = {
+    cep: "",
+    numero: "",
+  };
 
-        useEffect(() => {
-            const user = JSON.parse(sessionStorage.getItem("user"))
+  async function cadastrarEndereco() {
+    await axios
+      .post(
+        "https://trabalho-api-production.up.railway.app/enderecos",
+        newEndereco,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+          },
+        }
+      )
+      .then((response) => {
+        cadastrarResponse = response;
 
-            async function getInfo() {
-                const getUserInfo = await axios
-                    .get(`https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
-                        {
-                            headers: {
-                                Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NTExMDMzLCJleHAiOjE2ODY1OTc0MzN9.7oMz7kjqUqQmiKNe0pjkrUhI0SEGN2m1uLPzrQSe6AE",
-                            }
-                        })
-                setUserInfo(getUserInfo.data)
-                console.log(getUserInfo)
-                setIsLoading(false)
+        async function updateCliente() {
+          var upCliente = {
+            ...userInfo.data,
+            endereco: { id_endereco: cadastrarResponse.data.id_endereco },
+          };
+          await axios.put(
+            "https://trabalho-api-production.up.railway.app/clientes",
+            upCliente,
+            {
+              headers: {
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+              },
             }
+          ).then((response) => {
+            location.reload()
+          }
+          );
+        }
 
-            getInfo()
+        updateCliente();
+      })
+      .catch((error) => {
+        cadastrarError = error;
+        alert("Dados inválidos ou incompletos");
+      });
+  }
 
-        }, [])
-    }
-    return (
-        <Container>
-            <CostumerInfo>
-                <h4>Meus Dados</h4>
+  async function atualizarEndereco() {
+    await axios
+      .put(
+        "https://trabalho-api-production.up.railway.app/enderecos",
+        upEndereco,
+        {
+          headers: {
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+          },
+        }
+      )
+      .then((response) => {
+        cadastrarResponse = response;
+        location.reload();
+      })
+      .catch((error) => {
+        cadastrarError = error;
+        console.log(cadastrarError);
+        alert("Dados inválidos ou incompletos");
+      });
+  }
 
-                {
-                    isLoading ? (
-                        null
-                    ) : (
-                        <>
-                            <PersonalInfo>
-                                <span><span>Nome completo: </span>{userInfo.nome_completo}</span>
-                                <span><span>Email: </span>{userInfo.email}</span>
-                                <span><span>Telefone: </span>{userInfo.telefone}</span>
-                                <span><span>Data de nascimento: </span>{userInfo.data_nascimento}</span>
-                            </PersonalInfo>
+  if (sessionStorage.getItem("user") != null) {
+    useEffect(() => {
+      const user = JSON.parse(sessionStorage.getItem("user"));
 
-                            {
-                                userInfo.endereco != null ? (
-                                    <Adress>
-                                    <div>
-                                        <span><span>Rua: </span>{userInfo.endereco.logradouro}</span>
-                                        <span><span>Bairro: </span>{userInfo.endereco.bairro}</span>
-                                        <span><span>Nº: </span>{userInfo.endereco.numero}</span>
-                                        <span><span>CEP: </span>{userInfo.endereco.cep}</span>
-                                    </div>
-                                    <div>
-                                        <span><span>Cidade: </span>{userInfo.endereco.localidade}</span>
-                                        <span><span>UF: </span>{userInfo.endereco.uf}</span>
-                                        <span><span>Complemento: </span>{userInfo.endereco.complemento}</span>
-                                    </div>
-                                </Adress>
-                                ) : (
-                                    null
-                                )
-                            }
-                                
+      async function getInfo() {
+        const getUserInfo = await axios.get(
+          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
+          {
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw",
+            },
+          }
+        );
+        setUserInfo(getUserInfo);
+        setIsLoading(false);
+        console.log(userVer)
+      }
 
-                            <NewAdress>
-                                <h5>Atualizar/Cadastrar Endereço</h5>
+      getInfo();
+    }, []);
+  }
 
-                                <form onSubmit={(e) => {
-                                    e.preventDefault()
-                                }}>
-                                    <input type="text" id="cep" name="cep" placeholder="CEP" required></input>
-                                    <input type="number" id="number" name="number" placeholder="Número (se tiver)"></input>
-                                    <button type="submit">Atualizar Endereço</button>
-                                </form>
-                            </NewAdress>
-                        </>
-                    )
-                }
-            </CostumerInfo>
-        </Container>
-    )
+  return (
+    <Container>
+      <CostumerInfo>
+        <h4>Meus Dados</h4>
+
+        {isLoading ? null : (
+          <>
+            <PersonalInfo>
+              <span>
+                <span>Nome completo: </span>
+                {userInfo.data.nome_completo}
+              </span>
+              <span>
+                <span>Email: </span>
+                {userInfo.data.email}
+              </span>
+              <span>
+                <span>Telefone: </span>
+                {userInfo.data.telefone}
+              </span>
+              <span>
+                <span>Data de nascimento: </span>
+                {userInfo.data.data_nascimento}
+              </span>
+            </PersonalInfo>
+
+            {userInfo.data.endereco != null ? (
+              <Adress>
+                <div>
+                  <span>
+                    <span>Rua: </span>
+                    {userInfo.data.endereco.logradouro}
+                  </span>
+                  <span>
+                    <span>Bairro: </span>
+                    {userInfo.data.endereco.bairro}
+                  </span>
+                  <span>
+                    <span>Nº: </span>
+                    {userInfo.data.endereco.numero}
+                  </span>
+                  <span>
+                    <span>CEP: </span>
+                    {userInfo.data.endereco.cep}
+                  </span>
+                </div>
+                <div>
+                  <span>
+                    <span>Cidade: </span>
+                    {userInfo.data.endereco.localidade}
+                  </span>
+                  <span>
+                    <span>UF: </span>
+                    {userInfo.data.endereco.uf}
+                  </span>
+                  <span>
+                    <span>Complemento: </span>
+                    {userInfo.data.endereco.complemento}
+                  </span>
+                </div>
+              </Adress>
+            ) : null}
+
+            <NewAdress>
+              <h5>Atualizar/Cadastrar Endereço</h5>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                }}
+              >
+                <input
+                  type="text"
+                  id="cep"
+                  name="cep"
+                  placeholder="CEP"
+                  required
+                ></input>
+                <input
+                  type="number"
+                  id="numero"
+                  name="numero"
+                  placeholder="Número (se tiver)"
+                ></input>
+                <button
+                  type="submit"
+                  onClick={() => {
+                    if (userInfo.data.endereco != null) {
+                      upEndereco = userInfo.data.endereco
+                      upEndereco.cep = document.querySelector("#cep").value;
+                      upEndereco.numero =
+                        document.querySelector("#numero").value;
+                      atualizarEndereco();
+                    } else {
+                      newEndereco.cep = document.querySelector("#cep").value;
+                      newEndereco.numero =
+                        document.querySelector("#numero").value;
+                      cadastrarEndereco();
+                    }
+                  }}
+                >
+                  Concluir
+                </button>
+              </form>
+            </NewAdress>
+          </>
+        )}
+      </CostumerInfo>
+    </Container>
+  );
 }
