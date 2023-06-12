@@ -51,19 +51,19 @@ export function Slider(props) {
           },
           // when window width is >= 640px
           640: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 3
           },
 
           // when window width is >= 1024px
           1024: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 3
           },
 
           // when window width is >= 1440px
           1440: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 3
           },
 

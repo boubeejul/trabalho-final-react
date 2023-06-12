@@ -20,6 +20,11 @@ export const ProductContainer = styled.div`
     flex-wrap: wrap;
     margin-top: 50px;
     align-items: center;
+
+    @media (max-width: 767px) {
+        width: 70%;
+        
+    }
 `
 
 export const ImageContainer = styled.div`
@@ -129,6 +134,10 @@ export const InfoContainer = styled.div`
         }
 
     }
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `
 export const SliderContainer = styled.div`
     width: 80%;
@@ -162,6 +171,8 @@ export const SliderContainer = styled.div`
     h4::after {
         width: 320px;
     }
+
+    
 `
 
 export const NextArrow = styled.button`
@@ -218,4 +229,158 @@ export const BeforeArrow = styled.button`
         color: black;
         -webkit-font-smoothing: antialiased;
     }
+`
+
+export const CommentsContainer = styled.div`
+    display: flex;
+    margin-top: 40px;
+    background-color: #F2F2F2;
+    width: 80%;
+    border-radius: 10px;
+    color: #000;
+    justify-content: space-between;
+    
+`
+
+export const TabelasComments = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin: 45px;
+    h1 {
+        text-align: center;
+        font-size: 25px;
+    }
+    h3 {
+        text-align: center;
+        font-size: 40px;
+    }
+    img{
+        width: 40%;
+    }
+
+    p{
+        margin-left: 20px;
+        font-size: 25px;
+    }
+    @media (max-width: 768px) {
+        display: none;
+    }
+`
+
+export const Porcentual = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: Start;
+    align-items: start;
+    margin-top: 0px;
+
+     p {
+        margin-left: 20%;
+        color:  #9d9d9d;
+    }
+`
+export const Nota = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    h2 {
+        margin-top: 10px;
+        font-size: 75px;
+        color: #0E8FC6;
+    }
+    img{
+        width: 60%;
+    }
+`
+
+export const TableImg = styled.div`
+    img {
+        width: 90%;
+    }
+`
+
+export const TableUsers = styled.div`
+    display: flex;
+    flex-direction: column;
+    
+    align-items: start;
+
+    margin: 45px;
+
+    img {
+        align-items: start;
+        width: 150px;
+        height: 150px;
+        margin-right: 20px;
+    }
+
+ 
+    @media (max-width: 767px) {
+        img {
+        width: 50px;
+        height: 50px;
+    }
+}
+    @media (max-width: 1440px) {
+        img {
+        width: 100px;
+        height: 100px;
+    }
+}
+    @media (max-width: 1024px) {
+        img {
+        width: 70px;
+        height: 70px;
+    }
+    }
+`
+
+
+
+export const CardUser = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
+    h1 {
+        font-size: 35px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    @media (max-width: 1440px) {
+        h1 {
+        font-size: 23px;
+        }
+
+        p {
+        font-size: 16px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        h1 {
+        font-size: 17px;
+        }
+
+        p {
+        font-size: 13px;
+        }
+    }
+    @media (max-width: 767px) {
+        h1 {
+        font-size: 13px;
+        }
+
+        p {
+        font-size: 9px;
+        }
+}
+`
+export const TitleComent = styled.div`
+    margin-top: 60px;
+    width: 80%;
 `
