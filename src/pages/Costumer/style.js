@@ -35,6 +35,12 @@ export const PersonalInfo = styled.div`
             font-weight: bold;
         }
     }
+    @media (max-width: 767px) {
+        width: 100%;
+        overflow: auto;
+
+    
+}
 `
 export const Adress = styled.div`
     width: 60%;
@@ -98,4 +104,15 @@ export const NewAdress = styled.div `
     h5::after {
         width: 100%;
     }
+    @media (max-width: 767px) {
+        width: 80%;
+        button {
+            width: 70%;
+        } 
+
+        input {
+            width: 100%;
+        }
+    
+}
 `

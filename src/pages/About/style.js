@@ -7,6 +7,7 @@ export const Container = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #000;
 `
 
 
@@ -68,7 +69,8 @@ export const TeamContainer = styled.div`
             font-size: 25px;
         }
     }
-    @media (max-width: 767px) {
+
+    @media(max-width: 767px) {
         margin-top: 10px;
         width: 90%;
         display: flex;
@@ -84,6 +86,7 @@ export const TeamContainer = styled.div`
             align-items: center;
             justify-content: center;
             width: 100%;
+        }
         img {
             width: 30%;
             border-radius: 50%;
@@ -96,5 +99,5 @@ export const TeamContainer = styled.div`
         }
     }
     
-    }
+    
 `

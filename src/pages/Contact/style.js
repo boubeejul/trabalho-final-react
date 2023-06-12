@@ -101,5 +101,5 @@ export const MesageInput = styled.div`
         textarea {
             font-size: 13px;
         }
-}
+    }
 `
