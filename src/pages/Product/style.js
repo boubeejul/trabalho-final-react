@@ -8,22 +8,21 @@ export const Container = styled.main`
     width: 100vw;
     min-height: 42.7vh;
     img {
-        height: 40vh;
+        width: 230px;
     }
     
 `
 export const ProductContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 60%;
-    * {
-        margin: 10px
-    }
+    flex-wrap: wrap;
+    margin-top: 50px;
+    align-items: center;
 `
 
 export const ImageContainer = styled.div`
-    width: 40%
 `
 
 export const InfoContainer = styled.div`
@@ -34,18 +33,25 @@ export const InfoContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 50%;
-    background-color: #d9d9d9;
+    background-color: #F2F2F2;
+    border-radius: 10px;
     text-align: center;
+    gap: 20px;
 
-    h2 {
-        border-radius: 10px;
-        padding: 0.5%;
-        background-color: #d9d9d9;
-        font-size: larger;
+    span {
+        color: #000000;
+
+        span {
+            font-weight: bold;
+        }
     }
 
     h3 {
         font-size: medium;
+    }
+
+    h4::after {
+        width: 100%;
     }
 
     .quantity {
@@ -69,7 +75,7 @@ export const InfoContainer = styled.div`
             justify-content: center;
             text-align: center;
             font-weight: bold;
-            font-size: 25px;
+            font-size: 20px;
         }
         
         button {
@@ -103,6 +109,7 @@ export const InfoContainer = styled.div`
         justify-content: center;
         height: 40px;
         width: 200px;
+        margin-top: 20px;
 
         button {
             display: flex;
@@ -113,7 +120,8 @@ export const InfoContainer = styled.div`
             background-color: #EA4B12;
             border-radius: 10px;
             width: 80%;
-
+            color: #fff;
+            gap: 8px;
         }
 
         button:hover {
@@ -125,6 +133,7 @@ export const InfoContainer = styled.div`
 export const SliderContainer = styled.div`
     width: 80%;
     padding-bottom: 50px;
+    margin-top: 100px;
 
     .swiper-button-next, .swiper-button-prev { 
         color: rgb(234, 75, 18); 
@@ -148,6 +157,10 @@ export const SliderContainer = styled.div`
     
     .swiper-slide img {
         display: block;
+    }
+
+    h4::after {
+        width: 320px;
     }
 `
 

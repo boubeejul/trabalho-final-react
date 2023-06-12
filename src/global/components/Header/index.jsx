@@ -71,9 +71,15 @@ export function Header() {
           
           <Cart>
             <Link to="/cart"><img src={cart} alt=""></img></Link>
-            <div id="cartItens">
-              <span id="itens">0</span>
-            </div>
+
+              { sessionStorage.getItem("cart") != null ? (
+                <div id="cartItens">
+                <span id="itens">{JSON.parse(sessionStorage.getItem("cart")).listaProdutos.length}</span>
+                </div>
+              ) : (
+                null
+              )}
+            
           </Cart>
           
 
@@ -84,6 +90,7 @@ export function Header() {
           ) : (
             <Categories type=""></Categories>
           )}
+
         </Costumer>
       </Container>
       <Menu></Menu>

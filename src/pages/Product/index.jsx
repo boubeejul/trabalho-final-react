@@ -15,20 +15,105 @@ import { Slider } from "./Component/Slider";
 
 export function Product() {
 
-  const id  = useParams();
+  var id = useParams();
   const [product, setProduct] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+  const [userId, setUserId] = useState()
 
   useEffect(() => {
     async function fetchData() {
-      const {data: product} = await axios.get(`https://trabalho-api-production.up.railway.app/produtos/${id.id}`)
+      const { data: product } = await axios.get(`https://trabalho-api-production.up.railway.app/produtos/${id.id}`)
       setProduct(product)
       setIsLoading(true)
     }
 
+    async function getCostumerId() {
+      var costumerEmail = JSON.parse(sessionStorage.getItem("user")).email
+      await axios.get(`https://trabalho-api-production.up.railway.app/clientes/info/${costumerEmail}`, {
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`
+        }
+      })
+        .then(response => {
+          setUserId(response.data.id_cliente)
+        })
+    }
+
     fetchData()
+    getCostumerId()
   }, [])
-  
+
+  function moreProduct() {
+
+    var quantity = document.querySelector("#qtd")
+
+    if (quantity.value < 9)
+      quantity.value++
+  }
+
+  function lessProduct() {
+
+    var quantity = document.querySelector("#qtd")
+
+    if (quantity.value > 0)
+      quantity.value--
+  }
+
+  function verifyCart(updateCart) {
+    console.log(id.id)
+    var isPresent =  false;
+
+    for (var i = 0; i < updateCart.listaProdutos.length; i ++) {
+      if(updateCart.listaProdutos[i].produto.id_produto === id.id) {
+        isPresent = true;
+        break;
+      }
+    }
+    return isPresent
+ }
+
+  function addToCart() {
+    var currentCart = JSON.parse(sessionStorage.getItem("cart"))
+    var itemQuantity = document.querySelector("#qtd").value
+
+    var cart = {
+      "id_cliente": "",
+      "listaProdutos": []
+  }
+
+    // se o carrinho já tiver algum produto
+    if (currentCart != null) {
+      var updateCart = currentCart
+
+      // percorre a lista de produtos para ver se o atual já está presente
+      var already = verifyCart(updateCart)
+      console.log(already)
+
+      // se o produto estiver lá, atualiza apenas a quantidade
+      if (already) {
+        for (var i = 0; i < updateCart.listaProdutos.length; i++) {
+          if (updateCart.listaProdutos[i].produto.id_produto === id.id)
+              updateCart.listaProdutos[i] = {produto: { id_produto: id.id, quantidade: itemQuantity }}
+        }
+
+      // se não, acrescenta no carrinho
+      } else {
+        updateCart.listaProdutos.push({produto: {id_produto: id.id, quantidade: itemQuantity}})
+      }
+
+      // atualiza sessionStorage
+      sessionStorage.setItem("cart", JSON.stringify(updateCart))
+
+    // se o carrinho estiver vazio
+    } else {
+      cart.id_cliente = userId
+      cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity } })
+      sessionStorage.setItem("cart", JSON.stringify(cart))
+    }
+
+    document.querySelector("#itens").innerHTML = updateCart.listaProdutos.length
+  }
+
   return (
     <>
       <Container>
@@ -38,34 +123,34 @@ export function Product() {
               {
                 setTimeout(
                   () => {
-                    return(
+                    return (
                       <img src="https://http.dog/static/codes/dogs/large/404.avif" alt="Not Found" />
                     )
                   }
-                , 200)
+                  , 200)
               }
             </>
           ) : (
             <>
-            <ProductContainer>
-            <ImageContainer>
-              <img src={`https://trabalho-api-production.up.railway.app/upload/view/${product.arquivo.id_imagem}`} alt="" />
-            </ImageContainer>
-            <InfoContainer>
-              <h4>{product.nome}</h4>
-              <h2>R$ {product.valor_unitario}</h2>
-              <h2>Estoque: {product.qtd_estoque}</h2>
-              <h3>Escolha a quantidade</h3>
-              <div className="quantity">
-                <button className='minus'><RemoveIcon/></button>
-                <input type="text" placeholder="0" id="qtd"/>
-                <button className='plus'><AddIcon/></button>
-              </div>
-              <div className="finally">
-                <button className = 'addCart'>Adicionar ao <ShoppingCartIcon fontSize="medium"/></button>
-              </div>
-            </InfoContainer>
-        </ProductContainer>
+              <ProductContainer>
+                <ImageContainer>
+                  <img src={`https://trabalho-api-production.up.railway.app/upload/view/${product.arquivo.id_imagem}`} alt="" />
+                </ImageContainer>
+                <InfoContainer>
+                  <h4>{product.nome}</h4>
+                  <span><span>Preço (unidade) :</span> R$ {product.valor_unitario.toFixed(2)}</span>
+                  <span><span>Estoque: </span> {product.qtd_estoque}</span>
+                  <span>Escolha a quantidade</span>
+                  <div className="quantity">
+                    <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
+                    <input type="text" placeholder="0" id="qtd" />
+                    <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
+                  </div>
+                  <div className="finally">
+                    <button className='addCart' onClick={() => document.querySelector("#qtd").value !=0 ? (addToCart()) : (null)}>Adicionar ao <ShoppingCartIcon fontSize="medium" /></button>
+                  </div>
+                </InfoContainer>
+              </ProductContainer>
             </>
           )
         }
@@ -73,7 +158,7 @@ export function Product() {
           <h4>Produtos da mesma categoria</h4>
           {
             isLoading && (
-            <Slider category = {product.categoria.nome}/> 
+              <Slider category={product.categoria.nome} />
             )
           }
         </SliderContainer>

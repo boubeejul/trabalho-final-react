@@ -58,28 +58,6 @@ export function Costumer() {
     location.reload()
   }
 
-  // async function atualizarEndereco() {
-  //   await axios
-  //     .put(
-  //       "https://trabalho-api-production.up.railway.app/enderecos",
-  //       upEndereco,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
-  //         },
-  //       }
-  //     )
-  //     .then((response) => {
-  //       cadastrarResponse = response;
-  //       location.reload();
-  //     })
-  //     .catch((error) => {
-  //       cadastrarError = error;
-  //       console.log(cadastrarError);
-  //       alert("Dados inválidos ou incompletos");
-  //     });
-  // }
-
   if (sessionStorage.getItem("user") != null) {
     useEffect(() => {
       const user = JSON.parse(sessionStorage.getItem("user"));
@@ -177,7 +155,7 @@ export function Costumer() {
                   type="text"
                   id="cep"
                   name="cep"
-                  placeholder="CEP"
+                  placeholder="CEP (obrigatório)"
                   required
                 ></input>
                 <input

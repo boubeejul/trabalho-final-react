@@ -95,4 +95,7 @@ export const NewAdress = styled.div `
         border: none;
         padding: 10px;
     }
+    h5::after {
+        width: 100%;
+    }
 `
