@@ -8,25 +8,29 @@ export const Container = styled.footer`
     justify-content: center;
     align-items: center;
     color: #fff;
+    gap: 40px;
+
+    p {
+        padding-bottom: 20px;
+    }
     
     h3 {
-  color: #000;
-  padding-bottom: 10px;
-  font-weight: bolder;
-}
-h3::after {
-  content: "";
-  height: 2px;
-  width: auto ;
-  display: block;
-  background-color: rgb(234, 75, 18);
-  margin-top: 5px;
-}
+    color: #000;
+    padding-bottom: 10px;
+    font-weight: bolder;
+    }
+    h3::after {
+    content: "";
+    height: 2px;
+    width: auto ;
+    display: block;
+    background-color: rgb(234, 75, 18);
+    margin-top: 5px;
+    }
 
 @media (max-width: 767px) {
         
         p{
-            text-align: center;
             margin: 0;
         }
 
@@ -34,14 +38,10 @@ h3::after {
 `
 export const ContainerInfo = styled.div`
     display: flex;
-    -webkit-box-pack: center;
     justify-content: space-evenly;
-    -webkit-box-align: start;
-    align-items: start;
     width: 100%;
-    height: 380px;
-    margin: 48px;
-    padding: 0px 20px;  
+    margin-top: 48px;
+    padding: 0px 20px;
     
     h3 {
         color: #fff;
@@ -49,7 +49,6 @@ export const ContainerInfo = styled.div`
 
     p {
         font-size: 18px;
-        margin-top: 16px;
     }
     img {
         width: 30px;
@@ -68,22 +67,12 @@ export const ContainerInfo = styled.div`
     }
 
     @media (max-width: 767px) {
-        margin: 0;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        width: 90%;
+        gap: 30px;
 
-        h3{
-            text-align: center;
-        }
-        p{
-            text-align: center;
-            margin: 0;
-        }
-
-        img {
-            margin-top: 0;
-            margin-left: 7px;
+        h3:after {
+            width: 40%;
         }
     }
 `

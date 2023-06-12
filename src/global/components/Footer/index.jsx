@@ -14,16 +14,16 @@ export function Footer() {
       <ContainerInfo>
         <div>
           <h3>Redes Sociais</h3>
-          <a href="https://www.instagram.com/eldritchcard/" target="_blanck">
+          <a href="https://www.instagram.com/eldritchcard/" target="_blank">
             <img src={Twitter} alt="twitter icon" />
           </a>
-          <a href="https://www.instagram.com/eldritchcard/" target="_blanck">
+          <a href="https://www.instagram.com/eldritchcard/" target="_blank">
             <img src={Facebook} alt="facebook icon" />
           </a>
-          <a href="https://www.instagram.com/eldritchcard/" target="_blanck">
+          <a href="https://www.instagram.com/eldritchcard/" target="_blank">
             <img src={Instagram} alt="instagram icon" />
           </a>
-          <a href="https://www.instagram.com/eldritchcard/" target="_blanck">
+          <a href="https://www.instagram.com/eldritchcard/" target="_blank">
             <img src={Tiktok} alt="tiktok icon" />
           </a>
         </div>
@@ -36,10 +36,10 @@ export function Footer() {
         </div>
         <div>
           <h3>Marcas</h3>
-          <a href="##">
+          <a href="/categoria/1">
             <p>Magic</p>
           </a>
-          <a href="##">
+          <a href="/categoria/2">
             <p>Pokémon</p>
           </a>
         </div>

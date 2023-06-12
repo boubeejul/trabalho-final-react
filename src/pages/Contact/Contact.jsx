@@ -10,31 +10,35 @@ export function Contact() {
                 <h3>Contato</h3>
 
                 <ContainerInput>
-
+                <form onSubmit={(e) => {
+                    e.preventDefault()
+                    }}>
                     <input
-                        type="text"
-                        id="yourName"
-                        name="name"
-                        placeholder="Seu Nome"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Seu email"
+                        required
                     ></input>
                     <input
                         type="text"
                         id="subject"
                         name="subject"
                         placeholder="Assunto"
+                        required
                     ></input>
 
-                    <MesageInput>
                     <textarea
                         type="text"
                         id="mesage"
                         className='mesage'
                         name="mesage"
                         placeholder="Digite sua mensagem"
+                        required
                     ></textarea>
-                    </MesageInput>
+                <button type="submit" onClick={() =>{ alert("Mensagem enviada!")}}>Enviar</button>
+                </form>
                 </ContainerInput>
-                <button>Enviar</button>
             </Container>
         </>
     )

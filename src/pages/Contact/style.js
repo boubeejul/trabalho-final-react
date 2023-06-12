@@ -23,21 +23,6 @@ export const Container = styled.div`
         margin-top: 5px;
     }   
 
-    button {
-        margin-top: 50px;
-        margin-bottom: 50px;
-        background-color: #ea4b12;
-        color: #fff;
-        width: 10%;
-        border-radius: 6px;
-        border: none;
-        padding: 10px;
-    }
-
-    button:hover {
-        background-color: #ea4b12;
-    }
-
     @media (max-width: 767px) {
         button {
             width: 20%;
@@ -64,6 +49,33 @@ export const ContainerInput = styled.div`
         border: none;
         width: 100%;
         height: 50px;
+    }
+
+    form {
+        width: 70%;
+
+        textarea {
+            width:100%;
+            padding: 15px;
+            padding-left: 0px 20px 0px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            background-color: #e9e9e9;
+            text-align: start;
+            border: none;
+            height: 179px;
+        }
+
+        button {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: #ea4b12;
+            color: #fff;
+            width: 40%;
+            border-radius: 6px;
+            border: none;
+            padding: 10px;
+        }
     }
     
     @media (max-width: 767px) {
