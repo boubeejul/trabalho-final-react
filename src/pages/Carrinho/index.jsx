@@ -1,7 +1,10 @@
+
 import { Container, Cart, CartProducts, Product, CartInfo } from "./style"
 import trashicon from "../../assets/trashicon.svg"
 import check from "../../assets/check.svg"
 import bag from "../../assets/bag.svg"
+import loguinho from "../../assets/carrinhovazio.jpg"
+
 import { useState, useEffect } from "react"
 
 export function Carrinho() {
@@ -9,11 +12,6 @@ export function Carrinho() {
     var total = 0
     var qntd = 0
     const [carrinho, setCarrinho] = sessionStorage.getItem("cart") != null ? (useState(JSON.parse(sessionStorage.getItem("cart")))) : (useState())
-
-    // useEffect(() => {
-    //     if(sessionStorage.getItem("cart") != null)
-    //         setCarrinho(JSON.parse(sessionStorage.getItem("cart")))
-    // }, [])
 
     useEffect(() => {
     }, [carrinho])
@@ -30,9 +28,9 @@ export function Carrinho() {
         if (products.length == 0)
             sessionStorage.removeItem("cart")
         else {
-            sessionStorage.setItem("cart", JSON.stringify(products))
+            sessionStorage.setItem("cart", JSON.stringify({ listaProdutos: products }))
         }
-        setCarrinho(products)
+        setCarrinho({ listaProdutos: products })
     }
 
     return (
@@ -44,7 +42,7 @@ export function Carrinho() {
                     <>
                         <CartProducts>
                             {carrinho.listaProdutos.map(produto => {
-                                total += parseFloat(produto.produto.valor)*parseInt(produto.produto.quantidade)
+                                total += parseFloat(produto.produto.valor) * parseInt(produto.produto.quantidade)
                                 qntd += parseInt(produto.produto.quantidade)
                                 return (
                                     <Product>
@@ -73,13 +71,16 @@ export function Carrinho() {
                                 <span><span>Frete: </span>grátis!</span>
                             </div>
                             <hr />
-
-                            <button><img src={check} />Finalizar compra</button>
+                            <a href="/pagamento">
+                                <button><img src={check} />Finalizar compra</button>
+                            </a>
                             <br />
-                            <button><img src={bag} />Continuar comprando</button>
+                            <a href="/">
+                                <button><img src={bag} />Continuar comprando</button>
+                            </a>
                         </CartInfo>
                     </>) : (
-                    <h1>Carrinho vazio</h1>
+                        <img src={loguinho}/>
                 )
                 }
             </Cart>

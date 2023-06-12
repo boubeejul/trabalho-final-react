@@ -12,11 +12,25 @@ export const Container = styled.main`
 `
 
 export const Cart = styled.div`
-    width: 80%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    padding-bottom: 50px;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    
+    img {
+        width: 100%;
+    }
+    @media (max-height: 1368px) {
+        margin-top: 120px;
+        margin-bottom: 120px;
+        padding-bottom: 120px;
+    }
+    @media (max-width: 767px) {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
 `
 
 export const CartProducts = styled.div`
@@ -24,6 +38,12 @@ export const CartProducts = styled.div`
     display: flex;
     flex-direction: column;
     gap: 25px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+
+        
+    }
 `
 
 export const Product = styled.div`
@@ -75,6 +95,42 @@ export const Product = styled.div`
             }
         }
     }
+
+    
+    @media (max-width: 767px) {
+        
+        img {
+            width: 50%;
+        }
+        
+        span {
+            font-size: 13px;
+            span {
+                font-size: 13px;
+                font-weight: bold;
+            }
+        }
+    }
+    @media (max-width: 376px) {
+        span {
+            font-size: 9px;
+            span {
+                font-size: 9px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    @media (max-width: 320px) {
+        span {
+            font-size: 7px;
+            span {
+                font-size: 7px;
+                font-weight: bold;
+            }
+        }
+    }
+    
 `
 
 export const CartInfo = styled.div`
@@ -122,6 +178,35 @@ export const CartInfo = styled.div`
 
         img {
             width: 20px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+
+    @media (max-width: 820px) {
+        #totalValue {
+            font-size: 16px;
+        }
+
+        #total {
+            font-size: 16px;
+        }
+        span {
+            color: #000;
+
+            span {
+                font-size: 15px;
+            }
+        }
+        
+    }
+
+    @media (max-width: 1024px) {
+        button {
+        width: 100%;
+
         }
     }
 `

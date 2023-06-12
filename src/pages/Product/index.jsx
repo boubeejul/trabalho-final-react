@@ -91,13 +91,13 @@ export function Product() {
       if (already) {
         for (var i = 0; i < updateCart.listaProdutos.length; i++) {
           if (updateCart.listaProdutos[i].produto.id_produto === id.id)
-              updateCart.listaProdutos[i] = {produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario}}
+            updateCart.listaProdutos[i] = { produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } }
 
         }
 
         // se não, acrescenta no carrinho
       } else {
-        updateCart.listaProdutos.push({produto: {id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario}})
+        updateCart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
 
       }
 
@@ -106,7 +106,7 @@ export function Product() {
 
       // se o carrinho estiver vazio
     } else {
-      cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario}})
+      cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
       sessionStorage.setItem("cart", JSON.stringify(cart))
     }
   }
@@ -117,7 +117,7 @@ export function Product() {
         {
           product.nome == null ? (
             <>
-              { 
+              {
                 setTimeout(
                   () => {
                     return (
