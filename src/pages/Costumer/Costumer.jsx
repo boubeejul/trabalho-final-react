@@ -13,77 +13,72 @@ export function Costumer() {
   const [isLoading, setIsLoading] = useState(true);
   var cadastrarResponse = [];
   var cadastrarError = [];
-  var userVer = JSON.parse(sessionStorage.getItem('user')).accessToken
-
-  var upEndereco;
 
   var newEndereco = {
     cep: "",
-    numero: "",
+    numero: ""
   };
 
   async function cadastrarEndereco() {
-    await axios
-      .post(
-        "https://trabalho-api-production.up.railway.app/enderecos",
-        newEndereco,
-        {
-          headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
-          },
-        }
-      )
-      .then((response) => {
-        cadastrarResponse = response;
-
-        async function updateCliente() {
-          var upCliente = {
-            ...userInfo.data,
-            endereco: { id_endereco: cadastrarResponse.data.id_endereco },
-          };
-          await axios.put(
-            "https://trabalho-api-production.up.railway.app/clientes",
-            upCliente,
-            {
-              headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
-              },
-            }
-          ).then((response) => {
-            location.reload()
+      await axios
+        .post(
+          "https://trabalho-api-production.up.railway.app/enderecos",
+          newEndereco,
+          {
+            headers: {
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+            },
           }
-          );
-        }
-
-        updateCliente();
-      })
-      .catch((error) => {
-        cadastrarError = error;
-        alert("Dados inválidos ou incompletos");
-      });
+        )
+        .then((response) => {
+          cadastrarResponse = response.data;
+          updateCliente();
+        })
+        .catch((error) => {
+          cadastrarError = error;
+          console.log(cadastrarError)
+          alert("Dados inválidos ou incompletos");
+        })
   }
 
-  async function atualizarEndereco() {
-    await axios
-      .put(
-        "https://trabalho-api-production.up.railway.app/enderecos",
-        upEndereco,
-        {
-          headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
-          },
-        }
-      )
-      .then((response) => {
-        cadastrarResponse = response;
-        location.reload();
-      })
-      .catch((error) => {
-        cadastrarError = error;
-        console.log(cadastrarError);
-        alert("Dados inválidos ou incompletos");
-      });
+  async function updateCliente() {
+    var upCliente = {
+      ...userInfo.data,
+      endereco: { id_endereco: cadastrarResponse.id_endereco },
+    };
+    await axios.put(
+      "https://trabalho-api-production.up.railway.app/clientes",
+      upCliente,
+      {
+        headers: {
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+        },
+      }
+    )
+    location.reload()
   }
+
+  // async function atualizarEndereco() {
+  //   await axios
+  //     .put(
+  //       "https://trabalho-api-production.up.railway.app/enderecos",
+  //       upEndereco,
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+  //         },
+  //       }
+  //     )
+  //     .then((response) => {
+  //       cadastrarResponse = response;
+  //       location.reload();
+  //     })
+  //     .catch((error) => {
+  //       cadastrarError = error;
+  //       console.log(cadastrarError);
+  //       alert("Dados inválidos ou incompletos");
+  //     });
+  // }
 
   if (sessionStorage.getItem("user") != null) {
     useEffect(() => {
@@ -101,7 +96,6 @@ export function Costumer() {
         );
         setUserInfo(getUserInfo);
         setIsLoading(false);
-        console.log(userVer)
       }
 
       getInfo();
@@ -195,18 +189,10 @@ export function Costumer() {
                 <button
                   type="submit"
                   onClick={() => {
-                    if (userInfo.data.endereco != null) {
-                      upEndereco = userInfo.data.endereco
-                      upEndereco.cep = document.querySelector("#cep").value;
-                      upEndereco.numero =
-                        document.querySelector("#numero").value;
-                      atualizarEndereco();
-                    } else {
-                      newEndereco.cep = document.querySelector("#cep").value;
-                      newEndereco.numero =
-                        document.querySelector("#numero").value;
-                      cadastrarEndereco();
-                    }
+                    newEndereco = userInfo.data.endereco
+                    newEndereco.cep = document.querySelector("#cep").value;
+                    newEndereco.numero = document.querySelector("#numero").value;
+                    cadastrarEndereco();
                   }}
                 >
                   Concluir
