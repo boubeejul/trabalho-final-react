@@ -68,4 +68,33 @@ export const TeamContainer = styled.div`
             font-size: 25px;
         }
     }
+    @media (max-width: 767px) {
+        margin-top: 10px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+        padding-bottom: 50px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        img {
+            width: 30%;
+            border-radius: 50%;
+        }
+
+        h2 {
+            text-align: center;
+            width: 100%;
+            font-size: 25px;
+        }
+    }
+    
+    }
 `
