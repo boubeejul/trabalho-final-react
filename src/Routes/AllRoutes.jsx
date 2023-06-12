@@ -9,6 +9,7 @@ import { Product } from "../pages/Product";
 import { ProductsByCategory } from "../pages/ProductsByCategory/ProductsByCategory";
 import { Footer } from "../global/components/Footer";
 import { Costumer } from "../pages/Costumer/Costumer";
+import { Carrinho } from "../pages/Carrinho";
 
 export function AllRoutes() {
   return (
@@ -22,6 +23,7 @@ export function AllRoutes() {
             <Route Component={Product} path={`/produtos/:id`} />
             <Route Component={ProductsByCategory} path={`/categoria/:id`} />
             <Route Component={Costumer} path={"/costumer"} />
+            <Route Component={Carrinho} path={"/cart"} />
           </Route>
           <Route Component={Login} path="/login" />
           <Route Component={Cadastro} path="/cadastro" />

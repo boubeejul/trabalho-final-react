@@ -100,7 +100,6 @@ export function Categories(props) {
             }}>Meus Dados</MenuItem>
           <MenuItem onClick={() => {
             sessionStorage.removeItem("user")
-            sessionStorage.removeItem("cart")
             window.location.href = "/"
           }}>Sair</MenuItem>
         </Menu>

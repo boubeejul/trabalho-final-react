@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
-    color: #fff;
+    color: #000;
   }
 
   h4 {
@@ -47,5 +47,14 @@ export const GlobalStyle = createGlobalStyle`
     background-color: rgb(234, 75, 18);
     margin-top: 10px;
   }
+
+  hr {
+        margin: 1rem 0;
+        color: #BABABA;
+        border: 0;
+        border-top: var(--bs-border-width) solid;
+        opacity: 0.25;
+        background-color: #bababa;
+    }
 `
 
