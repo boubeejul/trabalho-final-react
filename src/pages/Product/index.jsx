@@ -26,22 +26,8 @@ export function Product() {
       setProduct(product)
       setIsLoading(true)
     }
-
-    async function getCostumerId() {
-      var costumerEmail = JSON.parse(sessionStorage.getItem("user")).email
-      await axios.get(`https://trabalho-api-production.up.railway.app/clientes/info/${costumerEmail}`, {
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`
-        }
-      })
-        .then(response => {
-          setUserId(response.data.id_cliente)
-        })
-    }
-
-    fetchData()
-    getCostumerId()
-  }, [])
+      fetchData()
+    }, [])
 
   function moreProduct() {
 
@@ -60,7 +46,6 @@ export function Product() {
   }
 
   function verifyCart(updateCart) {
-    console.log(id.id)
     var isPresent =  false;
 
     for (var i = 0; i < updateCart.listaProdutos.length; i ++) {
@@ -77,7 +62,6 @@ export function Product() {
     var itemQuantity = document.querySelector("#qtd").value
 
     var cart = {
-      "id_cliente": "",
       "listaProdutos": []
   }
 
@@ -87,7 +71,6 @@ export function Product() {
 
       // percorre a lista de produtos para ver se o atual já está presente
       var already = verifyCart(updateCart)
-      console.log(already)
 
       // se o produto estiver lá, atualiza apenas a quantidade
       if (already) {
@@ -106,7 +89,6 @@ export function Product() {
 
     // se o carrinho estiver vazio
     } else {
-      cart.id_cliente = userId
       cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity } })
       sessionStorage.setItem("cart", JSON.stringify(cart))
     }
