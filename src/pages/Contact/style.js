@@ -37,6 +37,13 @@ export const Container = styled.div`
     button:hover {
         background-color: #ea4b12;
     }
+
+    @media (max-width: 767px) {
+        button {
+            width: 20%;
+        } 
+
+    }
 `
 
 export const ContainerInput = styled.div`
@@ -59,15 +66,24 @@ export const ContainerInput = styled.div`
         height: 50px;
     }
     
-    
+    @media (max-width: 767px) {
+
+        width: 60%;
+
+        input {
+            font-size: 13px;
+        }
+    }
 `
 
 export const MesageInput = styled.div`
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+
     textarea {
         width:100%;
         padding: 15px;
@@ -79,4 +95,11 @@ export const MesageInput = styled.div`
         border: none;
         height: 179px;
     }
+
+    @media (max-width: 767px) {
+
+        textarea {
+            font-size: 13px;
+        }
+}
 `
