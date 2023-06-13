@@ -64,7 +64,11 @@ export const ContainerTop = styled.div`
         border: none;
         margin: 5px;
         border-radius: 10px;
-        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px 10px 10px;
+        gap: 7px;
     }
 
     button:hover {
@@ -72,7 +76,6 @@ export const ContainerTop = styled.div`
         border: none;
         margin: 5px;
         border-radius: 10px;
-        padding: 5px;
     }
 
     @media (max-width: 767px) {

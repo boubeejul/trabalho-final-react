@@ -79,7 +79,7 @@ export function ProductsByCategory() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
               >
-                <img src={menu} alt="" /> <span>&ensp;&ensp;Ordenar</span>
+                <img src={menu} alt="" /> <span>Ordenar</span>
               </Button>
               <Menu
                 id="basic-menu"
