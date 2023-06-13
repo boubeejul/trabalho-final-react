@@ -94,7 +94,9 @@ export function Categories(props) {
             }
           }}
         >
-          <MenuItem>Meus Pedidos</MenuItem>
+          <MenuItem onClick={() => {
+            window.location.href = '/meuspedidos'
+          }}>Meus Pedidos</MenuItem>
           <MenuItem onClick={() => {
             window.location.href = "/costumer"
             }}>Meus Dados</MenuItem>

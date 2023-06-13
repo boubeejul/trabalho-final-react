@@ -18,8 +18,6 @@ export function Pagamento() {
   //Pegando as informações de cliente e fazendo a lista de produtos
   useEffect(() => {
     if (sessionStorage.getItem("user") != null) {
-      setUser(JSON.parse(sessionStorage.getItem("user")));
-
       async function getCliente() {
         const cliente = await axios.get(
           `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
