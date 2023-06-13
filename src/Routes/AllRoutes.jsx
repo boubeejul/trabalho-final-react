@@ -10,6 +10,7 @@ import { ProductsByCategory } from "../pages/ProductsByCategory/ProductsByCatego
 import { Footer } from "../global/components/Footer";
 import { Costumer } from "../pages/Costumer/Costumer";
 import { Carrinho } from "../pages/Carrinho";
+import { Pagamento } from "../pages/Pagamento";
 
 export function AllRoutes() {
   return (
@@ -24,6 +25,7 @@ export function AllRoutes() {
             <Route Component={ProductsByCategory} path={`/categoria/:id`} />
             <Route Component={Costumer} path={"/costumer"} />
             <Route Component={Carrinho} path={"/cart"} />
+            <Route Component={Pagamento} path={'/pagamento'} />
           </Route>
           <Route Component={Login} path="/login" />
           <Route Component={Cadastro} path="/cadastro" />
