@@ -29,7 +29,7 @@ export function ProductsByCategory() {
   useEffect(() => {
     async function fetchData() {
       const { data: products } = await axios.get(
-        `https://trabalho-api-production.up.railway.app/categorias/${category.id}`
+        `https://trabalho-api-production.up.railway.app/categorias/dto/${category.id}`
       );
       setCatProducts(products);
       setIsLoading(false);
@@ -115,12 +115,12 @@ export function ProductsByCategory() {
               <Link to={`/produtos/${product.id_produto}`} key={product.id_produto}>
                 <Product>
                   <img
-                    src={`https://trabalho-api-production.up.railway.app/upload/view/${product.arquivo.id_imagem}`}
+                    src={`https://trabalho-api-production.up.railway.app/upload/view/${product.id_imagem}`}
                     alt=""
                   />
                   <Info>
                     <span>{product.nome}</span>
-                    <span>R${product.valor_unitario}</span>
+                    <span>R${(product.valor_unitario).toFixed(2)}</span>
                   </Info>
                 </Product>
               </Link>
