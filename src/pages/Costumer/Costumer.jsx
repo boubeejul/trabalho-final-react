@@ -13,6 +13,7 @@ export function Costumer() {
   const [isLoading, setIsLoading] = useState(true);
   var cadastrarResponse = [];
   var cadastrarError = [];
+  const user = sessionStorage.getItem('user') != null ? (JSON.parse(sessionStorage.getItem("user"))) : (null)
 
   var newEndereco = {
     cep: "",
@@ -21,17 +22,9 @@ export function Costumer() {
 
   if (sessionStorage.getItem("user") != null) {
     useEffect(() => {
-      const user = JSON.parse(sessionStorage.getItem("user"));
-
       async function getInfo() {
         const getUserInfo = await axios.get(
-          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k",
-            },
-          }
+          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`
         );
         setUserInfo(getUserInfo);
         setIsLoading(false);
@@ -48,7 +41,7 @@ export function Costumer() {
           newEndereco,
           {
             headers: {
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k`,
+              Authorization: `Bearer ${user.accessToken}`,
             },
           }
         )
@@ -71,12 +64,7 @@ export function Costumer() {
     };
     await axios.put(
       "https://trabalho-api-production.up.railway.app/clientes",
-      upCliente,
-      {
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k`,
-        },
-      }
+      upCliente
     )
     location.reload()
   }

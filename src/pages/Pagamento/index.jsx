@@ -21,7 +21,7 @@ export function Pagamento() {
           `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
           {
             headers: {
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY2MTMyMzksImV4cCI6MTY4NjY5OTYzOX0.p03QAywUkG7oJqCkwIhQ0jH5qn5xOgQJhAYwz0pTM1Y`,
+              Authorization: `Bearer ${user.accessToken}`,
             },
             // ${user.accessToken}
           }
@@ -50,7 +50,7 @@ export function Pagamento() {
         },
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY2MTMyMzksImV4cCI6MTY4NjY5OTYzOX0.p03QAywUkG7oJqCkwIhQ0jH5qn5xOgQJhAYwz0pTM1Y`,
+            Authorization: `Bearer ${user.accessToken}`,
           },
           // ${user.accessToken}
         }
@@ -79,7 +79,7 @@ export function Pagamento() {
         criarPedido,
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY2MTMyMzksImV4cCI6MTY4NjY5OTYzOX0.p03QAywUkG7oJqCkwIhQ0jH5qn5xOgQJhAYwz0pTM1Y`,
+            Authorization: `Bearer ${user.accessToken}`,
           },
           // ${user.accessToken}
         }
