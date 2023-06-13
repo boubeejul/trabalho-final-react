@@ -16,6 +16,12 @@ export const Container = styled.header`
         justify-content: space-evenly;
         padding-left: 0;
     }
+    @media (max-width: 425px) {
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        gap: 100px;
+    }
 `
 
 export const Logo = styled.div`
@@ -69,6 +75,9 @@ export const SearchBar = styled.div`
         width: 25px;
         }
     }
+    @media (max-width: 425px) {
+        display: none;
+    }
     
 `
 
@@ -84,7 +93,7 @@ export const Costumer = styled.div`
     }
 
     @media (max-width: 767px) {
-        width: 40%;
+        width: 20%;
         gap: 10px;
         img {
         margin-right: 10px ;

@@ -86,10 +86,10 @@ export function Pagamento() {
       );
       // setPurchase(pedido.data);
 
-      cart.listaProdutos.forEach((item) => {
-        fazerItemPedido(item.produto, pedido.data.id_pedido);
+
+      for (const produto of cart.listaProdutos) {
+          await fazerItemPedido(produto.produto, pedido.data.id_pedido);
       }
-      )
       
     } catch (error) {
       console.log(error);
