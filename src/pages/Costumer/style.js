@@ -65,6 +65,14 @@ export const Adress = styled.div`
         flex-direction: column;
         width: 200px;
     }
+    @media (max-width: 767px) {
+        width: 100%;
+        flex-direction: column;
+        overflow: auto;
+        gap: 0;
+
+    
+}
 `
 
 export const NewAdress = styled.div `

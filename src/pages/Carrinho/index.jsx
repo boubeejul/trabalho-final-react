@@ -71,12 +71,16 @@ export function Carrinho() {
                                 <span><span>Frete: </span>grátis!</span>
                             </div>
                             <hr />
+                            {sessionStorage.getItem("user") == null ? (
+                                <button onClick={() => window.location.href = "/login"}><img src={check} />Finalizar compra</button>
+                            ) : (
                                 <button onClick={() => window.location.href = "/pagamento"}><img src={check} />Finalizar compra</button>
+                            )}
                             <br />
-                                <button onClick={() => window.location.href = "/"}><img src={bag} />Continuar comprando</button>
+                            <button onClick={() => window.location.href = "/"}><img src={bag} />Continuar comprando</button>
                         </CartInfo>
                     </>) : (
-                        <img src={loguinho}/>
+                    <img src={loguinho} />
                 )
                 }
             </Cart>
