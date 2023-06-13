@@ -39,31 +39,31 @@ export function Categories(props) {
             'aria-labelledby': 'basic-button',
           }}
           sx={{
-            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root' : {
-                padding: '10px 50px'
+            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
+              padding: '10px 50px'
             }
           }}
         >
-          <MenuItem onClick={handleClose}>
-            <a href={'/categoria/1'} className = 'links'>
+          <a href={'/categoria/1'} className='links'>
+            <MenuItem onClick={handleClose}>
               Magic
-            </a>
-          </MenuItem>
+            </MenuItem>
+          </a>
           <MenuItem onClick={handleClose}>
-            <a href={'/categoria/2'} className = 'links'>
+            <a href={'/categoria/2'} className='links'>
               Pokémon
             </a>
           </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <a href={'/categoria/3'} className = 'links'>
+          <a href={'/categoria/3'} className='links'>
+            <MenuItem onClick={handleClose}>
               Sleeves
-            </a>
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <a href={'/categoria/4'} className = 'links'>
+            </MenuItem>
+          </a>
+          <a href={'/categoria/4'} className='links'>
+            <MenuItem onClick={handleClose}>
               Deck Box
-            </a>
-          </MenuItem>
+            </MenuItem>
+          </a>
         </Menu>
       </>
     );
@@ -89,8 +89,8 @@ export function Categories(props) {
             'aria-labelledby': 'basic-button',
           }}
           sx={{
-            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root' : {
-                padding: '10px 15px'
+            '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root': {
+              padding: '10px 15px'
             },
             left: -30
           }}
@@ -100,7 +100,7 @@ export function Categories(props) {
           }}>Meus Pedidos</MenuItem>
           <MenuItem onClick={() => {
             window.location.href = "/costumer"
-            }}>Meus Dados</MenuItem>
+          }}>Meus Dados</MenuItem>
           <MenuItem onClick={() => {
             sessionStorage.removeItem("user")
             window.location.href = "/"

@@ -21,6 +21,11 @@ export const Container = styled.main`
         align-items: center;
         justify-content: center;
     }
+    a {
+        color: #000;
+        font-weight: bold;
+        margin-top: 20px;
+    }
 `
 
 export const InputsContainer = styled.div`

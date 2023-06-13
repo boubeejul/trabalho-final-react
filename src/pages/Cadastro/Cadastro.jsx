@@ -1,11 +1,12 @@
 import { Container, ContainerCadastro } from "./style";
 import logo from "../../assets/logo_header.png";
-
+import { AlertMessage } from "../../global/components/AlertMessage";
 import axios from "axios";
+import { useState } from "react";
 
 export function Cadastro() {
   var signupResponse = []; // retorno do cadastro
-  var signupResponseError = []; // retorno de erros
+  const [signupResponseError, setResponseError] = useState()
 
   var newUser = {
     username: "",
@@ -32,7 +33,7 @@ export function Cadastro() {
         signupResponse = response;
       })
       .catch((error) => {
-        signupResponseError = error;
+        setResponseError(error.response.data.message)
       });
 
     if (signupResponse.status == 200) {
@@ -121,6 +122,14 @@ export function Cadastro() {
           >
             Cadastrar
           </button>
+          <br />
+          {
+          signupResponseError != null ? (
+            <AlertMessage type="error" message={signupResponseError}/>
+          ) : (
+            null
+          )
+        }
         </form>
         <a href="/login">Fazer login</a>
       </ContainerCadastro>

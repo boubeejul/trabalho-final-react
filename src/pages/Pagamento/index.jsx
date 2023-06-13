@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, InputsContainer, Card, Info } from "./style.js";
 import axios from "axios";
+import { AlertMessage } from "../../global/components/AlertMessage/"
 
 export function Pagamento() {
   const [cart, setCart] =
@@ -12,19 +13,14 @@ export function Pagamento() {
       ? useState(JSON.parse(sessionStorage.getItem("user")))
       : useState();
   const [client, setClient] = useState({});
+  const [verify, setVerify] = useState(false);
 
   //Pegando as informações de cliente e fazendo a lista de produtos
   useEffect(() => {
     if (sessionStorage.getItem("user") != null) {
       async function getCliente() {
         const cliente = await axios.get(
-          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.accessToken}`,
-            },
-            // ${user.accessToken}
-          }
+          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`
         );
         setClient(cliente.data);
       }
@@ -95,12 +91,22 @@ export function Pagamento() {
       console.log(error);
     }
     sessionStorage.removeItem("cart")
-    alert("Pedido realizado com sucesso")
-    window.location.href = '/meuspedidos'
+    setVerify(true)
+    //window.location.href = '/meuspedidos'
   }
 
   return (
     <Container>
+      {
+            verify ? (
+              <>
+                <AlertMessage type="success" message="Pedido realizado com sucesso!"/>
+                <a href="/meuspedidos">Meus Pedidos</a>
+              </>
+            ) : (
+              null
+            )
+          }
       {sessionStorage.getItem("user") != null &&
       sessionStorage.getItem("cart") != null ? (
         <>

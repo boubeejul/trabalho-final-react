@@ -27,13 +27,14 @@ import ellipse2joao from '../../assets/Ellipse2joao.png'
 import ellipse2juliana from '../../assets/Ellipse2juliana.png'
 import ellipse2Romulo from '../../assets/Ellipse2Romulo.png'
 import ellipse2Maria from '../../assets/Ellipse2Maria.png'
+import {AlertMessage} from "../../global/components/AlertMessage/"
 
 export function Product() {
 
   var id = useParams();
   const [product, setProduct] = useState({})
   const [isLoading, setIsLoading] = useState(false)
-  const [userId, setUserId] = useState()
+  const [verify, setVerify] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
@@ -92,13 +93,15 @@ export function Product() {
         for (var i = 0; i < updateCart.listaProdutos.length; i++) {
           if (updateCart.listaProdutos[i].produto.id_produto === id.id)
             updateCart.listaProdutos[i] = { produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } }
-
+            setVerify(true)
+            break
         }
 
         // se não, acrescenta no carrinho
       } else {
         updateCart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
         document.querySelector("#itens").innerHTML = updateCart.listaProdutos.length
+        setVerify(true)
       }
 
       // atualiza sessionStorage
@@ -110,6 +113,7 @@ export function Product() {
       sessionStorage.setItem("cart", JSON.stringify(cart))
       document.querySelector("#cartItens").removeAttribute("hidden")
       document.querySelector("#itens").innerHTML = cart.listaProdutos.length
+      setVerify(true)
     }
 
   }
@@ -143,13 +147,21 @@ export function Product() {
                   <span>Escolha a quantidade</span>
                   <div className="quantity">
                     <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
-                    <input type="text" value="1" id="qtd" readOnly/>
+                    <input type="text" value="1" id="qtd" readOnly />
                     <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
                   </div>
                   <div className="finally">
                     <button className='addCart' onClick={() => document.querySelector("#qtd").value != 0 ? (addToCart()) : (null)}>Adicionar ao <ShoppingCartIcon fontSize="medium" /></button>
                   </div>
-                  <span id="added" hidden>Adicionado ao carrinho!</span>
+                  {
+                  verify ? (
+                    <>
+                      <AlertMessage type="success" message="Produto adicionado ao carrinho" />
+                    </>
+                  ) : (
+                    null
+                  )
+                }
                 </InfoContainer>
               </ProductContainer>
             </>
