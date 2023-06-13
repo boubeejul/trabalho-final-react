@@ -38,13 +38,7 @@ export function Cadastro() {
     if (signupResponse.status == 200) {
       await axios.post(
         "https://trabalho-api-production.up.railway.app/clientes",
-        newClient,
-        {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw",
-          },
-        }
+        newClient
       );
       alert("Cadastro realizado com sucesso!");
     }

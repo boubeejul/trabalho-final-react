@@ -40,7 +40,7 @@ export function Login() {
 
         {
           loginResponseError != null ? (
-            <AlertMessage/>
+            <AlertMessage type="error" message="Verifique usuário e senha!"/>
           ) : (
             null
           )
@@ -65,10 +65,12 @@ export function Login() {
 
           <button id="continue" type="submit"
             onClick={() => {
+              if(document.querySelector("#user").value != "" && document.querySelector("#password").value != "") {
                 verifyLogin(
                   document.querySelector("#user").value,
                   document.querySelector("#password").value
                 );
+              }
             }}
           >
             Continuar
