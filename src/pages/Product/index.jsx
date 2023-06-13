@@ -48,7 +48,7 @@ export function Product() {
 
     var quantity = document.querySelector("#qtd")
 
-    if (quantity.value < 9)
+    if (quantity.value < 9 && quantity.value < product.qtd_estoque)
       quantity.value++
   }
 

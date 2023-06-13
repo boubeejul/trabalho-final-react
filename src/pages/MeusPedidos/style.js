@@ -29,7 +29,8 @@ export const PedidosContainer = styled.div`
         width: 20vw;
         font-size: 3vh;
     }
-
+    
+    
     @media (max-width: 2560px) {
         width: 40%;
     }
@@ -38,15 +39,11 @@ export const PedidosContainer = styled.div`
     }
     @media (max-width: 1024px) {
         width: 100%;
-    }
+    }   
     @media (max-width: 768px) {
         width: 90%;
     }
-    @media (max-width: 425px) {
-        width: 90%;
-    }
-    
-    
+   
 `
 
 export const Pedido = styled.div`

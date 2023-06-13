@@ -1,10 +1,15 @@
 import { Container, ContainerLogin } from "./style";
 import logo from "../../assets/logo_header.png";
 import axios from "axios";
+import { AlertMessage } from "../../global/components/AlertMessage";
+import { useState } from "react";
 
 export function Login() {
-  var loginResponse = [];
-  var loginResponseError = [];
+  //var loginResponse = [];
+  //var loginResponseError = [];
+
+  const [loginResponseError, setResponseError] = useState()
+  var loginResponse = []
 
   async function verifyLogin(user, password) {
     await axios
@@ -13,19 +18,16 @@ export function Login() {
         password: password,
       })
       .then((response) => {
-        loginResponse = response;
+       loginResponse = response
       })
       .catch((error) => {
-        loginResponseError = error;
+        setResponseError(error)
       });
 
-    if (loginResponse.status == 200) {
-      sessionStorage.setItem("user", JSON.stringify(loginResponse.data));
-      alert("Login realizado com sucesso!");
-      window.location.href = "/";
-    } else if (loginResponseError.response.status == 401) {
-      alert("Verifique seu usuário e senha!");
-    }
+      if(loginResponse.status == 200) {
+        sessionStorage.setItem("user", JSON.stringify(loginResponse.data))
+        window.location.href = "/"
+      }
   }
 
   return (
@@ -36,6 +38,13 @@ export function Login() {
       <ContainerLogin>
         <h4>Login</h4>
 
+        {
+          loginResponseError != null ? (
+            <AlertMessage/>
+          ) : (
+            null
+          )
+        }
         <form onSubmit={(e) => {
           e.preventDefault()
         }}>
@@ -54,12 +63,8 @@ export function Login() {
             required
           ></input>
 
-          <button type="submit"
+          <button id="continue" type="submit"
             onClick={() => {
-              if (
-                document.querySelector("#user").value != "" &&
-                document.querySelector("#password").value != ""
-              )
                 verifyLogin(
                   document.querySelector("#user").value,
                   document.querySelector("#password").value

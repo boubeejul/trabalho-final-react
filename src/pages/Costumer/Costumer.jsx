@@ -19,6 +19,28 @@ export function Costumer() {
     numero: ""
   };
 
+  if (sessionStorage.getItem("user") != null) {
+    useEffect(() => {
+      const user = JSON.parse(sessionStorage.getItem("user"));
+
+      async function getInfo() {
+        const getUserInfo = await axios.get(
+          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
+          {
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k",
+            },
+          }
+        );
+        setUserInfo(getUserInfo);
+        setIsLoading(false);
+      }
+
+      getInfo();
+    }, []);
+  }
+
   async function cadastrarEndereco() {
       await axios
         .post(
@@ -32,6 +54,7 @@ export function Costumer() {
         )
         .then((response) => {
           cadastrarResponse = response.data;
+          console.log(response.data)
           updateCliente();
         })
         .catch((error) => {
@@ -56,28 +79,6 @@ export function Costumer() {
       }
     )
     location.reload()
-  }
-
-  if (sessionStorage.getItem("user") != null) {
-    useEffect(() => {
-      const user = JSON.parse(sessionStorage.getItem("user"));
-
-      async function getInfo() {
-        const getUserInfo = await axios.get(
-          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`,
-          {
-            headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k",
-            },
-          }
-        );
-        setUserInfo(getUserInfo);
-        setIsLoading(false);
-      }
-
-      getInfo();
-    }, []);
   }
 
   return (
@@ -167,7 +168,6 @@ export function Costumer() {
                 <button
                   type="submit"
                   onClick={() => {
-                    newEndereco = userInfo.data.endereco
                     newEndereco.cep = document.querySelector("#cep").value;
                     newEndereco.numero = document.querySelector("#numero").value;
                     cadastrarEndereco();

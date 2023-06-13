@@ -55,7 +55,7 @@ export const ContainerLogin = styled.div`
         text-decoration: underline;
     }
 
-    button {
+    #continue {
         margin-top: 40px;
         border-radius: 10px;
         background-color: #EA4B12;
@@ -74,7 +74,7 @@ export const ContainerLogin = styled.div`
     @media (min-width: 320px) {
         width: 90%;
 
-        button {
+        #continue {
             width: 40%;
         }
     }
@@ -82,7 +82,7 @@ export const ContainerLogin = styled.div`
     @media (min-width: 768px) {
         width: 60%;
 
-        button {
+        #continue {
             width: 30%;
         }
     }
@@ -90,7 +90,7 @@ export const ContainerLogin = styled.div`
     @media (min-width: 1200px) {
         width: 30%;
 
-        button {
+        #continue {
             width: 30%;
         }
     }
