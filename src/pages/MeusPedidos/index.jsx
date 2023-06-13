@@ -16,7 +16,7 @@ export function MeusPedidos() {
         `https://trabalho-api-production.up.railway.app/pedidos/cliente/${usuario.email}`,
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY2MTMyMzksImV4cCI6MTY4NjY5OTYzOX0.p03QAywUkG7oJqCkwIhQ0jH5qn5xOgQJhAYwz0pTM1Y`,
+            Authorization: `Bearer ${usuario.accessToken}`,
           },
           // ${user.accessToken}
         }
