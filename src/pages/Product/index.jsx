@@ -56,7 +56,7 @@ export function Product() {
 
     var quantity = document.querySelector("#qtd")
 
-    if (quantity.value > 0)
+    if (quantity.value > 1)
       quantity.value--
   }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.main`
     margin: auto;
-    width: 70%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,6 +54,7 @@ export const Product = styled.div`
     gap: 20px;
     border: 1px solid #E4E4E4;
     text-align: start;
+    justify-content: space-between;
 
     span {
         color: #000;
@@ -111,21 +112,26 @@ export const Product = styled.div`
             }
         }
     }
-    @media (max-width: 376px) {
+    @media (max-width: 425px) {
         span {
-            font-size: 9px;
+            font-size: 12px;
             span {
-                font-size: 9px;
+                font-size: 12px;
                 font-weight: bold;
             }
         }
+
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+
     }
 
     @media (max-width: 320px) {
         span {
-            font-size: 7px;
+            font-size: 12px;
             span {
-                font-size: 7px;
+                font-size: 12px;
                 font-weight: bold;
             }
         }
@@ -134,7 +140,7 @@ export const Product = styled.div`
 `
 
 export const CartInfo = styled.div`
-    width: 45%;
+    width: 35%;
     background-color: #F8F8F8;
     border: 1px solid #E4E4E4;
     display: flex;
@@ -152,6 +158,7 @@ export const CartInfo = styled.div`
     }
     span {
         color: #000;
+        font-size: 15px;
 
         span {
             font-weight: bold;

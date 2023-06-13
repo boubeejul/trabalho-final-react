@@ -49,6 +49,7 @@ export const InfoContainer = styled.div`
 
     span {
         color: #000000;
+        font-size: 16px;
 
         span {
             font-weight: bold;
