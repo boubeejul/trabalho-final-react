@@ -66,6 +66,19 @@ export function Header() {
           <button onClick={getFirst}>
             <img src={searchicon} alt=""></img>
           </button>
+          {
+            filteredData.length != 0 && (
+              <Itens>
+                {filteredData.map((item) => {
+                  return (
+                    <div>
+                      <a href={`/produtos/${item.id}`}>{item.nome}</a>
+                    </div>
+                  )
+                })}
+              </Itens>
+            )
+          }
         </SearchBar>
         <Costumer>
 
@@ -76,38 +89,25 @@ export function Header() {
                 <span id="itens">{JSON.parse(sessionStorage.getItem("cart")).listaProdutos.length}</span>
               </div>
             ) : (
-                  <div id="cartItens" hidden>
-                    <span id="itens"></span>
-                  </div>  
-                )}
-        </Cart>
+              <div id="cartItens" hidden>
+                <span id="itens"></span>
+              </div>
+            )}
+          </Cart>
 
 
-        {sessionStorage.getItem("user") == null ? (
-          <a href="/login">
-            <img src={login} alt=""></img>
-          </a>
-        ) : (
-          <Categories type=""></Categories>
-        )}
+          {sessionStorage.getItem("user") == null ? (
+            <a href="/login">
+              <img src={login} alt=""></img>
+            </a>
+          ) : (
+            <Categories type=""></Categories>
+          )}
 
-      </Costumer>
-    </Container >
+        </Costumer>
+      </Container >
       <Menu></Menu>
-  {
-    filteredData.length != 0 && (
-      <Itens>
-        {filteredData.map((item) => {
-          return (
-            <div>
-              <a href={`/produtos/${item.id}`}>{item.nome}</a>
-            </div>
-          )
-        })}
-      </Itens>
-    )
-  }
-  <Outlet />
+      <Outlet />
     </>
   );
 }

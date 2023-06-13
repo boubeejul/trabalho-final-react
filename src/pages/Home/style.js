@@ -123,6 +123,17 @@ export const Publi = styled.div`
         margin-top: 20px;
         width: 40%;
     }
+
+    @media (max-width: 768px) {
+
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 80%;
+        }
+
+    }
 `
 
 export const Comments = styled.div`

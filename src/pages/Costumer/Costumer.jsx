@@ -26,7 +26,7 @@ export function Costumer() {
           newEndereco,
           {
             headers: {
-              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+              Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k`,
             },
           }
         )
@@ -51,7 +51,7 @@ export function Costumer() {
       upCliente,
       {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k`,
         },
       }
     )
@@ -68,7 +68,7 @@ export function Costumer() {
           {
             headers: {
               Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY1MjIyNjQsImV4cCI6MTY4NjYwODY2NH0.49XapsPNb2Gdi0ypIOyrYl0jJEPq4Rw-o7FFkeI4ZHw",
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWl6IiwiaWF0IjoxNjg2NjE0MzUzLCJleHAiOjE2ODY3MDA3NTN9.h1RyldWgU3mTcDR47AFhcZoIrthIZ4tUNCCKG2YUM-k",
             },
           }
         );

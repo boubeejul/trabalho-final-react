@@ -11,7 +11,7 @@ export const Container = styled.div`
 `
 
 export const Wrap = styled.div`
-    width: 72%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
 

@@ -7,13 +7,13 @@ export function MeusPedidos() {
     sessionStorage.getItem("user") != null
       ? JSON.parse(sessionStorage.getItem("user"))
       : null;
-  const [cliente, setCliente] = useState({});
+  const [pedidos, setPedidos] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    async function getCliente() {
-      const newCliente = await axios.get(
-        `https://trabalho-api-production.up.railway.app/clientes/info/${usuario.email}`,
+    async function getPedidos() {
+      const newPedidos = await axios.get(
+        `https://trabalho-api-production.up.railway.app/pedidos/cliente/${usuario.email}`,
         {
           headers: {
             Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2FvYWRtaW4iLCJpYXQiOjE2ODY2MTMyMzksImV4cCI6MTY4NjY5OTYzOX0.p03QAywUkG7oJqCkwIhQ0jH5qn5xOgQJhAYwz0pTM1Y`,
@@ -21,11 +21,11 @@ export function MeusPedidos() {
           // ${user.accessToken}
         }
       );
-      setCliente(newCliente.data);
+      setPedidos(newPedidos.data);
       setIsLoading(true)
     }
     if (usuario != null) {
-      getCliente();
+      getPedidos();
     }
   }, []);
 
@@ -37,13 +37,13 @@ export function MeusPedidos() {
           <PedidosContainer>
             {
                 isLoading ? (
-                    cliente.pedidos.reverse().map(pedido => {
+                    pedidos.reverse().map(pedido => {
                         return(
                             <Pedido>
-                                <h1>Número do pedido: {pedido.id_pedido}</h1>
-                                <h1>Data do Pedido: {pedido.data_pedido}</h1>
-                                <h1>Status: {pedido.status}</h1>
-                                <h1>Valor: {pedido.valor_total}</h1>
+                                <span><span>Número do pedido:</span> {pedido.id_pedido}</span>
+                                <span><span>Data do Pedido: </span>{pedido.data_pedido}</span>
+                                <span><span>Status: </span>{pedido.status}</span>
+                                <span><span>Valor: </span>R${(pedido.valor_total).toFixed(2)}</span>
                             </Pedido>
                         )
                     })

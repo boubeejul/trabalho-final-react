@@ -91,7 +91,8 @@ export function Categories(props) {
           sx={{
             '.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root' : {
                 padding: '10px 15px'
-            }
+            },
+            left: -30
           }}
         >
           <MenuItem onClick={() => {

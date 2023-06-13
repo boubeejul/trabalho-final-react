@@ -12,8 +12,6 @@ export function Pagamento() {
       ? useState(JSON.parse(sessionStorage.getItem("user")))
       : useState();
   const [client, setClient] = useState({});
-  // const [purchase, setPurchase] = useState({});
-  // const [products, setProducts] = useState([]);
 
   //Pegando as informações de cliente e fazendo a lista de produtos
   useEffect(() => {
@@ -30,17 +28,6 @@ export function Pagamento() {
         );
         setClient(cliente.data);
       }
-
-      // function getProdutos() {
-      //   const lista = [];
-      //   cart.listaProdutos.forEach((item) => {
-      //     lista.push(item.produto);
-      //   });
-      //   setProducts(lista);
-      //   console.log(products)
-      // }
-
-      // getProdutos();
       getCliente();
     }
   }, []);
@@ -48,19 +35,17 @@ export function Pagamento() {
   //Função para criar ItemPedido
   async function fazerItemPedido(item, id) {
     try {
-      const itemPedido = await axios.post(
+      await axios.post(
         `https://trabalho-api-production.up.railway.app/itemPedidos`,
         {
-          quantidade: item.quantidade,
-          preco_venda: item.valor,
-          percentual_desconto: 0,
-          valor_bruto: item.valor*item.quantidade,
-          valor_liquido: item.quantidade * item.valor,
-          produto: {
-            id_produto: item.id_produto
+          "quantidade": item.quantidade,
+          "preco_venda": item.valor,
+          "percentual_desconto": 0,
+          "produto": {
+            "id_produto": item.id_produto
           },
-          pedido: {
-            id_pedido: id
+          "pedido": {
+            "id_pedido": id
           }
         },
         {
@@ -77,18 +62,16 @@ export function Pagamento() {
 
   //Função de criar pedido
   async function concluir() {
-    var valor = 0;
     var data = new Date;
-    var dataString = `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}-${data.getDate()+1}`
-    cart.listaProdutos.forEach((item) => {
-      valor += item.produto.valor * item.produto.quantidade;
-    });
+    var dataString = `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}-${data.getDate()}`
     const criarPedido = {
-        data_pedido: dataString,
-        data_envio: dataString,
-        data_entrega: dataString,
-        status: "Separação",
-        cliente: { id_cliente: client.id_cliente }
+        "data_pedido": dataString,
+        "data_envio": dataString,
+        "data_entrega": dataString,
+        "status": "Separação",
+        "cliente": { 
+            "id_cliente": client.id_cliente 
+          }
       }
     try {
       const pedido = await axios.post(
@@ -111,6 +94,9 @@ export function Pagamento() {
     } catch (error) {
       console.log(error);
     }
+    sessionStorage.removeItem("cart")
+    alert("Pedido realizado com sucesso")
+    window.location.href = '/meuspedidos'
   }
 
   return (
@@ -144,7 +130,7 @@ export function Pagamento() {
               />
             </Info>
           </InputsContainer>
-          <button onClick={concluir}>
+          <button onClick={() => concluir()}>
             <span>Concluir</span>
           </button>
         </>

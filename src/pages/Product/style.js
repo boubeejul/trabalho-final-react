@@ -43,6 +43,10 @@ export const InfoContainer = styled.div`
     text-align: center;
     gap: 20px;
 
+    #added {
+        font-weight: bolder;
+    }
+
     span {
         color: #000000;
 

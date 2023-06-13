@@ -71,13 +71,9 @@ export function Carrinho() {
                                 <span><span>Frete: </span>grátis!</span>
                             </div>
                             <hr />
-                            <a href="/pagamento">
-                                <button><img src={check} />Finalizar compra</button>
-                            </a>
+                                <button onClick={() => window.location.href = "/pagamento"}><img src={check} />Finalizar compra</button>
                             <br />
-                            <a href="/">
-                                <button><img src={bag} />Continuar comprando</button>
-                            </a>
+                                <button onClick={() => window.location.href = "/"}><img src={bag} />Continuar comprando</button>
                         </CartInfo>
                     </>) : (
                         <img src={loguinho}/>

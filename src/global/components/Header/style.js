@@ -5,12 +5,17 @@ export const Container = styled.header`
     height: 130px;
     display: flex;
     background-color: rgb(0, 0, 0);
-    justify-content: space-around;
+    justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
-    padding-right: 12%;
+    padding-right: 15%;
     padding-top: 5px;
-    padding-left: 8%;
+    padding-left: 10%;
+
+    @media (max-width: 768px) {
+        justify-content: space-evenly;
+        padding-left: 0;
+    }
 `
 
 export const Logo = styled.div`
@@ -20,15 +25,16 @@ export const Logo = styled.div`
         cursor: pointer;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 425px) {
         img {
             width: 80px;
         }
     }
+    
 `
 
 export const SearchBar = styled.div`
-    width: 30%;
+    width: 35%;
     display: flex;
     gap: 15px;
     align-items: center;
@@ -88,16 +94,14 @@ export const Costumer = styled.div`
 `
 export const Itens = styled.div`
     position: absolute;
-    top: 90px;
-    left: 38.4%;
-    min-width: 21.4%;
+    top: 44px;
+    width: 90%;
     max-height: 300px;
     background-color: white;
     z-index: 1;
-    overflow: auto;
-    overflow-x: hidden;
+    overflow: hidden auto;
     border-radius: 5px;
-    box-shadow: 2px 2px #646464;
+    box-shadow: rgb(100, 100, 100) 2px 2px;
     padding: 10px;
 
     ::-webkit-scrollbar {
@@ -130,6 +134,19 @@ export const Itens = styled.div`
     }
     div:hover {
         background-color: #d9d9d9;
+    }
+
+    @media (min-width: 768px) {
+        width: 82%;
+    }
+    @media (min-width: 1024px) {
+        width: 85%;
+    }
+    @media (min-width: 1440px) {
+        width: 90%;
+    }
+    @media (min-width: 2560px) {
+        width: 94%;
     }
 `
 

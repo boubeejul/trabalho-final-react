@@ -50,7 +50,7 @@ export const Adress = styled.div`
     flex-direction: row;
     padding: 15px 30px;
     border-radius: 10px;
-    gap: 200px;
+    gap: 100px;
 
     span {
         color: rgb(45, 45, 45);
@@ -63,6 +63,7 @@ export const Adress = styled.div`
     div {
         display: flex;
         flex-direction: column;
+        width: 200px;
     }
 `
 

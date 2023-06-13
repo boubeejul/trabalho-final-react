@@ -18,12 +18,12 @@ export const Cart = styled.div`
     margin-top: 60px;
     margin-bottom: 60px;
     padding-bottom: 60px;
+    gap: 50px;
     
     img {
         width: 100%;
     }
     @media (max-height: 1368px) {
-        margin-top: 120px;
         margin-bottom: 120px;
         padding-bottom: 120px;
     }

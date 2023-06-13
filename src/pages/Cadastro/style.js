@@ -60,7 +60,6 @@ export const ContainerCadastro = styled.div`
         background-color: #EA4B12;
         color: #FFF;
         font-size: 15px;
-        font-weight: bold;
         border: none;
         padding: 10px;
     }
@@ -91,7 +90,7 @@ export const ContainerCadastro = styled.div`
         width: 30%;
 
         button {
-            width: 20%;
+            width: 30%;
         }
     }
 `

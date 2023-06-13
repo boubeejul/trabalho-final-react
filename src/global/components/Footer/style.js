@@ -70,9 +70,11 @@ export const ContainerInfo = styled.div`
         flex-direction: column;
         width: 90%;
         gap: 30px;
+        text-align: center;
+        align-items: center;
 
         h3:after {
-            width: 40%;
+            width: 100%;
         }
     }
 `

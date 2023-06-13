@@ -68,7 +68,7 @@ export function Cadastro() {
             type="password"
             id="password"
             name="password"
-            placeholder="Senha"
+            placeholder="Senha (mínimo 8 dígitos)"
             required
           ></input>
           <input

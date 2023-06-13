@@ -98,7 +98,7 @@ export function Product() {
         // se não, acrescenta no carrinho
       } else {
         updateCart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
-
+        document.querySelector("#itens").innerHTML = updateCart.listaProdutos.length
       }
 
       // atualiza sessionStorage
@@ -143,12 +143,13 @@ export function Product() {
                   <span>Escolha a quantidade</span>
                   <div className="quantity">
                     <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
-                    <input type="text" value="0" id="qtd" readOnly/>
+                    <input type="text" value="1" id="qtd" readOnly/>
                     <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
                   </div>
                   <div className="finally">
                     <button className='addCart' onClick={() => document.querySelector("#qtd").value != 0 ? (addToCart()) : (null)}>Adicionar ao <ShoppingCartIcon fontSize="medium" /></button>
                   </div>
+                  <span id="added" hidden>Adicionado ao carrinho!</span>
                 </InfoContainer>
               </ProductContainer>
             </>

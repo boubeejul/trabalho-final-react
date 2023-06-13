@@ -28,7 +28,7 @@ export const ContainerLogin = styled.div`
     input {
         margin-top: 36px;
         background-color: #e9e9e9;
-        height: 10%;
+        height: 50px;
         width: 60%;
         padding: 20px;
         border: none;
@@ -47,7 +47,8 @@ export const ContainerLogin = styled.div`
         color: #000;
         font-size: 15px;
         font-weight: bold;
-        margin-bottom: 30px;
+        padding-bottom: 30px;
+        margin-top: 30px;
     }
 
     a:hover {
@@ -60,7 +61,6 @@ export const ContainerLogin = styled.div`
         background-color: #EA4B12;
         color: #FFF;
         font-size: 15px;
-        font-weight: bold;
         border: none;
         padding: 10px;
     }
@@ -91,7 +91,7 @@ export const ContainerLogin = styled.div`
         width: 30%;
 
         button {
-            width: 20%;
+            width: 30%;
         }
     }
 `
