@@ -322,7 +322,7 @@ export const TableUsers = styled.div`
         height: 50px;
     }
 }
-    @media (max-width: 1440px) {
+    @media (max-width: 1600px) {
         img {
         width: 100px;
         height: 100px;

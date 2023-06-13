@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { Container, Logo, SearchBar, Costumer, Itens, Cart } from "./style";
 import logo from "../../../assets/logo_header.png";
@@ -68,44 +68,46 @@ export function Header() {
           </button>
         </SearchBar>
         <Costumer>
-          
+
           <Cart>
             <Link to="/cart"><img src={cart} alt=""></img></Link>
-
-              { sessionStorage.getItem("cart") != null ? (
-                <div id="cartItens">
+            {sessionStorage.getItem("cart") != null ? (
+              <div id="cartItens">
                 <span id="itens">{JSON.parse(sessionStorage.getItem("cart")).listaProdutos.length}</span>
-                </div>
-              ) : (
-                null
-              )}
-            
-          </Cart>
-          
+              </div>
+            ) : (
+                  <div id="cartItens" hidden>
+                    <span id="itens"></span>
+                  </div>  
+                )}
+        </Cart>
 
-          {sessionStorage.getItem("user") == null ? (
-            <a href="/login">
-              <img src={login} alt=""></img>
-            </a>
-          ) : (
-            <Categories type=""></Categories>
-          )}
 
-        </Costumer>
-      </Container>
+        {sessionStorage.getItem("user") == null ? (
+          <a href="/login">
+            <img src={login} alt=""></img>
+          </a>
+        ) : (
+          <Categories type=""></Categories>
+        )}
+
+      </Costumer>
+    </Container >
       <Menu></Menu>
-      {filteredData.length != 0 && (
-        <Itens>
-          {filteredData.map((item) => {
-            return (
+  {
+    filteredData.length != 0 && (
+      <Itens>
+        {filteredData.map((item) => {
+          return (
             <div>
               <a href={`/produtos/${item.id}`}>{item.nome}</a>
             </div>
-            )
-          })}
-        </Itens>
-      )}
-      <Outlet />
+          )
+        })}
+      </Itens>
+    )
+  }
+  <Outlet />
     </>
   );
 }

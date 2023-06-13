@@ -108,7 +108,10 @@ export function Product() {
     } else {
       cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
       sessionStorage.setItem("cart", JSON.stringify(cart))
+      document.querySelector("#cartItens").removeAttribute("hidden")
+      document.querySelector("#itens").innerHTML = cart.listaProdutos.length
     }
+
   }
 
   return (
@@ -140,7 +143,7 @@ export function Product() {
                   <span>Escolha a quantidade</span>
                   <div className="quantity">
                     <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
-                    <input type="text" placeholder="0" id="qtd" />
+                    <input type="text" value="0" id="qtd" readOnly/>
                     <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
                   </div>
                   <div className="finally">
