@@ -39,7 +39,9 @@ export function MeusPedidos() {
                 isLoading ? (
                     pedidos.reverse().map(pedido => {
                         return(
-                            <Pedido>
+                            <Pedido onClick={() => {
+                              window.location.href = `/meuspedidos/${pedido.id_pedido}`
+                            }}>
                                 <span><span>Número do pedido:</span> {pedido.id_pedido}</span>
                                 <span><span>Data do Pedido: </span>{pedido.data_pedido}</span>
                                 <span><span>Status: </span>{pedido.status}</span>
