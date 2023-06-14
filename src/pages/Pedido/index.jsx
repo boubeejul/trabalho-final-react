@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Container, PedidoContainer, Produtos, Produto, Info } from "./style";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { clientes, pedidosApi } from "../services/api";
 
 export function Pedido() {
   const id = useParams();
@@ -15,16 +15,13 @@ export function Pedido() {
 
   useEffect(() => {
     async function getCliente() {
-      const newCliente = await axios.get(
-        `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`
-      );
+      const newCliente = await clientes.get(`/info/${user.email}`);
       setCliente(newCliente.data);
     }
 
     async function getPedidos() {
       try {
-        const newPedidos = await axios.get(
-          `https://trabalho-api-production.up.railway.app/pedidos/dto`,
+        const newPedidos = await pedidosApi.get(`/dto`,
           {
             headers: {
               Authorization: `Bearer ${user.accessToken}`,

@@ -6,15 +6,14 @@ import {
   NewAdress,
 } from "./style";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { AlertMessage } from "../../global/components/AlertMessage";
+import { clientes, api } from "../services/api";
 
 export function Costumer() {
   const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [verify, setVerify] = useState(true);
   var cadastrarResponse = [];
-  var cadastrarError = [];
   const user = sessionStorage.getItem('user') != null ? (JSON.parse(sessionStorage.getItem("user"))) : (null)
 
   var newEndereco = {
@@ -25,8 +24,8 @@ export function Costumer() {
   if (sessionStorage.getItem("user") != null) {
     useEffect(() => {
       async function getInfo() {
-        const getUserInfo = await axios.get(
-          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`
+        const getUserInfo = await clientes.get(
+          `/info/${user.email}`
         );
         setUserInfo(getUserInfo);
         setIsLoading(false);
@@ -37,9 +36,9 @@ export function Costumer() {
   }
 
   async function cadastrarEndereco() {
-    await axios
+    await api
       .post(
-        "https://trabalho-api-production.up.railway.app/enderecos",
+        "/enderecos",
         newEndereco,
         {
           headers: {
@@ -62,8 +61,8 @@ export function Costumer() {
       ...userInfo.data,
       endereco: { id_endereco: cadastrarResponse.id_endereco },
     };
-    await axios.put(
-      "https://trabalho-api-production.up.railway.app/clientes",
+    await api.put(
+      "/clientes",
       upCliente
     )
     location.reload()

@@ -50,7 +50,7 @@ export function Carrinho() {
                                 qntd += parseInt(produto.produto.quantidade)
                                 return (
                                     <Product>
-                                        <img src={`https://trabalho-api-production.up.railway.app/upload/view/${produto.produto.id_imagem}`} />
+                                        <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${produto.produto.id_imagem}`} />
                                         <div className="productInfo">
                                             <div>
                                                 <span><span>{produto.produto.nome}</span></span>

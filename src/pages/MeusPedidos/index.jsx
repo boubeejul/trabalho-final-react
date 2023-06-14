@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, PedidosContainer, Pedido } from "./style";
-import axios from "axios";
+import { pedidosApi } from "../services/api";
 
 export function MeusPedidos() {
   const usuario =
@@ -12,8 +12,8 @@ export function MeusPedidos() {
 
   useEffect(() => {
     async function getPedidos() {
-      const newPedidos = await axios.get(
-        `https://trabalho-api-production.up.railway.app/pedidos/cliente/${usuario.email}`,
+      const newPedidos = await pedidosApi.get(
+        `/cliente/${usuario.email}`,
         {
           headers: {
             Authorization: `Bearer ${usuario.accessToken}`,

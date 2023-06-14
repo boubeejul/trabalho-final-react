@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
 import * as React from 'react';
-import { Footer } from "../../global/components/Footer";
 import { useState, useEffect } from "react";
 import { Container, Product, Wrap, Info, ContainerTop } from "./style";
-import axios from "axios";
 import { Link } from "react-router-dom";
-
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import menu from '../../assets/down.png'
+import { categorias } from "../services/api";
 
 export function ProductsByCategory() {
   const category = useParams();
@@ -28,9 +26,7 @@ export function ProductsByCategory() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data: products } = await axios.get(
-        `https://trabalho-api-production.up.railway.app/categorias/dto/${category.id}`
-      );
+      const { data: products } = await categorias.get(`/dto/${category.id}`);
       setCatProducts(products);
       setIsLoading(false);
     }
@@ -115,7 +111,7 @@ export function ProductsByCategory() {
               <Link to={`/produtos/${product.id_produto}`} key={product.id_produto}>
                 <Product>
                   <img
-                    src={`https://trabalho-api-production.up.railway.app/upload/view/${product.id_imagem}`}
+                    src={`https://trabalho-api-production.up.railway.app/api/upload/view/${product.id_imagem}`}
                     alt=""
                   />
                   <Info>

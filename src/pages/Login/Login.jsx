@@ -1,8 +1,8 @@
 import { Container, ContainerLogin } from "./style";
 import logo from "../../assets/logo_header.png";
-import axios from "axios";
 import { AlertMessage } from "../../global/components/AlertMessage";
 import { useState, useRef } from "react";
+import { apiAuth } from "../services/api";
 
 export function Login() {
   const [loginResponseError, setResponseError] = useState()
@@ -11,8 +11,8 @@ export function Login() {
   const passwordRef = useRef(null)
 
   async function verifyLogin(user, password) {
-    await axios
-      .post("https://trabalho-api-production.up.railway.app/auth/signin", {
+    await apiAuth
+      .post("/signin", {
         username: user,
         password: password,
       })

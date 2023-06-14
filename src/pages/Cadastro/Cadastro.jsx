@@ -1,8 +1,8 @@
 import { Container, ContainerCadastro } from "./style";
 import logo from "../../assets/logo_header.png";
 import { AlertMessage } from "../../global/components/AlertMessage";
-import axios from "axios";
 import { useState, useRef } from "react";
+import { apiAuth, api } from "../services/api";
 
 export function Cadastro() {
   var signupResponse = []; // retorno do cadastro
@@ -32,9 +32,9 @@ export function Cadastro() {
   };
 
   async function signUp() {
-    await axios
+    await apiAuth
       .post(
-        "https://trabalho-api-production.up.railway.app/auth/signup",
+        "/signup",
         newUser
       )
       .then((response) => {
@@ -45,8 +45,8 @@ export function Cadastro() {
       });
 
     if (signupResponse.status == 200) {
-      await axios.post(
-        "https://trabalho-api-production.up.railway.app/clientes",
+      await api.post(
+        "/clientes",
         newClient
       );
       setVerify(true)

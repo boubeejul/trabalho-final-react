@@ -15,7 +15,6 @@ import {
   TitleComent
 } from "./style";
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -28,6 +27,7 @@ import ellipse2juliana from '../../assets/Ellipse2juliana.png'
 import ellipse2Romulo from '../../assets/Ellipse2Romulo.png'
 import ellipse2Maria from '../../assets/Ellipse2Maria.png'
 import { AlertMessage } from "../../global/components/AlertMessage/"
+import { produtos } from "../services/api";
 
 export function Product() {
 
@@ -39,7 +39,7 @@ export function Product() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data: product } = await axios.get(`https://trabalho-api-production.up.railway.app/produtos/${id.id}`)
+      const { data: product } = await produtos.get(`/${id.id}`)
       setProduct(product)
       setIsLoading(true)
     }
@@ -149,7 +149,7 @@ export function Product() {
             <>
               <ProductContainer>
                 <ImageContainer>
-                  <img src={`https://trabalho-api-production.up.railway.app/upload/view/${product.arquivo.id_imagem}`} alt="" />
+                  <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${product.arquivo.id_imagem}`} alt="" />
                 </ImageContainer>
                 <InfoContainer>
                   <h4>{product.nome}</h4>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, InputsContainer, Card, Info } from "./style.js";
 import axios from "axios";
 import { AlertMessage } from "../../global/components/AlertMessage/"
+import { clientes, api} from "../services/api.js";
 
 export function Pagamento() {
   const [cart, setCart] =
@@ -19,8 +20,8 @@ export function Pagamento() {
   useEffect(() => {
     if (sessionStorage.getItem("user") != null) {
       async function getCliente() {
-        const cliente = await axios.get(
-          `https://trabalho-api-production.up.railway.app/clientes/info/${user.email}`
+        const cliente = await clientes.get(
+          `/info/${user.email}`
         );
         setClient(cliente.data);
       }
@@ -31,8 +32,8 @@ export function Pagamento() {
   //Função para criar ItemPedido
   async function fazerItemPedido(item, id) {
     try {
-      await axios.post(
-        `https://trabalho-api-production.up.railway.app/itemPedidos`,
+      await api.post(
+        `/itemPedidos`,
         {
           "quantidade": item.quantidade,
           "preco_venda": item.valor,
@@ -72,8 +73,8 @@ export function Pagamento() {
             }
         }
       try {
-        const pedido = await axios.post(
-          `https://trabalho-api-production.up.railway.app/pedidos`,
+        const pedido = await api.post(
+          `/pedidos`,
           criarPedido,
           {
             headers: {

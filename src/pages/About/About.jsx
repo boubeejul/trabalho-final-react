@@ -1,5 +1,4 @@
 import {Container, TeamContainer, TextContainer} from './style'
-import { Footer } from "../../global/components/Footer";
 
 
 export function About() {

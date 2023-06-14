@@ -1,11 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "./style.css"
-import { apiCards } from "../../services/api"
+import { produtos } from "../../services/api"
 
 // import required modules
 import { Navigation } from "swiper";;
@@ -16,7 +15,7 @@ export function Slider(props) {
 
   useEffect(() => {
     async function fetchData() {
-      let { data: cards } = await apiCards.get("https://trabalho-api-production.up.railway.app/produtos/dto");
+      let { data: cards } = await produtos.get("/dto");
       
       const filteredCards = cards.filter(card => card.categoriaProdDto.nome === props.category); 
       setCards(filteredCards);
@@ -78,7 +77,7 @@ export function Slider(props) {
           cards.map(card => {
             return (
                 <SwiperSlide>
-                  <a href={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/upload/view/${card.id_imagem}`} /></a>
+                  <a href={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${card.id_imagem}`} /></a>
                 </SwiperSlide>
             )
           })
