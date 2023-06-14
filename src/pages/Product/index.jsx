@@ -35,6 +35,7 @@ export function Product() {
   const [product, setProduct] = useState({})
   const [isLoading, setIsLoading] = useState(false)
   const [verify, setVerify] = useState(false)
+  var quantidade = 0;
 
   useEffect(() => {
     async function fetchData() {
@@ -94,28 +95,38 @@ export function Product() {
           if (updateCart.listaProdutos[i].produto.id_produto === id.id)
             updateCart.listaProdutos[i] = { produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } }
           setVerify(true)
-          break
+          sessionStorage.setItem("cart", JSON.stringify(updateCart))
         }
 
         // se não, acrescenta no carrinho
       } else {
         updateCart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
-        document.querySelector("#itens").innerHTML = updateCart.listaProdutos.length
+        // document.querySelector("#itens").innerHTML = updateCart.listaProdutos.length
+        sessionStorage.setItem("cart", JSON.stringify(updateCart))
         setVerify(true)
       }
 
       // atualiza sessionStorage
-      sessionStorage.setItem("cart", JSON.stringify(updateCart))
 
       // se o carrinho estiver vazio
     } else {
       cart.listaProdutos.push({ produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } })
       sessionStorage.setItem("cart", JSON.stringify(cart))
       document.querySelector("#cartItens").removeAttribute("hidden")
-      document.querySelector("#itens").innerHTML = cart.listaProdutos.length
+      // document.querySelector("#itens").innerHTML = cart.listaProdutos.length
       setVerify(true)
     }
 
+    if(sessionStorage.getItem('cart') != null) {
+      let total = 0
+      JSON.parse(sessionStorage.getItem('cart')).listaProdutos.forEach(prod => {
+        total += parseInt(prod.produto.quantidade);
+      })
+      quantidade = total
+    } else {
+      quantidade = 0
+    }
+    document.querySelector("#itens").innerHTML = quantidade
   }
 
   return (

@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 export function Header() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [quantidade, setQuantidade] = useState(0)
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +24,18 @@ export function Header() {
     }
     fetchData();
   }, []);
+
+  useEffect(()=> {
+    if(sessionStorage.getItem('cart') != null) {
+      let total = 0
+      JSON.parse(sessionStorage.getItem('cart')).listaProdutos.forEach(prod => {
+        total += parseInt(prod.produto.quantidade);
+      })
+      setQuantidade(total)
+    } else {
+      setQuantidade(0)
+    }
+  },[sessionStorage.getItem('cart')])
 
   const handleFilter = (event) => {
     var word = event.target.value
@@ -86,7 +99,7 @@ export function Header() {
             <Link to="/cart"><img src={cart} alt=""></img></Link>
             {sessionStorage.getItem("cart") != null ? (
               <div id="cartItens">
-                <span id="itens">{JSON.parse(sessionStorage.getItem("cart")).listaProdutos.length}</span>
+                <span id="itens">{quantidade}</span>
               </div>
             ) : (
               <div id="cartItens" hidden>

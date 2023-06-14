@@ -61,8 +61,8 @@ export function Carrinho() {
                                                 <span><span>Quantidade: </span>{produto.produto.quantidade}</span>
                                             </div>
                                         </div>
-                                        <div className="productDelete" onClick={() => removeProduct(produto.produto.id_produto)}>
-                                            <img src={trashicon} />
+                                        <div className="productDelete" >
+                                            <img src={trashicon} onClick={() => removeProduct(produto.produto.id_produto)}/>
                                         </div>
                                     </Product>
                                 )
