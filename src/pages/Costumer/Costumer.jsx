@@ -14,6 +14,7 @@ export function Costumer() {
   const [isLoading, setIsLoading] = useState(true);
   const [verify, setVerify] = useState(true);
   var cadastrarResponse = [];
+  var cadastrarError =[];
   const user = sessionStorage.getItem('user') != null ? (JSON.parse(sessionStorage.getItem("user"))) : (null)
 
   var newEndereco = {
