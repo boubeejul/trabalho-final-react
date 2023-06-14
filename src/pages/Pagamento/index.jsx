@@ -66,7 +66,7 @@ export function Pagamento() {
           "data_pedido": dataString,
           "data_envio": dataString,
           "data_entrega": dataString,
-          "status": "Separação",
+          "status": RandomStatus(),
           "cliente": { 
               "id_cliente": client.id_cliente 
             }
@@ -97,6 +97,26 @@ export function Pagamento() {
       //window.location.href = '/meuspedidos'
     } else {
       window.location.href = "/costumer"
+    }
+  }
+
+  function RandomStatus() {
+    let al = Math.floor(Math.random()*4)
+    switch (al) {
+      case 0:
+        return 'Separação';
+        break;
+      case 1:
+        return 'Enviado';
+        break
+      case 2:
+        return 'Entregue'
+        break;
+      case 3:
+        return 'Cancelado'
+        break;
+      default:
+        return 'Que loucura!'
     }
   }
 

@@ -13,6 +13,7 @@ import { Carrinho } from "../pages/Carrinho";
 import { Pagamento } from "../pages/Pagamento";
 import { MeusPedidos } from "../pages/MeusPedidos";
 import { Pedido } from "../pages/Pedido";
+import { NotFound } from "../pages/NotFound";
 
 export function AllRoutes() {
   return (
@@ -30,6 +31,7 @@ export function AllRoutes() {
             <Route Component={Pagamento} path={'/pagamento'} />
             <Route Component={MeusPedidos} path={'/meuspedidos'} />
             <Route Component={Pedido} path={'/meuspedidos/:id'} />
+            <Route Component={NotFound} path={'/*'}/>
           </Route>
           <Route Component={Login} path="/login" />
           <Route Component={Cadastro} path="/cadastro" />
