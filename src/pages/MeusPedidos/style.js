@@ -69,7 +69,7 @@ export const Pedido = styled.div`
     @media (max-width: 2560px) {
         width: 75%;
     }
-    @media (max-width: 425px) {
+    @media (max-width: 540px) {
         flex-direction: column;
         gap: 5px;
     }

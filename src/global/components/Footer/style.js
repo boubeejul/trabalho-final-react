@@ -31,6 +31,7 @@ export const Container = styled.footer`
 @media (max-width: 767px) {
         
         p{
+            text-align: center;
             margin: 0;
         }
 

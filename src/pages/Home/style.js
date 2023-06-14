@@ -148,7 +148,7 @@ export const Comments = styled.div`
     justify-content: space-between;
     background-image: url(https://cdn.discordapp.com/attachments/1081311918301655090/1116783894021292172/peakpx.jpg);
     background-size: cover;
-    @media (max-width: 768px) {
+    @media (max-width: 912px) {
         display: none;
     }
 `

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin-top: 50px;
+    margin-top: 80px;
     min-width: 100vw;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@ export const ContainerInput = styled.div`
 
     form {
         width: 70%;
-
+        margin-bottom: 20px;
         textarea {
             width:100%;
             padding: 15px;
@@ -80,11 +80,21 @@ export const ContainerInput = styled.div`
     
     @media (max-width: 767px) {
 
-        width: 60%;
+        width: 70%;
 
         input {
             font-size: 13px;
         }
+
+        button {
+            width: 50%;
+        }
+    }
+
+    @media (min-height: 1368px) {
+
+        margin-bottom: 23%;
+        
     }
 `
 

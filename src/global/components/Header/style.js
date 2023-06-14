@@ -75,7 +75,7 @@ export const SearchBar = styled.div`
         width: 25px;
         }
     }
-    @media (max-width: 425px) {
+    @media (max-width: 540px) {
         display: none;
     }
     
@@ -93,7 +93,7 @@ export const Costumer = styled.div`
     }
 
     @media (max-width: 767px) {
-        width: 20%;
+        width: 25%;
         gap: 10px;
         img {
         margin-right: 10px ;
