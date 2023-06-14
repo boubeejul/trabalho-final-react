@@ -17,6 +17,10 @@ export const CostumerInfo = styled.div`
     h4 {
         text-align: center;
     }
+
+    span {
+        color: #000;
+    }
 `
 
 export const PersonalInfo = styled.div`
@@ -30,9 +34,11 @@ export const PersonalInfo = styled.div`
 
     span {
         color: rgb(45, 45, 45);
+        font-size: 15px;
 
         span {
             font-weight: bold;
+            font-size: 15px;
         }
     }
     @media (max-width: 767px) {
@@ -54,9 +60,11 @@ export const Adress = styled.div`
 
     span {
         color: rgb(45, 45, 45);
+        font-size: 15px;
 
         span {
             font-weight: bold;
+            font-size: 15px;
         }
     }
 

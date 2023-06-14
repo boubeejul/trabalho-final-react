@@ -58,41 +58,46 @@ export function Pagamento() {
 
   //Função de criar pedido
   async function concluir() {
-    var data = new Date;
-    var dataString = `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}-${data.getDate()}`
-    const criarPedido = {
-        "data_pedido": dataString,
-        "data_envio": dataString,
-        "data_entrega": dataString,
-        "status": "Separação",
-        "cliente": { 
-            "id_cliente": client.id_cliente 
-          }
-      }
-    try {
-      const pedido = await axios.post(
-        `https://trabalho-api-production.up.railway.app/pedidos`,
-        criarPedido,
-        {
-          headers: {
-            Authorization: `Bearer ${user.accessToken}`,
-          },
-          // ${user.accessToken}
+
+    if(client.endereco != null) {
+      var data = new Date;
+      var dataString = `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}-${data.getDate()}`
+      const criarPedido = {
+          "data_pedido": dataString,
+          "data_envio": dataString,
+          "data_entrega": dataString,
+          "status": "Separação",
+          "cliente": { 
+              "id_cliente": client.id_cliente 
+            }
         }
-      );
-      // setPurchase(pedido.data);
+      try {
+        const pedido = await axios.post(
+          `https://trabalho-api-production.up.railway.app/pedidos`,
+          criarPedido,
+          {
+            headers: {
+              Authorization: `Bearer ${user.accessToken}`,
+            },
+            // ${user.accessToken}
+          }
+        );
+        // setPurchase(pedido.data);
 
 
-      for (const produto of cart.listaProdutos) {
-          await fazerItemPedido(produto.produto, pedido.data.id_pedido);
+        for (const produto of cart.listaProdutos) {
+            await fazerItemPedido(produto.produto, pedido.data.id_pedido);
+        }
+        
+      } catch (error) {
+        console.log(error);
       }
-      
-    } catch (error) {
-      console.log(error);
+      sessionStorage.removeItem("cart")
+      setVerify(true)
+      //window.location.href = '/meuspedidos'
+    } else {
+      window.location.href = "/costumer"
     }
-    sessionStorage.removeItem("cart")
-    setVerify(true)
-    //window.location.href = '/meuspedidos'
   }
 
   return (

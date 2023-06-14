@@ -7,10 +7,12 @@ import {
 } from "./style";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { AlertMessage } from "../../global/components/AlertMessage";
 
 export function Costumer() {
   const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [verify, setVerify] = useState(true);
   var cadastrarResponse = [];
   var cadastrarError = [];
   const user = sessionStorage.getItem('user') != null ? (JSON.parse(sessionStorage.getItem("user"))) : (null)
@@ -35,26 +37,24 @@ export function Costumer() {
   }
 
   async function cadastrarEndereco() {
-      await axios
-        .post(
-          "https://trabalho-api-production.up.railway.app/enderecos",
-          newEndereco,
-          {
-            headers: {
-              Authorization: `Bearer ${user.accessToken}`,
-            },
-          }
-        )
-        .then((response) => {
-          cadastrarResponse = response.data;
-          console.log(response.data)
-          updateCliente();
-        })
-        .catch((error) => {
-          cadastrarError = error;
-          console.log(cadastrarError)
-          alert("Dados inválidos ou incompletos");
-        })
+    await axios
+      .post(
+        "https://trabalho-api-production.up.railway.app/enderecos",
+        newEndereco,
+        {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        cadastrarResponse = response.data;
+        updateCliente();
+      })
+      .catch((error) => {
+        cadastrarError = error;
+        setVerify(false)
+      })
   }
 
   async function updateCliente() {
@@ -130,11 +130,20 @@ export function Costumer() {
                   </span>
                 </div>
               </Adress>
-            ) : null}
+            ) : <span>Você não possui endereço cadastrado. Para realizar um pedido, cadastre um abaixo.</span>}
 
             <NewAdress>
               <h5>Atualizar/Cadastrar Endereço</h5>
-
+              {
+                !verify ? (
+                  <>
+                    <br />
+                    <AlertMessage type="error" message="Dados inválidos, tente novamente" />
+                  </>
+                ) : (
+                  null
+                )
+              }
               <form
                 onSubmit={(e) => {
                   e.preventDefault();

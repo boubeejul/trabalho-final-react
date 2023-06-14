@@ -7,6 +7,7 @@ import { useState } from "react";
 export function Cadastro() {
   var signupResponse = []; // retorno do cadastro
   const [signupResponseError, setResponseError] = useState()
+  const [verify, setVerify] = useState(false)
 
   var newUser = {
     username: "",
@@ -41,7 +42,7 @@ export function Cadastro() {
         "https://trabalho-api-production.up.railway.app/clientes",
         newClient
       );
-      alert("Cadastro realizado com sucesso!");
+      setVerify(true)
     }
     // tratar mensagens de erro
   }
@@ -126,6 +127,13 @@ export function Cadastro() {
           {
           signupResponseError != null ? (
             <AlertMessage type="error" message={signupResponseError}/>
+          ) : (
+            null
+          )
+        }
+        {
+          verify ? (
+            <AlertMessage type="success" message="Conta cadastrada com sucesso!"/>
           ) : (
             null
           )

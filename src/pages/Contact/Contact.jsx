@@ -1,14 +1,24 @@
-import { Container, ContainerInput, MesageInput } from './style'
-import { Footer } from "../../global/components/Footer";
-
+import { Container, ContainerInput} from './style'
+import { AlertMessage } from '../../global/components/AlertMessage'
+import { useState } from 'react'
 
 export function Contact() {
+
+    const[verify, setVerify] = useState(false)
 
     return (
         <>
             <Container>
                 <h3>Contato</h3>
 
+                {
+                    verify ? (
+                        <AlertMessage type="success" message="Mensagem enviada, aguarde nosso retorno :)!" />
+                    ) : (
+                        null
+                    )
+                }
+                
                 <ContainerInput>
                 <form onSubmit={(e) => {
                     e.preventDefault()
@@ -36,7 +46,7 @@ export function Contact() {
                         placeholder="Digite sua mensagem"
                         required
                     ></textarea>
-                <button type="submit" onClick={() =>{ alert("Mensagem enviada!")}}>Enviar</button>
+                <button type="submit" onClick={() =>{ setVerify(true) }}>Enviar</button>
                 </form>
                 </ContainerInput>
             </Container>
