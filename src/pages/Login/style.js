@@ -9,6 +9,8 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
     padding-bottom: 50px;
+    min-height: calc(100vh - 332.594px);
+
 
     img {
         width: 150px;

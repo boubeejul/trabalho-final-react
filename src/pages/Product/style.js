@@ -6,7 +6,7 @@ export const Container = styled.main`
     justify-content: center;
     align-items: center;
     width: 100vw;
-    min-height: 42.7vh;
+    min-height: calc(100vh - 332.594px);
     img {
         width: 230px;
     }

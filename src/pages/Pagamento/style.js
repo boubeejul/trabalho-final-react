@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
     margin-top: 4vh;
     margin-bottom: 4vh;
-    min-height: 30vh;
+    min-height: calc(100vh - 332.594px);
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -26,6 +26,19 @@ export const Container = styled.main`
         font-weight: bold;
         margin-top: 20px;
     }
+    @media (max-width: 912px) {
+        button {
+            width: 10%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        button {
+            width: 20%;
+        }
+    }
+   
+
 `
 
 export const InputsContainer = styled.div`
@@ -65,6 +78,14 @@ export const Card = styled.div`
     #cvv {
         width: 15%;
     }
+
+    @media (max-width: 912px) {
+        width: 50%;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+    }
 `
 
 export const Info = styled.div`
@@ -77,6 +98,14 @@ export const Info = styled.div`
 
     input {
         margin: 10px;
+        width: 100%;
+    }
+
+    @media (max-width: 912px) {
+        width: 50%;
+    }
+
+    @media (max-width: 767px) {
         width: 100%;
     }
 `

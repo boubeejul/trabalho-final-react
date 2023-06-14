@@ -8,6 +8,8 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
     color: #000;
+    min-height: calc(100vh - 332.594px);
+
 `
 
 

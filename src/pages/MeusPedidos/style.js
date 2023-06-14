@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.main`
     width: 100vw;
-    min-height: 37vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     padding-bottom: 50px;
+    min-height: calc(100vh - 332.594px);
+
 
     h4::after {
         width: 100%;

@@ -7,6 +7,8 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: calc(100vh - 332.594px);
+
     
     h3 {
         color: #000;
@@ -91,11 +93,6 @@ export const ContainerInput = styled.div`
         }
     }
 
-    @media (min-height: 1368px) {
-
-        margin-bottom: 23%;
-        
-    }
 `
 
 export const MesageInput = styled.div`

@@ -4,6 +4,7 @@ export const Container = styled.main`
     width: 70%;
     margin: auto;
     padding: 20px;
+    min-height: calc(100vh - 332.594px);
 `
 
 export const Wrap = styled.div`

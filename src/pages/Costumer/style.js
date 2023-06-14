@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.main`
     width: 80%;
     margin: auto;
+    min-height: calc(100vh - 332.594px);
+
 `
 export const CostumerInfo = styled.div`
     width: 80%;

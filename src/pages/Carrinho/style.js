@@ -9,6 +9,7 @@ export const Container = styled.main`
     text-align: center;
     margin-top: 50px;
     flex-direction: column;
+    min-height: calc(100vh - 332.594px);
 `
 
 export const Cart = styled.div`
@@ -23,10 +24,7 @@ export const Cart = styled.div`
     img {
         width: 100%;
     }
-    @media (max-height: 1368px) {
-        margin-bottom: 120px;
-        padding-bottom: 120px;
-    }
+   
     @media (max-width: 767px) {
         flex-direction: column-reverse;
         width: 100%;

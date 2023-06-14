@@ -8,6 +8,8 @@ export const Container = styled.div`
     background-color:  #000;
     width: 100vw;
     padding-bottom: 50px;
+    min-height: calc(100vh - 332.594px);
+
 
     img {
         width: 150px;
