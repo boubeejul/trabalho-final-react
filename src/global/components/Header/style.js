@@ -96,8 +96,7 @@ export const Costumer = styled.div`
         width: 25%;
         gap: 10px;
         img {
-        margin-right: 10px ;
-        width: 30px;
+        width: 40px;
         }
     }
 `

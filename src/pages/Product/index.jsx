@@ -192,7 +192,7 @@ export function Product() {
         </TitleComent>
         <CommentsContainer>
           <TabelasComments>
-            <h3>Opniões do Produto</h3>
+            <h3>Opiniões do Produto</h3>
             <Porcentual>
               <Nota>
                 <h2>4.5</h2>
