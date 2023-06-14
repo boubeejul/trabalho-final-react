@@ -30,6 +30,7 @@ export const Cart = styled.div`
     @media (max-width: 767px) {
         flex-direction: column-reverse;
         width: 100%;
+        align-items: center;
     }
 `
 

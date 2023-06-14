@@ -3,7 +3,7 @@ import { Container, Cart, CartProducts, Product, CartInfo } from "./style"
 import trashicon from "../../assets/trashicon.svg"
 import check from "../../assets/check.svg"
 import bag from "../../assets/bag.svg"
-import loguinho from "../../assets/carrinhovazio.jpg"
+import {AlertMessage} from "../../global/components/AlertMessage/"
 
 import { useState, useEffect } from "react"
 
@@ -25,12 +25,16 @@ export function Carrinho() {
                 break
             }
         }
-        if (products.length == 0)
+        if (products.length == 0) {
             sessionStorage.removeItem("cart")
+            document.querySelector("#cartItens").setAttribute("hidden", "")
+        }
         else {
             sessionStorage.setItem("cart", JSON.stringify({ listaProdutos: products }))
+            document.querySelector("#itens").innerHTML = products.length
         }
         setCarrinho({ listaProdutos: products })
+
     }
 
     return (
@@ -80,7 +84,7 @@ export function Carrinho() {
                             <button onClick={() => window.location.href = "/"}><img src={bag} />Continuar comprando</button>
                         </CartInfo>
                     </>) : (
-                    <img src={loguinho} />
+                    <AlertMessage type="warning" message="Seu carrinho está vazio"/>
                 )
                 }
             </Cart>

@@ -27,7 +27,7 @@ import ellipse2joao from '../../assets/Ellipse2joao.png'
 import ellipse2juliana from '../../assets/Ellipse2juliana.png'
 import ellipse2Romulo from '../../assets/Ellipse2Romulo.png'
 import ellipse2Maria from '../../assets/Ellipse2Maria.png'
-import {AlertMessage} from "../../global/components/AlertMessage/"
+import { AlertMessage } from "../../global/components/AlertMessage/"
 
 export function Product() {
 
@@ -93,8 +93,8 @@ export function Product() {
         for (var i = 0; i < updateCart.listaProdutos.length; i++) {
           if (updateCart.listaProdutos[i].produto.id_produto === id.id)
             updateCart.listaProdutos[i] = { produto: { id_produto: id.id, quantidade: itemQuantity, nome: product.nome, id_imagem: product.arquivo.id_imagem, valor: product.valor_unitario } }
-            setVerify(true)
-            break
+          setVerify(true)
+          break
         }
 
         // se não, acrescenta no carrinho
@@ -143,26 +143,35 @@ export function Product() {
                 <InfoContainer>
                   <h4>{product.nome}</h4>
                   <span><span>Preço (unidade) :</span> R$ {product.valor_unitario.toFixed(2)}</span>
-                  <span><span>Estoque: </span> {product.qtd_estoque}</span>
-                  <span>Escolha a quantidade</span>
-                  <div className="quantity">
-                    <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
-                    <input type="text" value="1" id="qtd" readOnly />
-                    <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
-                  </div>
-                  <div className="finally">
-                    <button className='addCart' onClick={() => document.querySelector("#qtd").value != 0 ? (addToCart()) : (null)}>Adicionar ao <ShoppingCartIcon fontSize="medium" /></button>
-                  </div>
+
                   {
-                  verify ? (
-                    <>
-                      <AlertMessage type="success" message="Produto adicionado ao carrinho" />
-                    </>
-                  ) : (
-                    null
-                  )
-                }
-                </InfoContainer>
+                    product.qtd_estoque == 0 ? (
+                      <AlertMessage type="error" message="Fora de estoque!" />
+                    ) : (
+                      <>
+                        <span><span>Estoque: </span> {product.qtd_estoque}</span>
+                        <span>Escolha a quantidade</span>
+                        <div className="quantity">
+                          <button className='minus' onClick={() => lessProduct()}><RemoveIcon /></button>
+                          <input type="text" value="1" id="qtd" readOnly />
+                          <button className='plus' onClick={() => moreProduct()}><AddIcon /></button>
+                        </div>
+                        <div className="finally">
+                          <button className='addCart' onClick={() => document.querySelector("#qtd").value != 0 ? (addToCart()) : (null)}>Adicionar ao <ShoppingCartIcon fontSize="medium" /></button>
+                        </div>
+                        {
+                          verify ? (
+                            <>
+                              <AlertMessage type="success" message="Produto adicionado ao carrinho" />
+                            </>
+                          ) : (
+                            null
+                          )
+                        }
+                        </>
+                      )
+                  }
+                      </InfoContainer>
               </ProductContainer>
             </>
           )
