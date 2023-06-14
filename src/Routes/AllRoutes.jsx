@@ -12,6 +12,7 @@ import { Costumer } from "../pages/Costumer/Costumer";
 import { Carrinho } from "../pages/Carrinho";
 import { Pagamento } from "../pages/Pagamento";
 import { MeusPedidos } from "../pages/MeusPedidos";
+import { Pedido } from "../pages/Pedido";
 
 export function AllRoutes() {
   return (
@@ -28,6 +29,7 @@ export function AllRoutes() {
             <Route Component={Carrinho} path={"/cart"} />
             <Route Component={Pagamento} path={'/pagamento'} />
             <Route Component={MeusPedidos} path={'/meuspedidos'} />
+            <Route Component={Pedido} path={'/meuspedidos/:id'} />
           </Route>
           <Route Component={Login} path="/login" />
           <Route Component={Cadastro} path="/cadastro" />

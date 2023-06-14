@@ -56,6 +56,7 @@ export const Pedido = styled.div`
     border: 1px solid rgb(228, 228, 228);
     border-radius: 10px;
     padding: 15px;
+    cursor: pointer;
     
     span {
         color: #000;
