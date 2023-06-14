@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.main`
     width: 100vw;
-    min-height: 36vh;
+    min-height: calc(100vh - 332.594px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 `
 
 export const PedidoContainer = styled.div`
@@ -40,11 +42,13 @@ export const PedidoContainer = styled.div`
 
 export const Produtos = styled.div`
     width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 export const Produto = styled.div`
     width: 100%;
-    height: 200px;
+    height: 30%;
     border-radius: 20px;
     margin: 10px 0 10px 0;
     background-color: #d9d9d9;
@@ -65,9 +69,5 @@ export const Info = styled.div`
     justify-content: center;
     align-items: start;
     
-    h1 {
-
-    }
-
 `
 
