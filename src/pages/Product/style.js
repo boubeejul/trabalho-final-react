@@ -258,18 +258,33 @@ export const TabelasComments = styled.div`
     }
     h3 {
         text-align: center;
-        font-size: 40px;
+        font-size: 30px;
     }
     img{
         width: 40%;
+        margin-left: 20px;
     }
 
     p{
         margin-left: 20px;
-        font-size: 25px;
+        font-size: 20px;
     }
-    @media (max-width: 768px) {
-        display: none;
+    @media (max-width: 1440px) {
+        h3 {
+            font-size: 20px;
+        }
+        p{
+            font-size: 10px;
+        }
+        h1 {
+            font-size: 15px;
+        }
+        img{
+            width: 20%;
+        }
+    }
+    @media (max-width: 912px) {
+        display:none;
     }
 `
 
@@ -291,32 +306,45 @@ export const Nota = styled.div`
     width: 100%;
     h2 {
         margin-top: 10px;
-        font-size: 75px;
+        font-size: 55px;
         color: #0E8FC6;
     }
     img{
-        width: 60%;
+        width: 30%;
+    }
+    @media (max-width: 1440px) {
+        h2 {
+            font-size: 35px;
+        }
+        img{
+            width: 30%;
+            margin-left: 20px;
+        }
     }
 `
 
 export const TableImg = styled.div`
     img {
-        width: 90%;
+        width: 100%;
+    }
+    @media (max-width: 1440px) {
+        img {
+            width: 80%;
+        }
+        
     }
 `
 
 export const TableUsers = styled.div`
     display: flex;
     flex-direction: column;
-    
     align-items: start;
-
     margin: 45px;
 
     img {
         align-items: start;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         margin-right: 20px;
     }
 
@@ -327,17 +355,19 @@ export const TableUsers = styled.div`
         height: 50px;
     }
 }
-    @media (max-width: 1600px) {
-        img {
-        width: 100px;
-        height: 100px;
-    }
-}
+    
     @media (max-width: 1024px) {
         img {
         width: 70px;
         height: 70px;
     }
+    }
+
+    @media (max-width: 1440px) {
+        img {
+            width: 70px;
+            height: 70px;
+        }
     }
 `
 
@@ -349,20 +379,20 @@ export const CardUser = styled.div`
     margin: 10px;
 
     h1 {
-        font-size: 35px;
+        font-size: 25px;
     }
 
     p {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     @media (max-width: 1440px) {
         h1 {
-        font-size: 23px;
+        font-size: 15px;
         }
 
         p {
-        font-size: 16px;
+        font-size: 10px;
         }
     }
 
