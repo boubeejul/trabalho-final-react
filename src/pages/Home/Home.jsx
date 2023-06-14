@@ -16,7 +16,7 @@ export function Home() {
             <CarouselHome />
             <Container>
                 <Info>
-                    <img src={VendaRapida} alt="" />
+                    <img src={VendaRapida} alt="informações site" />
                     <hr></hr>
                 </Info>
                 <SliderContainer>
@@ -35,27 +35,27 @@ export function Home() {
                 </SliderContainer>
 
                 <Publi>
-                    <img src={Publicidade1} alt="" />
-                    <img src={Publicidade2} alt="" />
+                    <img src={Publicidade1} alt="publicidade" />
+                    <img src={Publicidade2} alt="publicidade" />
                 </Publi>
 
                 <Comments>
                     <Comment>
-                        <img src={maria} alt="" />
+                        <img src={maria} alt="cliente" />
                         <div>
                             <span>Maria Silva</span>
                             <p>Entrega rápida, bem rápida!111!</p>
                         </div>
                     </Comment>
                     <Comment>
-                        <img src={joao} alt="" />
+                        <img src={joao} alt="cliente" />
                         <div>
                             <span>João Pedro Souza</span>
                             <p>Amei meu pikachu, <br /> veio muito bem embalado</p>
                         </div>
                     </Comment>
                     <Comment>
-                        <img src={enzo} alt="" />
+                        <img src={enzo} alt="cliente" />
                         <div>
                             <span>Enzo Andrade</span>
                             <p>👍</p>

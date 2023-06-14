@@ -50,7 +50,7 @@ export function Carrinho() {
                                 qntd += parseInt(produto.produto.quantidade)
                                 return (
                                     <Product>
-                                        <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${produto.produto.id_imagem}`} />
+                                        <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${produto.produto.id_imagem}`} alt="imagem produto"/>
                                         <div className="productInfo">
                                             <div>
                                                 <span><span>{produto.produto.nome}</span></span>
@@ -62,7 +62,7 @@ export function Carrinho() {
                                             </div>
                                         </div>
                                         <div className="productDelete" >
-                                            <img src={trashicon} onClick={() => removeProduct(produto.produto.id_produto)}/>
+                                            <img src={trashicon} alt="ícone lixeira" onClick={() => removeProduct(produto.produto.id_produto)}/>
                                         </div>
                                     </Product>
                                 )
@@ -76,12 +76,12 @@ export function Carrinho() {
                             </div>
                             <hr />
                             {sessionStorage.getItem("user") == null ? (
-                                <button onClick={() => window.location.href = "/login"}><img src={check} />Finalizar compra</button>
+                                <button onClick={() => window.location.href = "/login"}><img src={check} alt="ícone check"/>Finalizar compra</button>
                             ) : (
-                                <button onClick={() => window.location.href = "/pagamento"}><img src={check} />Finalizar compra</button>
+                                <button onClick={() => window.location.href = "/pagamento"}><img src={check} alt="ícone check"/>Finalizar compra</button>
                             )}
                             <br />
-                            <button onClick={() => window.location.href = "/"}><img src={bag} />Continuar comprando</button>
+                            <button onClick={() => window.location.href = "/"}><img src={bag} alt="ícone bolsa"/>Continuar comprando</button>
                         </CartInfo>
                     </>) : (
                     <AlertMessage type="warning" message="Seu carrinho está vazio"/>

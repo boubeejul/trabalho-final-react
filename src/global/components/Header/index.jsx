@@ -65,7 +65,7 @@ export function Header() {
       <Container>
         <Logo>
           <a href="/">
-            <img src={logo} alt="" />
+            <img src={logo} alt="logo" />
           </a>
         </Logo>
         <SearchBar>
@@ -77,7 +77,7 @@ export function Header() {
             onChange={handleFilter}
           ></input>
           <button onClick={getFirst}>
-            <img src={searchicon} alt=""></img>
+            <img src={searchicon} alt="ícone botão pesquisa"></img>
           </button>
           {
             filteredData.length != 0 && (
@@ -96,7 +96,7 @@ export function Header() {
         <Costumer>
 
           <Cart>
-            <Link to="/cart"><img src={cart} alt=""></img></Link>
+            <Link to="/cart"><img src={cart} alt="ícone carrinho de compras"></img></Link>
             {sessionStorage.getItem("cart") != null ? (
               <div id="cartItens">
                 <span id="itens">{quantidade}</span>
@@ -111,7 +111,7 @@ export function Header() {
 
           {sessionStorage.getItem("user") == null ? (
             <a href="/login">
-              <img src={login} alt=""></img>
+              <img src={login} alt="ícone login"></img>
             </a>
           ) : (
             <Categories type=""></Categories>

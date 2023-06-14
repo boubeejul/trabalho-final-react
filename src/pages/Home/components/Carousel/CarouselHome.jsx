@@ -16,35 +16,35 @@ export function CarouselHome() {
           <img
           className='d-block w-100'
             src={promoTwo}
-            alt="Image One"
+            alt="imagem um"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
           className='d-block w-100'
             src={promoOne}
-            alt="Image One"
+            alt="imagem dois"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
           className='d-block w-100'
             src={promoFour}
-            alt="Image One"
+            alt="imagem três"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
           className='d-block w-100'
             src={promoThree}
-            alt="Image One"
+            alt="imagem quatro"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
           className='d-block w-100'
             src={promoFive}
-            alt="Image One"
+            alt="imagem cinco"
           />
         </Carousel.Item>
       </Carousel>

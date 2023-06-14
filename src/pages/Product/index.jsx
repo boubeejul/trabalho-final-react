@@ -149,7 +149,7 @@ export function Product() {
             <>
               <ProductContainer>
                 <ImageContainer>
-                  <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${product.arquivo.id_imagem}`} alt="" />
+                  <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${product.arquivo.id_imagem}`} alt="imagem produto" />
                 </ImageContainer>
                 <InfoContainer>
                   <h4>{product.nome}</h4>

@@ -75,7 +75,7 @@ export function ProductsByCategory() {
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
               >
-                <img src={menu} alt="" /> <span>Ordenar</span>
+                <img src={menu} alt="ícone menu" /> <span>Ordenar</span>
               </Button>
               <Menu
                 id="basic-menu"
@@ -112,7 +112,7 @@ export function ProductsByCategory() {
                 <Product>
                   <img
                     src={`https://trabalho-api-production.up.railway.app/api/upload/view/${product.id_imagem}`}
-                    alt=""
+                    alt="imagem produto"
                   />
                   <Info>
                     <span>{product.nome}</span>

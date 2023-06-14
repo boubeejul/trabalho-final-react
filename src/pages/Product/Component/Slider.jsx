@@ -77,7 +77,7 @@ export function Slider(props) {
           cards.map(card => {
             return (
                 <SwiperSlide>
-                  <a href={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${card.id_imagem}`} /></a>
+                  <a href={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${card.id_imagem}`} alt="imagem produto"/></a>
                 </SwiperSlide>
             )
           })

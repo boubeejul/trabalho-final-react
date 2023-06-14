@@ -84,7 +84,7 @@ export function SlideCard() {
           randomCards.map(card => {
             return (
                 <SwiperSlide>
-                  <Link to={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${card.id_imagem}`}/></Link>
+                  <Link to={`/produtos/${card.id}`}> <img src={`https://trabalho-api-production.up.railway.app/api/upload/view/${card.id_imagem}`} alt="imagem produto"/></Link>
                 </SwiperSlide>
             )
           })

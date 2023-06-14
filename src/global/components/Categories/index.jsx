@@ -27,7 +27,7 @@ export function Categories(props) {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          <img src={menu} alt="" /> <span>&ensp;&ensp;Categorias</span>
+          <img src={menu} alt="icone menu" /> <span>&ensp;&ensp;Categorias</span>
         </Button>
         <Menu
           id="basic-menu"
