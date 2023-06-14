@@ -2,12 +2,19 @@ import { Container, ContainerCadastro } from "./style";
 import logo from "../../assets/logo_header.png";
 import { AlertMessage } from "../../global/components/AlertMessage";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Cadastro() {
   var signupResponse = []; // retorno do cadastro
   const [signupResponseError, setResponseError] = useState()
   const [verify, setVerify] = useState(false)
+  const userRef = useRef(null)
+  const passwordRef = useRef(null)
+  const emailRef = useRef(null)
+  const nameRef = useRef(null)
+  const cpfRef = useRef(null)
+  const telRef = useRef(null)
+  const dateRef = useRef(null)
 
   var newUser = {
     username: "",
@@ -58,9 +65,10 @@ export function Cadastro() {
         <form onSubmit={(e) => {
           e.preventDefault()
         }}>
-          <input type="text" id="name" name="name" placeholder="Nome" required></input>
-          <input type="text" id="user" name="user" placeholder="Usuário" required></input>
+          <input ref={nameRef} type="text" id="name" name="name" placeholder="Nome" required></input>
+          <input ref={userRef} type="text" id="user" name="user" placeholder="Usuário" required></input>
           <input
+            ref={passwordRef}
             type="password"
             id="password"
             name="password"
@@ -68,6 +76,7 @@ export function Cadastro() {
             required
           ></input>
           <input
+            ref={emailRef}
             type="email"
             id="email"
             name="email"
@@ -75,6 +84,7 @@ export function Cadastro() {
             required
           ></input>
           <input
+            ref={cpfRef}
             type="text"
             id="cpf"
             name="cpf"
@@ -82,6 +92,7 @@ export function Cadastro() {
             required
           ></input>
           <input
+            ref={telRef}
             type="tel"
             id="tel"
             name="tel"
@@ -89,6 +100,7 @@ export function Cadastro() {
             required
           ></input>
           <input
+            ref={dateRef}
             type="date"
             id="date"
             name="date"
@@ -99,24 +111,23 @@ export function Cadastro() {
           <button type="submit"
             onClick={() => {
               if (
-                document.querySelector("#user").value != "" &&
-                document.querySelector("#password").value != "" &&
-                document.querySelector("#email").value != "" &&
-                document.querySelector("#name").value != "" &&
-                document.querySelector("#cpf").value != "" &&
-                document.querySelector("#tel").value != "" &&
-                document.querySelector("#date").value != ""
+                userRef.current.value != "" &&
+                nameRef.current.value != "" &&
+                cpfRef.current.value != "" &&
+                telRef.current.value != "" &&
+                emailRef.current.value != "" &&
+                dateRef.current.value != "" &&
+                passwordRef.current.value != ""
               ) {
-                newUser.password = document.querySelector("#password").value;
-                newUser.username = document.querySelector("#user").value;
-                newUser.email = document.querySelector("#email").value;
+                newUser.password = passwordRef.current.value;
+                newUser.username = userRef.current.value;
+                newUser.email = emailRef.current.value;
 
-                newClient.nome_completo = document.querySelector("#name").value;
-                newClient.cpf = document.querySelector("#cpf").value;
-                newClient.data_nascimento = document.querySelector("#date").value;
-                newClient.email = document.querySelector("#email").value;
-                newClient.telefone = document.querySelector("#tel").value;
-
+                newClient.nome_completo = nameRef.current.value;
+                newClient.cpf = cpfRef.current.value;
+                newClient.data_nascimento = dateRef.current.value;
+                newClient.email = emailRef.current.value;
+                newClient.telefone = telRef.current.value;
                 signUp();
               }
             }}

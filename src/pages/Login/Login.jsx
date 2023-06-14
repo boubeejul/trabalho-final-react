@@ -2,14 +2,13 @@ import { Container, ContainerLogin } from "./style";
 import logo from "../../assets/logo_header.png";
 import axios from "axios";
 import { AlertMessage } from "../../global/components/AlertMessage";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export function Login() {
-  //var loginResponse = [];
-  //var loginResponseError = [];
-
   const [loginResponseError, setResponseError] = useState()
   var loginResponse = []
+  const userRef = useRef(null)
+  const passwordRef = useRef(null)
 
   async function verifyLogin(user, password) {
     await axios
@@ -49,6 +48,7 @@ export function Login() {
           e.preventDefault()
         }}>
           <input
+            ref={userRef}
             type="text"
             id="user"
             name="user"
@@ -56,6 +56,7 @@ export function Login() {
             required
           ></input>
           <input
+            ref={passwordRef}
             type="password"
             id="password"
             name="password"
@@ -64,13 +65,9 @@ export function Login() {
           ></input>
 
           <button id="continue" type="submit"
-            onClick={() => {
-              if(document.querySelector("#user").value != "" && document.querySelector("#password").value != "") {
-                verifyLogin(
-                  document.querySelector("#user").value,
-                  document.querySelector("#password").value
-                );
-              }
+            onClick={() => { 
+              if (userRef.current.value != "" && passwordRef.current.value != "" )
+                verifyLogin(userRef.current.value, passwordRef.current.value)
             }}
           >
             Continuar
