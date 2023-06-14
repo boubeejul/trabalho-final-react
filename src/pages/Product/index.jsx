@@ -4,28 +4,14 @@ import {
   ProductContainer,
   ImageContainer,
   InfoContainer,
-  SliderContainer,
-  CommentsContainer,
-  TabelasComments,
-  Porcentual,
-  Nota,
-  TableImg,
-  TableUsers,
-  CardUser,
-  TitleComent
+  SliderContainer
+  
 } from "./style";
 import { useParams } from 'react-router-dom'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { Slider } from "./Component/Slider";
-import star from '../../assets/4-5star.png'
-import tabela from '../../assets/tabela.png'
-import ellipse2Enzo from '../../assets/Ellipse2Enzo.png'
-import ellipse2joao from '../../assets/Ellipse2joao.png'
-import ellipse2juliana from '../../assets/Ellipse2juliana.png'
-import ellipse2Romulo from '../../assets/Ellipse2Romulo.png'
-import ellipse2Maria from '../../assets/Ellipse2Maria.png'
 import { AlertMessage } from "../../global/components/AlertMessage/"
 import { produtos } from "../services/api";
 
@@ -187,73 +173,7 @@ export function Product() {
             </>
           )
         }
-        <TitleComent>
-          <h4>Comentários</h4>
-        </TitleComent>
-        <CommentsContainer>
-          <TabelasComments>
-            <h3>Opiniões do Produto</h3>
-            <Porcentual>
-              <Nota>
-                <h2>4.5</h2>
-                <img src={star} alt="estrelas" />
-              </Nota>
-              <p>50 avaliações</p>
-            </Porcentual>
-            <TableImg>
-              <img src={tabela} alt="tabela" />
-            </TableImg>
-            <h1>Avaliação de características</h1>
-            <p>Custo-Beneficio</p>
-            <img src={star} alt="estrelas" />
-            <p>Qualidade do Produto</p>
-            <img src={star} alt="estrelas" />
-            <p>Entrega</p>
-            <img src={star} alt="estrelas" />
-            <p>Atendimento</p>
-            <img src={star} alt="estrelas" />
-            <p>Embalagem</p>
-            <img src={star} alt="estrelas" />
-          </TabelasComments>
-          <TableUsers>
-            <CardUser>
-              <img src={ellipse2juliana} alt="fotoPerfilUsuario" />
-              <div>
-                <h1>Juliana Amaral</h1>
-                <p>Meu deck vai ficar otimo com a {product.nome}</p>
-              </div>
-            </CardUser>
-            <CardUser>
-              <img src={ellipse2Romulo} alt="fotoPerfilUsuario" />
-              <div>
-                <h1>Rômulo José</h1>
-                <p>Perfeito estado, comprarei mais!!</p>
-              </div>
-            </CardUser>
-            <CardUser>
-              <img src={ellipse2Maria} alt="fotoPerfilUsuario" />
-              <div>
-                <h1>Maria Silva</h1>
-                <p>Entrega rápida, bem rápida!111!</p>
-              </div>
-            </CardUser>
-            <CardUser>
-              <img src={ellipse2joao} alt="fotoPerfilUsuario" />
-              <div>
-                <h1>João Pedro Souza</h1>
-                <p>Amassei com essa {product.nome}</p>
-              </div>
-
-            </CardUser>
-            <CardUser>
-              <img src={ellipse2Enzo} alt="fotoPerfilUsuario" />
-              <div>
-                <h1>Enzo Andrade</h1>
-                <p>Obrigado mãe por essa {product.nome}</p>
-              </div>
-            </CardUser>
-          </TableUsers>
-        </CommentsContainer>
+        
         <SliderContainer>
           <h4>Produtos da mesma categoria</h4>
           {
