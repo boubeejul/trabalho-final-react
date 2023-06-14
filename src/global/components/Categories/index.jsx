@@ -1,7 +1,6 @@
 import * as React from 'react';
 import menu from '../../../assets/menu.svg'
 import './style.css'
-import { Link } from 'react-router-dom';
 
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';

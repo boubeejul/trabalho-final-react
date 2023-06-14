@@ -7,7 +7,7 @@ import cart from "../../../assets/cart.svg";
 import login from "../../../assets/login.svg";
 import { Menu } from "../Menu";
 import { Categories } from "../Categories";
-import axios from "axios";
+import { produtos } from "../../../pages/services/api";
 import { Link } from "react-router-dom";
 
 export function Header() {
@@ -17,8 +17,8 @@ export function Header() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data: products } = await axios.get(
-        "https://trabalho-api-production.up.railway.app/produtos/dto"
+      const { data: products } = await produtos.get(
+        "/dto"
       );
       setAllData(products);
     }
