@@ -1,4 +1,4 @@
-<div align="center"> TRABALHO DESENVOLVIMENTO WEB (REACT) - ECOMMERCE
+<div align="center"> 
   
 <div align="center">
 
