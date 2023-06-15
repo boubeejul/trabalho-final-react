@@ -17,6 +17,9 @@ Grupo 4: </br>
 
 <h1><img width="30" src="https://i.imgur.com/J3As751.png"/> Eldritch Cards <img width="30" src="https://i.imgur.com/J3As751.png"/></h1>
 Site de vendas de Card Games para a disciplina de Desenvolvimento Web da Residência em TIC do Serratec, utilizando-se de API própria
+<br />
+<br />
+➡️ Live Preview: <a href="https://eldritch-cards.vercel.app/">https://eldritch-cards.vercel.app/</a>
 
 ## 📍 Como rodar o projeto
 
